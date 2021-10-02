@@ -1,0 +1,7 @@
+#leftImage {
+    /* The image used */
+    background-image: url("src/resources/img/Magazines-display-magazines-Canada-store-Toronto-Ontario.jpg");
+
+    object-fit: cover; 
+    object-position: left; 
+  }
