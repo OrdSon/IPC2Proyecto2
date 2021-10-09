@@ -41,5 +41,9 @@ export class Usuario {
         this._email=email;
     }
 
+    get tipo (){
+        return this._tipo;
+    }
+
 
 }
