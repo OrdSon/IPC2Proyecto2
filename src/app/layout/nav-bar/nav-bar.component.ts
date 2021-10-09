@@ -1,3 +1,4 @@
+import { AccessEditorProfileService } from './../../services/access-editor-profile.service';
 import { AccessUserProfileService } from './../../services/access-user-profile.service';
 import { NavService } from './../../services/nav.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class NavBarComponent implements OnInit {
   
   validator:boolean = false;
-  constructor(public navService:NavService, public acccesProfile:AccessUserProfileService) { 
+  constructor(public navService:NavService, public acccesProfile:AccessUserProfileService, public accesEditorProfile:AccessEditorProfileService) { 
 
   }
 

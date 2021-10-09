@@ -1,3 +1,4 @@
+import { EditorProfileViewComponent } from './profile-viewer/editor-profile-view/editor-profile-view.component';
 import { LoginFormComponent } from './Registro/login-form/login-form.component';
 import { ProfileViewerComponent } from './profile-viewer/profile-viewer.component';
 import { AdministratorRegistrationFormComponent } from './Registro/administrator-registration-form/administrator-registration-form.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'new/administrator',
     component: AdministratorRegistrationFormComponent
   }, 
+  {
+    path: 'profile/editor/view',
+    component:EditorProfileViewComponent
+  },
   {
     path: 'profile/view',
     component:ProfileViewerComponent
