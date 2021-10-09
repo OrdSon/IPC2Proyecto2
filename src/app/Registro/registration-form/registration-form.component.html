@@ -9,30 +9,32 @@
                             <h2 class="text-uppercase text-center mb-5">Crea una cuenta</h2>
 
 
-                            <form>
+                            <form [formGroup]="registrationForm" (ngSubmit)="crearOperacion()">
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="txtRegistrarNombre" class="form-control form-control-lg" placeholder="Nombre completo" />
+                                    <input type="text" id="nombre" class="form-control form-control-lg" placeholder="Nombre completo" required formControlName="nombre" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="txtRegistrarNick" class="form-control form-control-lg" placeholder="Nombre de usuario" />
+                                    <input type="text" id="nombre_usuario" class="form-control form-control-lg" placeholder="Nombre de usuario" required formControlName="nombre_usuario" />
+                                </div>
+
+                                <div [hidden]="true" class="form-outline mb-4">
+                                    <input type="text" id="tipo" class="form-control form-control-lg" placeholder="Nombre de usuario" required formControlName="tipo" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="email" id="txtRegistrarCorreo" class="form-control form-control-lg" placeholder="Correo@electronico" />
+                                    <input type="email" id="email" class="form-control form-control-lg" placeholder="Correo@electronico" required formControlName="email" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="txtRegistrarContraseña" class="form-control form-control-lg" placeholder="Contraseña" />
+                                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Contraseña" required formControlName="password" />
                                 </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="txtConfirmarContraseña" class="form-control form-control-lg" placeholder="Repite tu contraseña" />
-                                </div>
+
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-outline-primary btn-lg">Registrate</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg">Registrate</button>
                                 </div>
 
                                 <p class="text-center text-muted mt-5 mb-0">¿Ya tienes una cuenta? <a href="#!" class="fw-bold text-body"><u>¡Entra aquí!</u></a></p>

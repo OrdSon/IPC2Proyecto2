@@ -6,26 +6,28 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h5 class="text-center mb-5 bi bi-file-earmark-font-fill">Revistas plus</h5>
-                            <h2 class="text-uppercase text-center mb-5">¿Que tipos de revista te gustan?</h2>
-
+                            <h2 class="text-uppercase text-center mb-5">Registrar administrador</h2>
+                            <h6 class="text-uppercase text-center mb-5">Un gran poder conlleva una gran responsabilidad</h6>
 
                             <form>
 
                                 <div class="form-outline mb-4">
-                                    <label class="h4">Sube una foto</label>
-                                    <input type="file" accept=".jpg, .png, .jpeg, .gif" id="fileFotoPerfil" class="form-control form-control-lg" placeholder="Foto de perfil" />
+                                    <input type="text" id="RegistrarNombreAdmin" class="form-control form-control-lg" placeholder="Nombre completo" required formControlName="RegistrarNombreAdmin" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <textarea class="form-control" rows="2" placeholder="¡Hablanos sobre ti!"></textarea>
+                                    <input type="email" id="RegistrarEmailAdmin" class="form-control form-control-lg" placeholder="Correo@electronico" required formControlName="RegistrarEmailAdmin" />
                                 </div>
+
                                 <div class="form-outline mb-4">
-                                    <textarea class="form-control" rows="2" placeholder="¿Cuales son tus hobbies?"></textarea>
+                                    <input type="password" id="RegistrarPasswordAdmin" class="form-control form-control-lg" placeholder="Contraseña" required formControlName="RegistrarPasswordAdmin" />
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-outline-success btn-lg">Siguiente</button>
+                                    <button type="button" class="btn btn-outline-primary btn-lg">Registrar</button>
                                 </div>
+
+                                <p class="text-center text-muted mt-5 mb-0">¿Ya eres ADMIN? <a href="#!" class="fw-bold text-body"><u>¡Entra aquí!</u></a></p>
 
                             </form>
 

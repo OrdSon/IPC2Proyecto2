@@ -1,4 +1,8 @@
+import { AccessUserProfileService } from './../../services/access-user-profile.service';
+import { NavService } from './../../services/nav.service';
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/objetos/Usuario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  
+  validator:boolean = false;
+  constructor(public navService:NavService, public acccesProfile:AccessUserProfileService) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
 
+  setNavEleccion(eleccion:number){
+    this.navService.setEleccion(eleccion);
+  }
+
+  getUsuario(){
+    return this.acccesProfile.usuario;
+  }
+
+  
 }
