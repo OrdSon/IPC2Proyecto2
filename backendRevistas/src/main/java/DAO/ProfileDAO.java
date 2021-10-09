@@ -25,11 +25,11 @@ public class ProfileDAO extends DAO {
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     String INSERTAR_PERFIL = "INSERT INTO perfil ( hobbies, descripcion, usuario_codigo) VALUES (?,?,?)";
-    String SELECCIONAR_PERFILS = "SELECT * FROM profile";
-    String SELECCIONAR_UN_PERFIL = "SELECT * FROM profile WHERE codigo = ?";
+    String SELECCIONAR_PERFILS = "SELECT * FROM perfil";
+    String SELECCIONAR_UN_PERFIL = "SELECT * FROM perfil WHERE usuario_codigo = ?";
     String ELIMINAR_PERFIL = "DELETE * FROM profile WHERE codigo = ?";
     String SELECCIONAR_ULTIMO = "SELECT codigo FROM perfil ORDER BY codigo DESC LIMIT 1;";
-    String SET_IMAGE = "UPDATE perfile SET foto=? WHERE codigo = ?";
+    String SET_IMAGE = "UPDATE perfil SET foto=? WHERE codigo = ?";
 
     @Override
     public ArrayList<Profile> listar() {
@@ -92,22 +92,21 @@ public class ProfileDAO extends DAO {
      */
     public Profile listarCodigo(int codigo) {
 
-        Profile profile = new Profile();
+        
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_UN_PERFIL);
             preparedStatement.setInt(1, codigo);
             ResultSet resultSet = preparedStatement.executeQuery();
-            int contador = 0;
             while (resultSet.next()) {
 
-                profile = getProfile(resultSet);
-                contador++;
+                Profile profile = getProfile(resultSet);
+                return profile;
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return profile;
+        return null;
     }
 
     /*
@@ -176,9 +175,8 @@ public class ProfileDAO extends DAO {
     private Profile getProfile(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");
-            InputStream img = resultSet.getBlob("foto").getBinaryStream();
             String descripcion = resultSet.getString("descripcion");
-            String hobbies = resultSet.getString("usuario_codigo");
+            String hobbies = resultSet.getString("hobbies");
             return new Profile(codigo, descripcion, hobbies);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);

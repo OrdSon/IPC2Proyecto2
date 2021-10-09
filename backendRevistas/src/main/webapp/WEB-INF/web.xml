@@ -12,6 +12,14 @@
         <servlet-name>profilePicture</servlet-name>
         <servlet-class>Servlet.profilePicture</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginProfileServlet</servlet-name>
+        <servlet-class>Servlet.LoginProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>profilePicture</servlet-name>
         <url-pattern>/profilePicture</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginProfileServlet</servlet-name>
+        <url-pattern>/LoginProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

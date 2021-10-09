@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import Modelo.LoginCheck;
 import Modelo.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,8 @@ public class UsuarioDAO extends DAO{
     String SELECCIONAR_USUARIOS = "SELECT * FROM usuario";
     String SELECCIONAR_UN_USUARIO = "SELECT * FROM usuario WHERE codigo = ?";
     String ELIMINAR_USUARIO = "DELETE * FROM usuario WHERE codigo = ?";
-    String SELECCIONAR_ULRIMO = "SELECT codigo FROM usuario ORDER BY codigo DESC LIMIT 1";
+    String SELECCIONAR_ULTIMO = "SELECT codigo FROM usuario ORDER BY codigo DESC LIMIT 1";
+    String SELECCIONAR_LOGIN = "SELECT * FROM usuario WHERE email = ? and contraseña = ? ORDER BY codigo LIMIT 1";
     
     public UsuarioDAO(){
         super();
@@ -54,7 +56,7 @@ public class UsuarioDAO extends DAO{
     public int ultimoCodigo(){
         
          try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_USUARIOS);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_ULTIMO);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int codigo = resultSet.getInt("codigo");
@@ -82,6 +84,28 @@ public class UsuarioDAO extends DAO{
 
                 usuario = getUsuario(resultSet);
                 contador++;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
+    }
+    public Usuario loginCheck(LoginCheck loginCheck) {
+
+        Usuario usuario = new Usuario();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_LOGIN);
+            preparedStatement.setString(1, loginCheck.getEmail());
+            preparedStatement.setString(2, loginCheck.getPassword());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int contador = 0;
+            while (resultSet.next()) {
+
+                usuario = getUsuario(resultSet);
+                if (usuario != null) {
+                    return usuario;
+                }
             }
 
         } catch (SQLException ex) {
@@ -157,12 +181,13 @@ public class UsuarioDAO extends DAO{
 
     private Usuario getUsuario(ResultSet resultSet) {
         try {
+            int codigo = resultSet.getInt("codigo");
             String nombre = resultSet.getString("nombre");
             String email = resultSet.getString("email");
             String nickName = resultSet.getString("nombre_usuario");
             int tipo = resultSet.getInt("tipo");
             String contraseña = resultSet.getString("contraseña");
-            return new Usuario(nombre, email, nickName, tipo, contraseña);
+            return new Usuario(codigo, nombre, email, nickName, tipo, contraseña);
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;

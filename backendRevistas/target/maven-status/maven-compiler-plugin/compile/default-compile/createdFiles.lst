@@ -1,6 +1,9 @@
+Modelo/LoginCheck.class
+Servlet/LoginServlet.class
 Converter/ProfileConverter.class
 Modelo/Usuario.class
 DAO/UsuarioDAO.class
+Servlet/LoginProfileServlet.class
 DAO/ProfileDAO.class
 Servlet/profilePicture.class
 Converter/Converter.class
@@ -8,6 +11,7 @@ Utilidades/Conexion.class
 Utilidades/ImgCatcher.class
 Converter/UsuarioConverter.class
 Modelo/Profile.class
+Converter/LoginCheckConverter.class
 Servlet/ProfileServlet.class
 Servlet/UsuarioServlet.class
 DAO/DAO.class
