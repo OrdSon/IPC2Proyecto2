@@ -1,3 +1,6 @@
+import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
+import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
+import { NewMagazineFormComponent } from './componentes-basicos/new-magazine-form/new-magazine-form.component';
 import { EditorProfileViewComponent } from './profile-viewer/editor-profile-view/editor-profile-view.component';
 import { LoginFormComponent } from './Registro/login-form/login-form.component';
 import { ProfileViewerComponent } from './profile-viewer/profile-viewer.component';
@@ -17,10 +20,6 @@ const routes: Routes = [
     component: SideBarComponent
   },
   {
-    path: 'new/member',
-    component: RegistrationFormComponent
-  }, 
-  {
     path: 'new/member/profile',
     component: ProfileCreationFormComponent
   }, 
@@ -31,6 +30,18 @@ const routes: Routes = [
   {
     path: 'new/administrator',
     component: AdministratorRegistrationFormComponent
+  }, 
+  {
+    path: 'new/title',
+    component: NewTitleFormComponent
+  }, 
+  {
+    path: 'new/revista',
+    component: NewMagazineFormComponent
+  }, 
+  {
+    path: 'new/member',
+    component: RegistrationFormComponent
   }, 
   {
     path: 'profile/editor/view',
@@ -50,7 +61,7 @@ const routes: Routes = [
   }, 
   {
     path: '**',
-    component: SideBarComponent
+    component: NotFoundComponent
   }
 ];
 

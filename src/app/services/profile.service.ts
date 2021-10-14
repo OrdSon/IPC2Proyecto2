@@ -12,7 +12,9 @@ export class ProfileService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public createProfile(profile: Profile): Observable<Profile> {
+  public createProfile(profile: Profile, img:Blob): Observable<Profile> {
+    profile.img = img;
+    console.log("El archivo seleccionado es: " +img);
     return this.httpClient.post<Profile>(this.API_URL + "ProfileServlet", profile) ;
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccessEditorProfileService } from 'src/app/services/access-editor-profile.service';
 
 @Component({
@@ -7,10 +8,15 @@ import { AccessEditorProfileService } from 'src/app/services/access-editor-profi
   styleUrls: ['./editor-profile-view.component.css']
 })
 export class EditorProfileViewComponent implements OnInit {
-
-  constructor(public accessProfile:AccessEditorProfileService) { }
+  router:Router;
+  constructor(router:Router, public accessProfile:AccessEditorProfileService) { 
+    this.router = router;
+  }
 
   ngOnInit(): void {
   }
-
+  navegar(){
+    this.router.navigate(["new/revista"]);
+    console.log(this.router.url);
+  }
 }

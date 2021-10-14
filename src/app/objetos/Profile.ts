@@ -4,6 +4,7 @@ export class Profile {
     _codigo: number;
     _descripcion: String;
     _hobbies: String;
+    _img!:Blob;
 
 
 
@@ -37,4 +38,11 @@ export class Profile {
         this._hobbies = hobbies;
     }
 
+    get img(){
+        return this._img;
+    }
+
+    set img(img:Blob){
+        this._img = img;
+    }
 }

@@ -48,8 +48,9 @@ export class LoginFormComponent implements OnInit {
          if(created.tipo == 1){
           this.accessProfile.usuario=created;
           this.profileService.obtainProfile(created).subscribe((perfil:Profile)=>{
-            
+            console.log('estamos aqui');
             if(perfil != null){
+              console.log('pasamos por aqui');
               this.accessProfile.profile = perfil;
               this.accessProfile.validar();
             }
@@ -59,9 +60,13 @@ export class LoginFormComponent implements OnInit {
          }else if(created.tipo == 2){
           this.accessEditorProfile.usuario=created; 
           this.accessEditorProfile.validar();
-         }
           
-
+         }
+          this.router.navigate([""]);
+          Swal.fire({
+            icon:'success',
+            title:'¡Login exitoso!'
+          });
           this._router.navigate(['']);
         }else{
           

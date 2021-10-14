@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class ProfileCreationFormComponent implements OnInit {
 
   
-
+  _selectedFile!: File;
   _profile: Profile;
   _router: Router;
   file!: File | null;
@@ -31,27 +31,33 @@ export class ProfileCreationFormComponent implements OnInit {
     });
   }
 
-
+  onFileChanged(event:any) {
+    this._selectedFile = event.target.files[0]
+  }
 
 
   public crearPerfil() {
-    console.log('por lo menos, aqui si paso')
-    if (this.registrationForm.valid) {
+    
+    if (this.registrationForm.valid && this._selectedFile != null) {
       console.log("algo mas");
       console.log(this.registrationForm.value);
       console.log("Enviar las cosas al backend");
-      this.profileService.createProfile(this.registrationForm.value)
+      this.profileService.createProfile(this.registrationForm.value, this._selectedFile)
         .subscribe((created: Profile) => {
           this.registrationForm.reset({
             "descripcion": null,
             "hobbies": null
           });
+          
           console.log("created");
           console.log(created);
           if (created != null) {
             this.accessProfile.profile=created;
             this.accessProfile.validar();
-            console.log('si paso por aqui');
+            Swal.fire({
+              icon:'success',
+              title: '¡Registro exitosos!'
+            });
             this._router.navigate(['new/member/profile']);
           } else {
 

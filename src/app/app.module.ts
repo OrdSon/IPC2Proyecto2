@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdministratorRegistrationFormComponent } from './Registro/administrator-registration-form/administrator-registration-form.component';
 import { ProfileViewerComponent } from './profile-viewer/profile-viewer.component';
 import { EditorProfileViewComponent } from './profile-viewer/editor-profile-view/editor-profile-view.component';
+import { NewMagazineFormComponent } from './componentes-basicos/new-magazine-form/new-magazine-form.component';
+import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
+import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { EditorProfileViewComponent } from './profile-viewer/editor-profile-view
     CategoryElementComponent,
     AdministratorRegistrationFormComponent,
     ProfileViewerComponent,
-    EditorProfileViewComponent
+    EditorProfileViewComponent,
+    NewMagazineFormComponent,
+    NewTitleFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
