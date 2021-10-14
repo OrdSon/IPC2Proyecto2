@@ -1,7 +1,10 @@
 Modelo/LoginCheck.class
+Magazine/UploadPdf.class
 Servlet/LoginServlet.class
 Converter/ProfileConverter.class
 Modelo/Usuario.class
+Magazine/New.class
+Modelo/Revista.class
 DAO/UsuarioDAO.class
 Servlet/LoginProfileServlet.class
 DAO/ProfileDAO.class
@@ -14,4 +17,6 @@ Modelo/Profile.class
 Converter/LoginCheckConverter.class
 Servlet/ProfileServlet.class
 Servlet/UsuarioServlet.class
+Converter/RevistaConverter.class
+DAO/RevistaDAO.class
 DAO/DAO.class

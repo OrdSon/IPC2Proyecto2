@@ -6,7 +6,10 @@ package DAO;
 
 import Modelo.Profile;
 import Utilidades.ImgCatcher;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +29,7 @@ public class ProfileDAO extends DAO {
     ImgCatcher imgCatcher = new ImgCatcher();
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-    String INSERTAR_PERFIL = "INSERT INTO perfil ( hobbies, descripcion, usuario_codigo) VALUES (?,?,?)";
+    String INSERTAR_PERFIL = "INSERT INTO perfil ( hobbies,foto, descripcion, usuario_codigo) VALUES (?,?,?,?)";
     String SELECCIONAR_PERFILS = "SELECT * FROM perfil";
     String SELECCIONAR_UN_PERFIL = "SELECT * FROM perfil WHERE usuario_codigo = ?";
     String ELIMINAR_PERFIL = "DELETE * FROM profile WHERE codigo = ?";
@@ -71,11 +76,11 @@ public class ProfileDAO extends DAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SET_IMAGE);
             int codigo = ultimoCodigo();
-            if (codigo>0) {
+            if (codigo > 0) {
                 preparedStatement.setBlob(1, inputStream);
                 preparedStatement.executeUpdate();
             }
-            
+
         } catch (SQLException ex) {
 
             System.out.println(ex);
@@ -92,7 +97,6 @@ public class ProfileDAO extends DAO {
      */
     public Profile listarCodigo(int codigo) {
 
-        
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_UN_PERFIL);
             preparedStatement.setInt(1, codigo);
@@ -147,11 +151,15 @@ public class ProfileDAO extends DAO {
             preparedStatement.setString(1, profile.getHobbies());
             preparedStatement.setString(2, profile.getDescripcion());
             preparedStatement.setInt(3, ultimoUsuario);
-
+            InputStream in = profile.getImg().getBinaryStream();
+            BufferedImage image = ImageIO.read(in);
+            JOptionPane.showMessageDialog(null, image);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
@@ -175,13 +183,17 @@ public class ProfileDAO extends DAO {
     private Profile getProfile(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");
+            Blob img = resultSet.getBlob("foto");
             String descripcion = resultSet.getString("descripcion");
             String hobbies = resultSet.getString("hobbies");
-            return new Profile(codigo, descripcion, hobbies);
-        } catch (SQLException ex) {
+            InputStream in = img.getBinaryStream();
+            BufferedImage image = ImageIO.read(in);
+            JOptionPane.showMessageDialog(null, image);
+            return new Profile(codigo, img, descripcion, hobbies);
+        } catch (SQLException | IOException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
         }
+        return null;
     }
 
     @Override

@@ -20,6 +20,14 @@
         <servlet-name>LoginProfileServlet</servlet-name>
         <servlet-class>Servlet.LoginProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>New</servlet-name>
+        <servlet-class>Magazine.New</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadPdf</servlet-name>
+        <servlet-class>Magazine.UploadPdf</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>LoginProfileServlet</servlet-name>
         <url-pattern>/LoginProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>New</servlet-name>
+        <url-pattern>/New</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadPdf</servlet-name>
+        <url-pattern>/UploadPdf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
