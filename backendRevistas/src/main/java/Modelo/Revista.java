@@ -11,22 +11,27 @@ import java.time.LocalDate;
  * @author ordson
  */
 public class Revista {
-    int codigo;
-    String nombre;
-    LocalDate fecha = LocalDate.now();
-    double precio;
+    private int codigo;
+    private String nombre;
+    private String descripcion;
+    private LocalDate fecha;
+    private int autor;
+    private Double precio;
 
-    public Revista(int codigo, String nombre, LocalDate fecha, double precio) {
+    public Revista(int codigo, String nombre, String descripcion, LocalDate fecha, int autor, Double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.fecha = fecha;
+        this.autor = autor;
         this.precio = precio;
     }
 
-    
-    public Revista(String nombre, LocalDate fecha, double precio) {
+    public Revista(String nombre, String descripcion, LocalDate fecha, int autor, Double precio) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.fecha = fecha;
+        this.autor = autor;
         this.precio = precio;
     }
 
@@ -49,6 +54,14 @@ public class Revista {
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public LocalDate getFecha() {
         return fecha;
     }
@@ -57,16 +70,26 @@ public class Revista {
         this.fecha = fecha;
     }
 
-    public double getPrecio() {
+    public int getAutor() {
+        return autor;
+    }
+
+    public void setAutor(int autor) {
+        this.autor = autor;
+    }
+
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
-    
+
     @Override
-    public String toString(){
-        return codigo+" "+nombre+"  "+precio+"  "+ fecha;
+    public String toString() {
+        return "Revista{" + "codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha + ", autor=" + autor + ", precio=" + precio + '}';
     }
+    
+    
 }

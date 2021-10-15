@@ -5,10 +5,6 @@
 package DAO;
 
 import Modelo.Revista;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,8 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -152,10 +146,12 @@ public class RevistaDAO  extends  DAO{
         try {
             int codigo = resultSet.getInt("codigo");
             String nombre = resultSet.getString("nombre");
+            String descripcion = resultSet.getString("descripcion");
             Date fecha = resultSet.getDate("fecha");
+            int autor = resultSet.getInt("autor");
             double precio = resultSet.getDouble("precio");
 
-            return new Revista(codigo, nombre, fecha.toLocalDate(), precio);
+            return new Revista(codigo, nombre, descripcion, fecha.toLocalDate(), autor, precio);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

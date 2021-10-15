@@ -183,14 +183,13 @@ public class ProfileDAO extends DAO {
     private Profile getProfile(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");
-            Blob img = resultSet.getBlob("foto");
+            Blob foto = resultSet.getBlob("foto");
+            String hobbies  = resultSet.getString("hobbies");
             String descripcion = resultSet.getString("descripcion");
-            String hobbies = resultSet.getString("hobbies");
-            InputStream in = img.getBinaryStream();
-            BufferedImage image = ImageIO.read(in);
-            JOptionPane.showMessageDialog(null, image);
-            return new Profile(codigo, img, descripcion, hobbies);
-        } catch (SQLException | IOException ex) {
+            int usuarioCodigo = resultSet.getInt("usuario_codigo");
+
+            return new Profile(codigo, foto, descripcion, hobbies, usuarioCodigo);
+        } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

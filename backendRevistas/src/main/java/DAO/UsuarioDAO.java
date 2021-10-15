@@ -26,7 +26,8 @@ public class UsuarioDAO extends DAO{
     String ELIMINAR_USUARIO = "DELETE * FROM usuario WHERE codigo = ?";
     String SELECCIONAR_ULTIMO = "SELECT codigo FROM usuario ORDER BY codigo DESC LIMIT 1";
     String SELECCIONAR_LOGIN = "SELECT * FROM usuario WHERE email = ? and contraseña = ? ORDER BY codigo LIMIT 1";
-    
+    String SELECCIONAR_USUARIO_EMAIL = "SELECT * FROM usuario WHERE email = ?";
+
     public UsuarioDAO(){
         super();
     }
@@ -192,10 +193,5 @@ public class UsuarioDAO extends DAO{
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }
-
-    @Override
-    public void setConnection(Connection connection) {
-        this.connection = connection;
     }
 }
