@@ -19,6 +19,9 @@
                     <a class="btn btn-outline-dark bi-person-plus-fill" routerLink="/new/editor">Registrarse como
                         editor</a>
                 </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning bi-person-plus-fill" (click)="prueba()">try me!</a>
+                </li>
             </ul>
             <form class="d-flex">
                 <button class="btn btn-primary bi bi-search" type="submit"></button>
@@ -36,6 +39,7 @@
                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
                         <li><a class="dropdown-item" routerLink="profile/view">Cerrar sesión</a></li>
                     </ul>
+
                 </div>
             </div>
             <div *ngIf="accesEditorProfile.validator">

@@ -38,7 +38,7 @@ export class ProfileCreationFormComponent implements OnInit {
 
   public crearPerfil() {
     
-    if (this.registrationForm.valid && this._selectedFile != null) {
+    if (this.registrationForm.valid) {
       console.log("algo mas");
       console.log(this.registrationForm.value);
       console.log("Enviar las cosas al backend");

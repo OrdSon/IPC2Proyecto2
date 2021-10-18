@@ -1,3 +1,5 @@
+import { BuscarRevista } from './../../objetos/BuscarRevista';
+import { BuscarRevistasService } from './../../services/buscar-revistas.service';
 import { AccessEditorProfileService } from './../../services/access-editor-profile.service';
 import { AccessUserProfileService } from './../../services/access-user-profile.service';
 import { NavService } from './../../services/nav.service';
@@ -13,13 +15,20 @@ import Swal from 'sweetalert2';
 export class NavBarComponent implements OnInit {
   
   validator:boolean = false;
-  constructor(public navService:NavService, public acccesProfile:AccessUserProfileService, public accesEditorProfile:AccessEditorProfileService) { 
+  constructor(public navService:NavService, public acccesProfile:AccessUserProfileService, public accesEditorProfile:AccessEditorProfileService,
+    public buscarRevistasService: BuscarRevistasService) { 
 
   }
 
   ngOnInit(): void {
   }
-
+  prueba(){
+    this.buscarRevistasService.crearUsuario().subscribe((creado:BuscarRevista) =>{
+      if(creado != null){
+        console.log(creado);
+      }
+    })
+  }
   setNavEleccion(eleccion:number){
     this.navService.setEleccion(eleccion);
   }

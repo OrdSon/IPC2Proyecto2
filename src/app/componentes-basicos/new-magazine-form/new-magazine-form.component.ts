@@ -1,3 +1,4 @@
+import { AccessEditorProfileService } from 'src/app/services/access-editor-profile.service';
 import { Router} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -18,14 +19,17 @@ export class NewMagazineFormComponent implements OnInit {
   messageFlag: boolean = false;
   registrationForm!: FormGroup;
 
-  constructor(router:Router, private formBuilder:FormBuilder, public newMagazineService: NewMagazineService) {
+  constructor(router:Router, private formBuilder:FormBuilder, public newMagazineService: NewMagazineService, public accessEditorProfileService: AccessEditorProfileService) {
     this._router = router;
    }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
       nombre: [null, Validators.required],
-      precio: [null, Validators.required]
+      precio: [null, Validators.required],
+      fecha: [null,Validators.required],
+      descripcion: [null, Validators.required],
+      autor:[this.accessEditorProfileService.usuario.codigo, Validators.required]
     });
   }
 
@@ -40,6 +44,9 @@ export class NewMagazineFormComponent implements OnInit {
         this.registrationForm.reset({
           "nombreRevista": null,
           "precioRevista": null,
+          "fecha":null,
+          "descripcion":null
+          
         });
         console.log("created");
         console.log(created);

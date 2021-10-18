@@ -8,12 +8,12 @@
                             <h5 class="text-center mb-5 bi bi-file-earmark-font-fill">Revistas plus</h5>
                             <h2 class="text-uppercase text-center mb-5">Crea un perfil</h2>
 
-
+                            <div class="form-outline mb-4">
+                                <label class="h4">Sube una foto</label>
+                                <input type="file" (change)="onFileChanged($event)">
+                            </div>
                             <form [formGroup]="registrationForm" (ngSubmit)="crearPerfil()">
-                                <div class="form-outline mb-4">
-                                    <label class="h4">Sube una foto</label>
-                                    <input type="file" (change)="onFileChanged($event)">
-                                </div>
+
                                 <div class="form-outline mb-4">
                                     <textarea class="form-control" rows="2" placeholder="¡Hablanos sobre ti!" formControlName="descripcion"></textarea>
                                 </div>

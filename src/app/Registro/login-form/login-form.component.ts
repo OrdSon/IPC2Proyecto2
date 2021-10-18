@@ -46,6 +46,7 @@ export class LoginFormComponent implements OnInit {
         console.log(created);
         if(created!=null){
          if(created.tipo == 1){
+           console.log('usuario normal');
           this.accessProfile.usuario=created;
           this.profileService.obtainProfile(created).subscribe((perfil:Profile)=>{
             console.log('estamos aqui');
@@ -53,6 +54,8 @@ export class LoginFormComponent implements OnInit {
               console.log('pasamos por aqui');
               this.accessProfile.profile = perfil;
               this.accessProfile.validar();
+            }else{
+              console.log("nop es nulo");
             }
           }
           );
