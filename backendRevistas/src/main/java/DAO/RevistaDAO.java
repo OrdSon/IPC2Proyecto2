@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,17 +18,19 @@ import java.util.logging.Logger;
  *
  * @author ordson
  */
-public class RevistaDAO  extends  DAO{
+public class RevistaDAO extends DAO {
+
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-    String INSERTAR_REVISTA = "INSERT INTO revista (nombre, fecha, precio) VALUES (?,?,?)";
+    String INSERTAR_REVISTA = "INSERT INTO revista (nombre, fecha, precio, descripcion, autor) VALUES (?,?,?,?,?)";
     String SELECCIONAR_REVISTAS = "SELECT * FROM revista";
-    String SELECCIONAR_UN_REVISTA = "SELECT * FROM revista WHERE usuario_codigo = ?";
+    String SELECCIONAR_UN_REVISTA = "SELECT * FROM revista WHERE codigo LIKE ?";
+    String SELECCIONAR_REVISTA_NOMBRE = "SELECT * FROM revista WHERE nombre  LIKE ?";
     String ELIMINAR_REVISTA = "DELETE * FROM revista WHERE codigo = ?";
     String SELECCIONAR_ULTIMO = "SELECT codigo FROM revista ORDER BY codigo DESC LIMIT 1;";
 
     @Override
-    public ArrayList<Revista> listar() {
+    public List<Revista> listar() {
 
         ArrayList<Revista> revistas = new ArrayList<>();
         try {
@@ -35,7 +38,27 @@ public class RevistaDAO  extends  DAO{
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Revista revista = getProfile(resultSet);
+                Revista revista = getRevista(resultSet);
+                if (revista != null) {
+                    revistas.add(revista);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return revistas;
+    }
+
+    public List<Revista> listarPorNombre(String cadena) {
+        ArrayList<Revista> revistas = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_REVISTAS);
+            preparedStatement.setString(1, "%" + cadena + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                Revista revista = getRevista(resultSet);
                 if (revista != null) {
                     revistas.add(revista);
                 }
@@ -74,7 +97,7 @@ public class RevistaDAO  extends  DAO{
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Revista revista = getProfile(resultSet);
+                Revista revista = getRevista(resultSet);
                 return revista;
             }
 
@@ -118,6 +141,8 @@ public class RevistaDAO  extends  DAO{
             preparedStatement.setString(1, revista.getNombre());
             preparedStatement.setDate(2, date);
             preparedStatement.setDouble(3, revista.getPrecio());
+            preparedStatement.setString(4, revista.getDescripcion());
+            preparedStatement.setInt(5, revista.getAutor());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +167,7 @@ public class RevistaDAO  extends  DAO{
         return true;
     }
 
-    private Revista getProfile(ResultSet resultSet) {
+    private Revista getRevista(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");
             String nombre = resultSet.getString("nombre");
@@ -151,7 +176,7 @@ public class RevistaDAO  extends  DAO{
             int autor = resultSet.getInt("autor");
             double precio = resultSet.getDouble("precio");
 
-            return new Revista(codigo, nombre, descripcion, fecha.toLocalDate(), autor, precio);
+            return new Revista(codigo, nombre, descripcion, fecha.toString(), autor, precio);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

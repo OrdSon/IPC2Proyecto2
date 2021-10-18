@@ -1,3 +1,4 @@
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/StringConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/ReferenciaDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Usuario.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Preferencia.java
@@ -11,11 +12,15 @@
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/AnuncioDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/ReviewDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Cobro.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/SuscripcionConverter.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/NuevaSuscripcionServlet.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/DAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Categoria.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Magazine/New.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/UsuarioConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/CajaDAO.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Mirrors/NuevaSuscripcion.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Utilidades/ToBody.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/PublicoDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/NumeroDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Magazine/UploadPdf.java
@@ -32,10 +37,12 @@
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Setting.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Utilidades/ImgCatcher.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/RelacionDAO.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/BuscarRevistas.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/RevistaDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/UsuarioServlet.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/LoginServlet.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Caja.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/SettingDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Anuncio.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/ProfileDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/PreferenciaDAO.java
@@ -43,6 +50,7 @@
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/ProfileServlet.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/InfoPagoDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/profilePicture.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/TagDAO.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Review.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/LoginCheckConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Tag.java

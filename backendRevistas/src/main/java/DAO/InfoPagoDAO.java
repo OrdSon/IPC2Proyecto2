@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,7 +30,7 @@ public class InfoPagoDAO extends DAO {
     String SELECCIONAR_ULTIMO = "SELECT codigo FROM info_pago ORDER BY codigo DESC LIMIT 1;";
 
     @Override
-    public ArrayList<InfoPago> listar() {
+    public List<InfoPago> listar() {
 
         ArrayList<InfoPago> usuarios = new ArrayList<>();
         try {

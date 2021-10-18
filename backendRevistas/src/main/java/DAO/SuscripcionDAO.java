@@ -4,7 +4,8 @@
  */
 package DAO;
 
-import Modelo.Categoria;
+import Modelo.Suscripcion;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,24 +19,24 @@ import java.util.logging.Logger;
  */
 public class SuscripcionDAO extends DAO {
 
-    String INSERTAR_CATEGORIA = "INSERT INTO categoria (nombre) VALUES (?)";
-    String SELECCIONAR_CATEGORIAS = "SELECT * FROM categoria";
-    String SELECCIONAR_UNA_CATEGORIA = "SELECT * FROM categoria WHERE codigo = ?";
-    String ELIMINAR_CATEGORIA = "DELETE * FROM categoria WHERE codigo = ?";
+    String INSERTAR_SUSCRIPCION = "INSERT INTO suscripcion (usuario_codigo, revista_codigo, fecha) VALUES (?,?,?)";
+    String SELECCIONAR_SUSCRIPCIONS = "SELECT * FROM suscripcion";
+    String SELECCIONAR_UNA_SUSCRIPCION = "SELECT * FROM suscripcion WHERE codigo = ?";
+    String ELIMINAR_SUSCRIPCION = "DELETE * FROM suscripcion WHERE codigo = ?";
     String SELECCIONAR_ULTIMA = "SELECT codigo FROM anuncio ORDER BY codigo DESC LIMIT 1;";
 
     @Override
-    public ArrayList<Categoria> listar() {
+    public ArrayList<Suscripcion> listar() {
 
-        ArrayList<Categoria> usuarios = new ArrayList<>();
+        ArrayList<Suscripcion> usuarios = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_CATEGORIAS);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_SUSCRIPCIONS);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Categoria categoria = getCategoria(resultSet);
-                if (categoria != null) {
-                    usuarios.add(categoria);
+                Suscripcion suscripcion = getSuscripcion(resultSet);
+                if (suscripcion != null) {
+                    usuarios.add(suscripcion);
                 }
             }
         } catch (SQLException ex) {
@@ -61,18 +62,18 @@ public class SuscripcionDAO extends DAO {
 
     /*
     LISTAR CODIGO
-    Usa el codigo de categoria para obtener un registro
+    Usa el codigo de suscripcion para obtener un registro
      */
-    public Categoria listarCodigo(int codigo) {
+    public Suscripcion listarCodigo(int codigo) {
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_UNA_CATEGORIA);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_UNA_SUSCRIPCION);
             preparedStatement.setInt(1, codigo);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                Categoria categoria = getCategoria(resultSet);
-                return categoria;
+                Suscripcion suscripcion = getSuscripcion(resultSet);
+                return suscripcion;
             }
 
         } catch (SQLException ex) {
@@ -83,15 +84,15 @@ public class SuscripcionDAO extends DAO {
 
     /*
     EDITAR
-    Recibe una categoria y la usa para editar un registro ya existente
+    Recibe una suscripcion y la usa para editar un registro ya existente
      */
-//    public boolean editar(Categoria categoria) {
+//    public boolean editar(Suscripcion suscripcion) {
 //
 //        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CATEGORIA);
+//            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SUSCRIPCION);
 //
-//            preparedStatement.setDouble(1, categoria.getCapital());
-//            preparedStatement.setInt(2, categoria.getCodigo());
+//            preparedStatement.setDouble(1, suscripcion.getCapital());
+//            preparedStatement.setInt(2, suscripcion.getCodigo());
 //
 //            preparedStatement.executeUpdate();
 //        } catch (SQLException ex) {
@@ -106,12 +107,14 @@ public class SuscripcionDAO extends DAO {
 
     /*
     AÑADIR
-    Usa un objeto Categoria para añadir un registro a la base de datos
+    Usa un objeto Suscripcion para añadir un registro a la base de datos
      */
-    public boolean añadir(Categoria categoria) {
+    public boolean añadir(Suscripcion suscripcion) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_CATEGORIA);
-            preparedStatement.setString(1, categoria.getNombre());
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_SUSCRIPCION);
+            preparedStatement.setInt(1, suscripcion.getUsuarioCodigo());
+            preparedStatement.setInt(2, suscripcion.getRevistaCodigo());
+            preparedStatement.setDate(3, Date.valueOf(suscripcion.getFecha()));
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -122,12 +125,12 @@ public class SuscripcionDAO extends DAO {
 
     /*
     ELIMINAR
-    Toma el codigo de una categoria y lo usa para encontrar al objetivo
+    Toma el codigo de una suscripcion y lo usa para encontrar al objetivo
     y eliminarlo de la base de datos
      */
     public boolean eliminar(int codigo) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(ELIMINAR_CATEGORIA);
+            PreparedStatement preparedStatement = connection.prepareStatement(ELIMINAR_SUSCRIPCION);
             preparedStatement.setInt(1, codigo);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -136,11 +139,12 @@ public class SuscripcionDAO extends DAO {
         return true;
     }
 
-    private Categoria getCategoria(ResultSet resultSet) {
+    private Suscripcion getSuscripcion(ResultSet resultSet) {
         try {
-            int codigo = resultSet.getInt("codigo");
-            String nombre = resultSet.getString("nombre");
-            return new Categoria(codigo, nombre);
+            int usuarioCodigo = resultSet.getInt("usuario_codigo");
+            int revistaCodigo = resultSet.getInt("revista_codigo");
+            String fecha = resultSet.getDate("fecha").toString();
+            return new Suscripcion(usuarioCodigo, revistaCodigo, fecha);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

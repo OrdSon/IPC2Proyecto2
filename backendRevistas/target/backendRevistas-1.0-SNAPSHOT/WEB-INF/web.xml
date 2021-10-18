@@ -28,6 +28,14 @@
         <servlet-name>UploadPdf</servlet-name>
         <servlet-class>Magazine.UploadPdf</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevaSuscripcionServlet</servlet-name>
+        <servlet-class>Servlet.NuevaSuscripcionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscarRevistas</servlet-name>
+        <servlet-class>Servlet.BuscarRevistas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>UploadPdf</servlet-name>
         <url-pattern>/UploadPdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaSuscripcionServlet</servlet-name>
+        <url-pattern>/NuevaSuscripcionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarRevistas</servlet-name>
+        <url-pattern>/BuscarRevistas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

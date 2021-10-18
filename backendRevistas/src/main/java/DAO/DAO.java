@@ -7,6 +7,7 @@ package DAO;
 import Utilidades.Conexion;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,7 +26,7 @@ public abstract class DAO {
         this.connection = connection;
     }
     
-    public ArrayList listar() {
+    public List listar() {
         return new ArrayList();
     }
     

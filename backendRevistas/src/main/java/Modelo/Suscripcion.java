@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import java.time.LocalDate;
 
 /**
  *
@@ -14,16 +13,16 @@ public class Suscripcion {
     private int codigo;
     private int usuarioCodigo;
     private int revistaCodigo;
-    private LocalDate fecha;
+    private String fecha;
 
-    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, LocalDate fecha) {
+    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, String fecha) {
         this.codigo = codigo;
         this.usuarioCodigo = usuarioCodigo;
         this.revistaCodigo = revistaCodigo;
         this.fecha = fecha;
     }
 
-    public Suscripcion(int usuarioCodigo, int revistaCodigo, LocalDate fecha) {
+    public Suscripcion(int usuarioCodigo, int revistaCodigo, String fecha) {
         this.usuarioCodigo = usuarioCodigo;
         this.revistaCodigo = revistaCodigo;
         this.fecha = fecha;
@@ -56,11 +55,11 @@ public class Suscripcion {
         this.revistaCodigo = revistaCodigo;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

@@ -4,6 +4,7 @@ Magazine/New.class
 DAO/InfoPagoDAO.class
 DAO/AnuncianteDAO.class
 Utilidades/Conexion.class
+Converter/StringConverter.class
 Modelo/Suscripcion.class
 DAO/PreferenciaDAO.class
 Modelo/InfoPago.class
@@ -19,6 +20,8 @@ Servlet/LoginServlet.class
 Modelo/Categoria.class
 Modelo/Usuario.class
 Servlet/LoginProfileServlet.class
+Mirrors/NuevaSuscripcion.class
+DAO/SettingDAO.class
 Utilidades/ImgCatcher.class
 Modelo/Caja.class
 DAO/PagoDAO.class
@@ -28,12 +31,15 @@ Modelo/Tag.class
 Modelo/Referencia.class
 DAO/CuotaDiariaDAO.class
 Modelo/Preferencia.class
+DAO/TagDAO.class
 DAO/CobroDAO.class
 Modelo/LoginCheck.class
 DAO/ReferenciaDAO.class
 Magazine/UploadPdf.class
 DAO/CajaDAO.class
 Servlet/profilePicture.class
+Servlet/BuscarRevistas.class
+Utilidades/ToBody.class
 Modelo/Review.class
 Modelo/Anunciante.class
 Modelo/Cuota.class
@@ -42,6 +48,7 @@ Servlet/UsuarioServlet.class
 Modelo/Cobro.class
 Converter/ProfileConverter.class
 Modelo/Pago.class
+Servlet/NuevaSuscripcionServlet.class
 Modelo/Revista.class
 DAO/UsuarioDAO.class
 DAO/ProfileDAO.class
@@ -52,3 +59,4 @@ Modelo/Numero.class
 Modelo/Setting.class
 Converter/LoginCheckConverter.class
 Modelo/Publico.class
+Converter/SuscripcionConverter.class

@@ -5,10 +5,8 @@
 package Magazine;
 
 import Converter.RevistaConverter;
-import Converter.UsuarioConverter;
 import DAO.RevistaDAO;
 import Modelo.Revista;
-import Modelo.Usuario;
 import java.io.BufferedReader;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -21,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author ordson
  */
 public class New extends HttpServlet {
-    RevistaDAO revistaDAO = new  RevistaDAO();
+
+    RevistaDAO revistaDAO = new RevistaDAO();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,25 +31,25 @@ public class New extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                BufferedReader reader = request.getReader();
+        BufferedReader reader = request.getReader();
         String body = "";
         String line = reader.readLine();
         while (line != null) {
             body = body + line;
-            line  = reader.readLine();
+            line = reader.readLine();
         }
         System.out.println("body:");
         System.out.println(body);
         RevistaConverter converter = new RevistaConverter(Revista.class);
-        
+
         Revista model = converter.fromJson(body);
-        
+
         System.out.println("object");
         System.out.println(model.toString());
         revistaDAO.añadir(model);
         response.getWriter().append(converter.toJson(model));
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -29,7 +29,7 @@ public class ProfileDAO extends DAO {
     ImgCatcher imgCatcher = new ImgCatcher();
     UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-    String INSERTAR_PERFIL = "INSERT INTO perfil ( hobbies,foto, descripcion, usuario_codigo) VALUES (?,?,?,?)";
+    String INSERTAR_PERFIL = "INSERT INTO perfil ( hobbies, descripcion, usuario_codigo) VALUES (?,?,?)";
     String SELECCIONAR_PERFILS = "SELECT * FROM perfil";
     String SELECCIONAR_UN_PERFIL = "SELECT * FROM perfil WHERE usuario_codigo = ?";
     String ELIMINAR_PERFIL = "DELETE * FROM profile WHERE codigo = ?";
@@ -151,16 +151,11 @@ public class ProfileDAO extends DAO {
             preparedStatement.setString(1, profile.getHobbies());
             preparedStatement.setString(2, profile.getDescripcion());
             preparedStatement.setInt(3, ultimoUsuario);
-            InputStream in = profile.getImg().getBinaryStream();
-            BufferedImage image = ImageIO.read(in);
-            JOptionPane.showMessageDialog(null, image);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-        } catch (IOException ex) {
-            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
         return true;
     }
 
