@@ -4,26 +4,23 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AccessEditorProfileService {
-  _usuario!:Usuario;
-  _revistaActiva!:number;
-  validator:boolean = false;
+export class AccessAdminProfileService {
+  _usuario!: Usuario;
+  validator: boolean = false;
+
   constructor() { }
-  validar(){
-    if(this._usuario == null){
+  validar() {
+    if (this._usuario == null) {
       this.validator = false;
-    }else{
-      this.validator=true;
+    } else {
+      this.validator = true;
     }
   }
-
-  get usuario(){
+  get usuario() {
     return this._usuario;
   }
 
-  set usuario(usuario:Usuario){
+  set usuario(usuario: Usuario) {
     this._usuario = usuario;
   }
-
-  
 }

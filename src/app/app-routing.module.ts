@@ -1,3 +1,4 @@
+import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
 import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
 import { NewMagazineFormComponent } from './componentes-basicos/new-magazine-form/new-magazine-form.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
     path: 'new/member',
     component: RegistrationFormComponent
   }, 
+  {
+    path: 'profile/admin/view',
+    component:AdminProfileViewerComponent
+  },
   {
     path: 'profile/editor/view',
     component:EditorProfileViewComponent

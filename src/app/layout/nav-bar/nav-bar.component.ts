@@ -1,3 +1,4 @@
+import { AccessAdminProfileService } from './../../services/access-admin-profile.service';
 import { BuscarRevista } from './../../objetos/BuscarRevista';
 import { BuscarRevistasService } from './../../services/buscar-revistas.service';
 import { AccessEditorProfileService } from './../../services/access-editor-profile.service';
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit {
   
   validator:boolean = false;
   constructor(public navService:NavService, public acccesProfile:AccessUserProfileService, public accesEditorProfile:AccessEditorProfileService,
-    public buscarRevistasService: BuscarRevistasService) { 
+    public buscarRevistasService: BuscarRevistasService, public accessAdminProfile:AccessAdminProfileService) { 
 
   }
 

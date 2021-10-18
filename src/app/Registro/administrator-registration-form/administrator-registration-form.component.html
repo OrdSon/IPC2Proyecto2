@@ -9,25 +9,25 @@
                             <h2 class="text-uppercase text-center mb-5">Registrar administrador</h2>
                             <h6 class="text-uppercase text-center mb-5">Un gran poder conlleva una gran responsabilidad</h6>
 
-                            <form>
+                            <form [formGroup]="registrationForm" (ngSubmit)="crearAdmin()">
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="RegistrarNombreAdmin" class="form-control form-control-lg" placeholder="Nombre completo" required formControlName="RegistrarNombreAdmin" />
+                                    <input type="text" id="RegistrarNombreAdmin" class="form-control form-control-lg" placeholder="Nombre completo" required formControlName="nombre" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="email" id="RegistrarEmailAdmin" class="form-control form-control-lg" placeholder="Correo@electronico" required formControlName="RegistrarEmailAdmin" />
+                                    <input type="email" id="RegistrarEmailAdmin" class="form-control form-control-lg" placeholder="Correo@electronico" required formControlName="email" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="RegistrarPasswordAdmin" class="form-control form-control-lg" placeholder="Contraseña" required formControlName="RegistrarPasswordAdmin" />
+                                    <input type="password" id="RegistrarPasswordAdmin" class="form-control form-control-lg" placeholder="Contraseña" required formControlName="password" />
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-outline-primary btn-lg">Registrar</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg">Registrar</button>
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">¿Ya eres ADMIN? <a href="#!" class="fw-bold text-body"><u>¡Entra aquí!</u></a></p>
+                                <p class="text-center text-muted mt-5 mb-0">¿Ya eres ADMIN? <a href="#" class="fw-bold text-body"><u>¡Entra aquí!</u></a></p>
 
                             </form>
 

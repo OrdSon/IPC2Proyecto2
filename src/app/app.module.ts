@@ -20,6 +20,7 @@ import { EditorProfileViewComponent } from './profile-viewer/editor-profile-view
 import { NewMagazineFormComponent } from './componentes-basicos/new-magazine-form/new-magazine-form.component';
 import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
+import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NotFoundComponent } from './componentes-basicos/not-found/not-found.com
     EditorProfileViewComponent,
     NewMagazineFormComponent,
     NewTitleFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminProfileViewerComponent
   ],
   imports: [
     BrowserModule,

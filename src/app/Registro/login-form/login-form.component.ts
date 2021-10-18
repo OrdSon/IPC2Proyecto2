@@ -1,3 +1,4 @@
+import { AccessAdminProfileService } from './../../services/access-admin-profile.service';
 import { Profile } from './../../objetos/Profile';
 import { ProfileService } from './../../services/profile.service';
 import { LoginService } from './../../services/login.service';
@@ -20,8 +21,8 @@ export class LoginFormComponent implements OnInit {
   _router: Router;
   messageFlag: boolean = false;
   registrationForm!: FormGroup;
-  constructor(private formBuilder:FormBuilder, private loginService:LoginService, private profileService:ProfileService,  private accessProfile: AccessUserProfileService, private accessEditorProfile:AccessEditorProfileService, private router:Router) { 
-    this._usuario = new Usuario(0,"","","",1,"");
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private profileService: ProfileService, private accessProfile: AccessUserProfileService, private accessEditorProfile: AccessEditorProfileService, private accessAdminProfileService: AccessAdminProfileService,private router: Router) {
+    this._usuario = new Usuario(0, "", "", "", 1, "");
     this._router = router;
   }
 
@@ -31,66 +32,74 @@ export class LoginFormComponent implements OnInit {
       password: [null, Validators.required],
     });
   }
-  login(){
+  login() {
     if (this.registrationForm.valid) {
       console.log("algo");
       console.log(this.registrationForm.value);
       console.log("Enviar los datos al servidor");
       this.loginService.crearUsuario(this.registrationForm.value)
-      .subscribe((created: Usuario) => {
-        this.registrationForm.reset({
-          "email": null,
-          "password": null
-        });
-        console.log("created");
-        console.log(created);
-        if(created!=null){
-         if(created.tipo == 1){
-           console.log('usuario normal');
-          this.accessProfile.usuario=created;
-          this.profileService.obtainProfile(created).subscribe((perfil:Profile)=>{
-            console.log('estamos aqui');
-            if(perfil != null){
-              console.log('pasamos por aqui');
-              this.accessProfile.profile = perfil;
-              this.accessProfile.validar();
-            }else{
-              console.log("nop es nulo");
-            }
-          }
-          );
-          this.accessProfile.validar();
-         }else if(created.tipo == 2){
-          this.accessEditorProfile.usuario=created; 
-          this.accessEditorProfile.validar();
-          
-         }
-          this.router.navigate([""]);
-          Swal.fire({
-            icon:'success',
-            title:'¡Login exitoso!'
+        .subscribe((created: Usuario) => {
+          this.registrationForm.reset({
+            "email": null,
+            "password": null
           });
-          this._router.navigate(['']);
-        }else{
-          
+          console.log("created");
+          console.log(created);
+          if (created != null) {
+            if (created.tipo == 1) {
+              console.log('usuario normal');
+              this.accessProfile.usuario = created;
+              this.profileService.obtainProfile(created).subscribe((perfil: Profile) => {
+                console.log('estamos aqui');
+                if (perfil != null) {
+                  console.log('pasamos por aqui');
+                  this.accessProfile.profile = perfil;
+                  this.accessProfile.validar();
+                  this.messageFlag = this.accessAdminProfileService.validator;
+                } else {
+                  console.log("nop es nulo");
+                }
+              }
+              );
+              this.accessProfile.validar();
+            } else if (created.tipo == 2) {
+              this.accessEditorProfile.usuario = created;
+              this.accessEditorProfile.validar();
+              this.messageFlag = this.accessAdminProfileService.validator;
+
+            } else if (created.tipo == 3) {
+              this.accessAdminProfileService.usuario = created;
+              this.accessAdminProfileService.validar();
+              this.messageFlag = this.accessAdminProfileService.validator;
+            }
+            if (this.messageFlag == true) {
+              this.messageFlag = false;
+              Swal.fire({
+                icon: 'success',
+                title: '¡Login exitoso!'
+              });
+              this._router.navigate(['']);
+            }
+          } else {
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: '¡Error en el servidor!',
+            })
+
+          }
+        }, (error: any) => {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: '¡Error en el servidor!',
+            text: 'Algo salio mal >_<',
+            footer: error
           })
-
-        }
-      }, (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Algo salio mal >_<',
-          footer:error
-        })
-      });
-    }else{
+        });
+    } else {
       console.log("no estuvo bien")
     }
   }
-  
+
 }

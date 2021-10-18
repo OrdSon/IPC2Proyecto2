@@ -16,7 +16,6 @@ export class RegistrationFormComponent implements OnInit {
 
   _usuario: Usuario;
   _router: Router;
-  messageFlag: boolean = false;
   registrationForm!: FormGroup;
 
   constructor(private formBuilder:FormBuilder,private usuarioService:UsuarioService,  private accessProfile: AccessUserProfileService,private router:Router) { 
@@ -35,7 +34,7 @@ export class RegistrationFormComponent implements OnInit {
     });
   }
 
-  public crearOperacion() {
+  public crearUsuario() {
 
     if (this.registrationForm.valid) {
       console.log("algo");
