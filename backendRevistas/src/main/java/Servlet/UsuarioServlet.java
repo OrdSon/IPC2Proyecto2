@@ -7,7 +7,7 @@ package Servlet;
 import Converter.UsuarioConverter;
 import DAO.UsuarioDAO;
 import Modelo.Usuario;
-import java.io.BufferedReader;
+import Utilidades.ToBody;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,20 +31,13 @@ public class UsuarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader reader = request.getReader();
-        String body = "";
-        String line = reader.readLine();
-        while (line != null) {
-            body = body + line;
-            line  = reader.readLine();
-        }
+        String body = new ToBody().convert(request);
         System.out.println("body:");
         System.out.println(body);
         UsuarioConverter converter = new UsuarioConverter(Usuario.class);
         
         Usuario model = converter.fromJson(body);
-        
-        System.out.println("object");
+
         System.out.println(model.toString());
         usuarioDAO.añadir(model);
         response.getWriter().append(converter.toJson(model));

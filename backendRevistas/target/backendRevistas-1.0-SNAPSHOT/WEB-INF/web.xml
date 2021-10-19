@@ -36,6 +36,30 @@
         <servlet-name>BuscarRevistas</servlet-name>
         <servlet-class>Servlet.BuscarRevistas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>Servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearCategoria</servlet-name>
+        <servlet-class>Servlet.CrearCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MostrarRevistas</servlet-name>
+        <servlet-class>Servlet.MostrarRevistas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MostrarCategorias</servlet-name>
+        <servlet-class>Servlet.MostrarCategorias</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarCategoria</servlet-name>
+        <servlet-class>Servlet.EditarCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarCategoria</servlet-name>
+        <servlet-class>Servlet.EliminarCategoria</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -71,6 +95,30 @@
     <servlet-mapping>
         <servlet-name>BuscarRevistas</servlet-name>
         <url-pattern>/BuscarRevistas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearCategoria</servlet-name>
+        <url-pattern>/CrearCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarRevistas</servlet-name>
+        <url-pattern>/MostrarRevistas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarCategorias</servlet-name>
+        <url-pattern>/MostrarCategorias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCategoria</servlet-name>
+        <url-pattern>/EditarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarCategoria</servlet-name>
+        <url-pattern>/EliminarCategoria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

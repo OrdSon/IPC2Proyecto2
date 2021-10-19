@@ -2,6 +2,7 @@ DAO/RelacionDAO.class
 Modelo/Anuncio.class
 Magazine/New.class
 DAO/InfoPagoDAO.class
+Servlet/CrearCategoria.class
 DAO/AnuncianteDAO.class
 Utilidades/Conexion.class
 Converter/StringConverter.class
@@ -21,6 +22,7 @@ Modelo/Categoria.class
 Modelo/Usuario.class
 Servlet/LoginProfileServlet.class
 Mirrors/NuevaSuscripcion.class
+Servlet/MostrarCategorias.class
 DAO/SettingDAO.class
 Utilidades/ImgCatcher.class
 Modelo/Caja.class
@@ -45,7 +47,10 @@ Modelo/Anunciante.class
 Modelo/Cuota.class
 Servlet/ProfileServlet.class
 Servlet/UsuarioServlet.class
+Servlet/EditarCategoria.class
 Modelo/Cobro.class
+Servlet/EliminarCategoria.class
+Servlet/AdminServlet.class
 Converter/ProfileConverter.class
 Modelo/Pago.class
 Servlet/NuevaSuscripcionServlet.class
@@ -53,9 +58,11 @@ Modelo/Revista.class
 DAO/UsuarioDAO.class
 DAO/ProfileDAO.class
 Converter/Converter.class
+Servlet/MostrarRevistas.class
 Modelo/Profile.class
 DAO/NumeroDAO.class
 Modelo/Numero.class
+Converter/CategoriaConverter.class
 Modelo/Setting.class
 Converter/LoginCheckConverter.class
 Modelo/Publico.class

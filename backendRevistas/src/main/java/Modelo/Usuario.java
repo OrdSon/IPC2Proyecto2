@@ -33,6 +33,12 @@ public class Usuario {
         this.password = password;
     }
 
+    public Usuario(String nombre, String email, String password) {
+        this.nombre = nombre;
+        this.email = email;
+        this.password = password;
+    }
+
     public Usuario() {
     }
     
@@ -84,11 +90,13 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     @Override
-    public String toString(){
-        return codigo+""+nombre+" "+email+" "+nombre_usuario+" "+password+" "+tipo;
+    public String toString() {
+        return "Usuario{" + "codigo=" + codigo + ", nombre=" + nombre + ", email=" + email + ", nombre_usuario=" + nombre_usuario + ", tipo=" + tipo + ", password=" + password + '}';
     }
+    
+  
     
     
 }

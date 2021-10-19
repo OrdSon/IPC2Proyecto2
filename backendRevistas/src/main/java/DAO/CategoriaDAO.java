@@ -20,8 +20,9 @@ public class CategoriaDAO extends DAO{
     String INSERTAR_CATEGORIA = "INSERT INTO categoria (nombre) VALUES (?)";
     String SELECCIONAR_CATEGORIAS = "SELECT * FROM categoria";
     String SELECCIONAR_UNA_CATEGORIA = "SELECT * FROM categoria WHERE codigo = ?";
-    String ELIMINAR_CATEGORIA = "DELETE * FROM categoria WHERE codigo = ?";
+    String ELIMINAR_CATEGORIA = "DELETE FROM categoria WHERE codigo = ?";
     String SELECCIONAR_ULTIMA = "SELECT codigo FROM anuncio ORDER BY codigo DESC LIMIT 1;";
+    String UPDATE_CATEGORIA = "UPDATE categoria SET nombre = ? WHERE codigo = ?";
 
     @Override
     public ArrayList<Categoria> listar() {
@@ -84,24 +85,24 @@ public class CategoriaDAO extends DAO{
     EDITAR
     Recibe una categoria y la usa para editar un registro ya existente
      */
-//    public boolean editar(Categoria categoria) {
-//
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CATEGORIA);
-//
-//            preparedStatement.setDouble(1, categoria.getCapital());
-//            preparedStatement.setInt(2, categoria.getCodigo());
-//
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException ex) {
-//
-//            System.out.println(ex);
-//            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//
-//        return true;
-//    }
+    public boolean editar(Categoria categoria) {
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CATEGORIA);
+
+            preparedStatement.setString(1, categoria.getNombre());
+            preparedStatement.setInt(2, categoria.getCodigo());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+        return true;
+    }
 
     /*
     AÑADIR

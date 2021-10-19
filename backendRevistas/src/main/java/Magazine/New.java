@@ -47,7 +47,7 @@ public class New extends HttpServlet {
         System.out.println("object");
         System.out.println(model.toString());
         revistaDAO.añadir(model);
-        response.getWriter().append(converter.toJson(model));
+        response.getWriter().append(converter.toJson(revistaDAO.listarCodigo(revistaDAO.ultimoCodigo())));
     }
 
     @Override
