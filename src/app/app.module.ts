@@ -22,6 +22,8 @@ import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
 import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
 import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
+import { MagazineActionsComponent } from './componentes-basicos/magazine-actions/magazine-actions.component';
+import { EditorMagazineListComponent } from './componentes-basicos/editor-magazine-list/editor-magazine-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { CategoryAdministrationFormComponent } from './componentes-basicos/categ
     NewTitleFormComponent,
     NotFoundComponent,
     AdminProfileViewerComponent,
-    CategoryAdministrationFormComponent
+    CategoryAdministrationFormComponent,
+    MagazineActionsComponent,
+    EditorMagazineListComponent
   ],
   imports: [
     BrowserModule,

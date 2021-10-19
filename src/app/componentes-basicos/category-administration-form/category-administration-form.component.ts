@@ -26,9 +26,6 @@ export class CategoryAdministrationFormComponent implements OnInit {
     this.obtenerLista();
   }
 
-  triggered(accion:boolean){
-    this.editionReady = accion;
-  }
   crearCategoria() {
     if (this.registrationForm.valid) {
       console.log("algo");

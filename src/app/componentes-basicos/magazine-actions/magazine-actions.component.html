@@ -1,0 +1,35 @@
+<div>
+    <div *ngIf="editionReady">
+        <label class="d-flex justify-content-center h3">Panel de edición</label>
+        <form [formGroup]="registrationForm" (ngSubmit)="editarRevista()">
+
+            <div class="form-outline mb-4">
+                <input type="text" id="nombre" class="form-control form-control-lg" value="{{revista.nombre}}" placeholder="Nuevo nombre" required formControlName="nombre" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="descripcion" class="form-control form-control-lg" value="{{revista.descripcion}}" placeholder="Nueva descripcion" required formControlName="descripcion" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="number" min="0" id="precio" class="form-control form-control-lg" value="{{revista.precio}}" placeholder="Nuevo precio" required formControlName="precio" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success">Finalizar edición</button>
+            </div>
+            <div style="height: 4vh;">
+
+            </div>
+        </form>
+    </div>
+    <div class="d-flex justify-content-center">
+        <span title="Detalles"> <button type="button" class="btn btn-dark bi bi-info-square-fill" (click)="mostrarDetalles()"></button></span>
+        <span title="Nuevo numero"><button type="button" class="btn btn-info bi bi-plus-circle-fill" (click)="nuevoNumero()">Nuevo
+                numero</button>
+            </span>
+        <span title="Editar revista">
+            <button type="button" class="btn btn-warning bi-pen-fill" (click)="habilitarEdicion()"></button>
+        </span>
+        <span title="ELIMINAR REVISTA">
+            <button type="button" class="btn btn-danger bi bi-trash-fill" (click)="eliminarRevista()"></button>
+        </span>
+    </div>
+</div>

@@ -15,5 +15,14 @@ export class NewMagazineService {
   public crearRevista(revista: Revista): Observable<Revista> {
     return this.httpClient.post<Revista>(this.API_URL + "New", revista) ;
   }
+  public editarRevista(revista: Revista, original:Revista): Observable<Revista> {
+    revista.codigo = original.codigo;
+    revista.fecha = original.fecha;
+    revista.autor = original.autor;
+    return this.httpClient.post<Revista>(this.API_URL + "EditarRevista", revista) ;
+  }
+  public eliminarRevista(revista: Revista): Observable<Revista> {
+    return this.httpClient.post<Revista>(this.API_URL + "EliminarRevista", revista) ;
+  }
 
 }

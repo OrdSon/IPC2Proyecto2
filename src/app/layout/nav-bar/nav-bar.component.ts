@@ -23,13 +23,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  prueba(){
-    this.buscarRevistasService.crearUsuario().subscribe((creado:BuscarRevista) =>{
-      if(creado != null){
-        console.log(creado);
-      }
-    })
-  }
+
   setNavEleccion(eleccion:number){
     this.navService.setEleccion(eleccion);
   }

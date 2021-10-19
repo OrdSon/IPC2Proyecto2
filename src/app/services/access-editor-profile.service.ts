@@ -1,3 +1,4 @@
+import { Revista } from './../objetos/Revista';
 import { Usuario } from './../objetos/Usuario';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +7,6 @@ import { Injectable } from '@angular/core';
 })
 export class AccessEditorProfileService {
   _usuario!:Usuario;
-  _revistaActiva!:number;
   validator:boolean = false;
   constructor() { }
   validar(){
@@ -24,6 +24,7 @@ export class AccessEditorProfileService {
   set usuario(usuario:Usuario){
     this._usuario = usuario;
   }
+
 
   
 }

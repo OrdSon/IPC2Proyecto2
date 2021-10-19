@@ -1,3 +1,4 @@
+import { RevistaActivaService } from './../../services/revista-activa.service';
 import { AccessEditorProfileService } from 'src/app/services/access-editor-profile.service';
 import { Router} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,8 @@ export class NewMagazineFormComponent implements OnInit {
   messageFlag: boolean = false;
   registrationForm!: FormGroup;
 
-  constructor(router:Router, private formBuilder:FormBuilder, public newMagazineService: NewMagazineService, public accessEditorProfileService: AccessEditorProfileService) {
+  constructor(router:Router, private formBuilder:FormBuilder, public newMagazineService: NewMagazineService,
+    public accessEditorProfileService: AccessEditorProfileService) {
     this._router = router;
    }
 
@@ -51,7 +53,7 @@ export class NewMagazineFormComponent implements OnInit {
         console.log("created");
         console.log(created);
         if(created!=null){
-          this._router.navigate(["new/title"]);
+          this._router.navigate(["profile/editor/view"]);
         }else{
           
           Swal.fire({

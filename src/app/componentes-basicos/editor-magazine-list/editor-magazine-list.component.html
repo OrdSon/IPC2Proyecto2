@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let revista of listaRevistasEditor">
+                <td>{{revista.codigo}}</td>
+                <td>{{revista.nombre}}</td>
+                <td>
+                    <app-magazine-actions [revista]="revista" (obtenerLista)="obtenerLista()"></app-magazine-actions>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

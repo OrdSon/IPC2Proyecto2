@@ -1,3 +1,4 @@
+import { RevistaActivaService } from './../../services/revista-activa.service';
 import { UploadPdfService } from './../../services/upload-pdf.service';
 import { Router} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class NewTitleFormComponent implements OnInit {
   archivoSeleccionado!:File | null;
   registrationForm!: FormGroup;
 
-  constructor(router:Router, private formBuilder:FormBuilder, public uploadPdfService: UploadPdfService) {
+  constructor(router:Router, private formBuilder:FormBuilder, public uploadPdfService: UploadPdfService, private revistaActivaService:RevistaActivaService) {
     this._router = router;
    }
 

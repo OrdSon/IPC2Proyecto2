@@ -1,3 +1,5 @@
+import { Revista } from './../objetos/Revista';
+import { Usuario } from './../objetos/Usuario';
 import { BuscarRevista } from './../objetos/BuscarRevista';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +13,13 @@ export class BuscarRevistasService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public crearUsuario(): Observable<BuscarRevista> {
+  public buscarPorNombre(): Observable<BuscarRevista> {
     return this.httpClient.post<BuscarRevista>(this.API_URL + "BuscarRevistas", new BuscarRevista("prueba de sonido")) ;
+  }
+
+  public buscarPorAutor(usuario:Usuario):Observable<Revista[]>{
+    console.log(usuario.codigo);
+    return this.httpClient.post<Revista[]>(this.API_URL + "BuscarRevistasEditor",usuario);
+ 
   }
 }
