@@ -21,6 +21,7 @@ import { NewMagazineFormComponent } from './componentes-basicos/new-magazine-for
 import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
 import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
+import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-view
     NewMagazineFormComponent,
     NewTitleFormComponent,
     NotFoundComponent,
-    AdminProfileViewerComponent
+    AdminProfileViewerComponent,
+    CategoryAdministrationFormComponent
   ],
   imports: [
     BrowserModule,

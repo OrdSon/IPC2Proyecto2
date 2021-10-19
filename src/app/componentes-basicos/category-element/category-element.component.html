@@ -1,1 +1,13 @@
-<p>category-element works!</p>
+<div *ngIf="editionReady">
+    <form [formGroup]="registrationForm" (ngSubmit)="editarCategoria()">
+
+        <div class="form-outline mb-4">
+            <input type="text" id="nombre" class="form-control form-control-lg" placeholder="Nuevo nombre" required formControlName="nombre" />
+        </div>
+        <button type="submit" class="btn btn-info">Finalizar edición</button>
+    </form>
+</div>
+<span class="d-flex justify-content-center">
+    <button type="button" class="btn btn-warning" (click)="habilitarEdicion()">Editar</button>
+    <button type="button" class="btn btn-danger" (click)="eliminarCategoria()">Eliminar</button>
+</span>

@@ -1,0 +1,36 @@
+<div>
+    <div class="card row d-flex justify-content-center align-items-center h-100 ">
+        <div class="card-body col col-lg-9 col-xl-7 ">
+            <form [formGroup]="registrationForm" (ngSubmit)="crearCategoria()">
+                <div class="form-group">
+                    <label>Crear nueva categoría</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la nueva categoría" formControlName="nombre">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                </div>
+            </form>
+
+            <div>
+                <label>Categorias existentes:</label>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let categoria of listaCategorias">
+                            <td>{{categoria.codigo}}</td>
+                            <td>{{categoria.nombre}}</td>
+                            <td>
+                                <app-category-element [categoria]="categoria" (obtenerLista)="obtenerLista()"></app-category-element>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

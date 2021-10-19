@@ -1,3 +1,4 @@
+import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
 import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
 import { NewTitleFormComponent } from './componentes-basicos/new-title-form/new-title-form.component';
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'profile/view',
     component:ProfileViewerComponent
+  },
+  {
+    path: 'manejar/categorias',
+    component: CategoryAdministrationFormComponent
   },
   {
     path: 'login',
