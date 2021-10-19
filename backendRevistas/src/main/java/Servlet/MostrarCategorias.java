@@ -26,7 +26,6 @@ public class MostrarCategorias extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String body = new ToBody().convert(request);
         List<Categoria> todas = categoriaDAO.listar();
         Gson s = new Gson();
         response.getWriter().append(s.toJson(todas));

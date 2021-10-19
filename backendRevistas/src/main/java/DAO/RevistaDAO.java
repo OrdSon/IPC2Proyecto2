@@ -26,8 +26,10 @@ public class RevistaDAO extends DAO {
     String SELECCIONAR_REVISTAS = "SELECT * FROM revista";
     String SELECCIONAR_UN_REVISTA = "SELECT * FROM revista WHERE codigo LIKE ?";
     String SELECCIONAR_REVISTA_NOMBRE = "SELECT * FROM revista WHERE nombre  LIKE ?";
-    String ELIMINAR_REVISTA = "DELETE * FROM revista WHERE codigo = ?";
+    String ELIMINAR_REVISTA = "DELETE FROM revista WHERE codigo = ?";
     String SELECCIONAR_ULTIMO = "SELECT codigo FROM revista ORDER BY codigo DESC LIMIT 1;";
+    String SELECCIONAR_POR_AUTOR = "SELECT * FROM revista WHERE autor = ? ORDER BY codigo DESC";
+    String UPDATE_REVISTA = "UPDATE revista SET nombre = ?, descripcion = ?, precio = ? WHERE codigo = ?";
 
     @Override
     public List<Revista> listar() {
@@ -107,28 +109,49 @@ public class RevistaDAO extends DAO {
         return null;
     }
 
+    public List<Revista> listarPorAutor(Revista revista) {
+
+        ArrayList<Revista> revistas = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_POR_AUTOR);
+            preparedStatement.setInt(1, revista.getCodigo());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                Revista temporal = getRevista(resultSet);
+                revistas.add(temporal);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return revistas;
+    }
+
     /*
     EDITAR
     Recibe una revista y la usa para editar un registro ya existente
      */
-//    public boolean editar(Revista revista) {
-//
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CAJA);
-//
-//            preparedStatement.setDouble(1, revista.getCapital());
-//            preparedStatement.setInt(2, revista.getCodigo());
-//
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException ex) {
-//
-//            System.out.println(ex);
-//            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//
-//        return true;
-//    }
+    public boolean editar(Revista revista) {
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_REVISTA);
+
+            preparedStatement.setString(1, revista.getNombre());
+            preparedStatement.setString(2, revista.getDescripcion());
+            preparedStatement.setDouble(3, revista.getPrecio());
+            preparedStatement.setInt(4, revista.getCodigo());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+        return true;
+    }
 
     /*
     AÑADIR

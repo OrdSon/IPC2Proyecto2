@@ -60,6 +60,18 @@
         <servlet-name>EliminarCategoria</servlet-name>
         <servlet-class>Servlet.EliminarCategoria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarRevista</servlet-name>
+        <servlet-class>Servlet.EditarRevista</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscarRevistasEditor</servlet-name>
+        <servlet-class>Servlet.BuscarRevistasEditor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarRevista</servlet-name>
+        <servlet-class>Servlet.EliminarRevista</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -119,6 +131,18 @@
     <servlet-mapping>
         <servlet-name>EliminarCategoria</servlet-name>
         <url-pattern>/EliminarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarRevista</servlet-name>
+        <url-pattern>/EditarRevista</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarRevistasEditor</servlet-name>
+        <url-pattern>/BuscarRevistasEditor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarRevista</servlet-name>
+        <url-pattern>/EliminarRevista</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

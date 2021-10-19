@@ -25,6 +25,7 @@ Mirrors/NuevaSuscripcion.class
 Servlet/MostrarCategorias.class
 DAO/SettingDAO.class
 Utilidades/ImgCatcher.class
+Servlet/EliminarRevista.class
 Modelo/Caja.class
 DAO/PagoDAO.class
 Converter/RevistaConverter.class
@@ -54,6 +55,7 @@ Servlet/AdminServlet.class
 Converter/ProfileConverter.class
 Modelo/Pago.class
 Servlet/NuevaSuscripcionServlet.class
+Servlet/BuscarRevistasEditor.class
 Modelo/Revista.class
 DAO/UsuarioDAO.class
 DAO/ProfileDAO.class
@@ -64,6 +66,7 @@ DAO/NumeroDAO.class
 Modelo/Numero.class
 Converter/CategoriaConverter.class
 Modelo/Setting.class
+Servlet/EditarRevista.class
 Converter/LoginCheckConverter.class
 Modelo/Publico.class
 Converter/SuscripcionConverter.class
