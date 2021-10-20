@@ -1,6 +1,6 @@
 import { Revista } from './Revista';
 export class Numero {
-
+    _codigo!:number;
     _nombre:String;
     _descripcion!:String;
     _fechaPublicacion!:String;
@@ -48,5 +48,13 @@ export class Numero {
 
     set revistaCodigo(revistaCodigo:number){
         this._revistaCodigo = revistaCodigo;
+    }
+
+    get codigo(){
+        return this._codigo;
+    }
+
+    set codigo(codigo:number){
+        this._codigo = codigo;
     }
 }

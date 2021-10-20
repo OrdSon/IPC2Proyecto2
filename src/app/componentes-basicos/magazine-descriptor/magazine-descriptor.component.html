@@ -1,0 +1,16 @@
+<div class="card text-center">
+    <div class="card-header">
+        Detalles de la revista
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{revista.nombre}}</h5>
+        <h3 class="card-title"> Precio de suscripcion: Q.{{revista.precio}}</h3>
+        <h3 class="card-title"> Fecha de publicación: Q.{{revista.fecha}}</h3>
+        <h3 class="card-title"> Descripcion:</h3>
+        <p class="card-text">{{revista.descripcion}}</p>
+        <a (click)="cambiarPagina()" class="btn btn-primary">Regresar</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>

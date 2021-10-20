@@ -6,6 +6,7 @@ import { Revista } from '../objetos/Revista';
 })
 export class RevistaActivaService {
   _revistaActiva!:Revista;
+  _verRevistas:boolean = false;
 
   constructor() { }
 
@@ -16,4 +17,13 @@ export class RevistaActivaService {
   set revistaActiva(revistaActiva:Revista){
     this._revistaActiva = revistaActiva;
   }
+
+  get verRevistas(){
+    return this._verRevistas;
+  }
+  set verRevistas(verRevistas:boolean){
+    this._verRevistas = verRevistas;
+  }
+
+  
 }

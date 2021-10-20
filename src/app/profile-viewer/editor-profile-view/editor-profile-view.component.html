@@ -40,6 +40,10 @@
                             <div class="p-4" style="background-color: #f8f9fa;">
                                 <app-editor-magazine-list></app-editor-magazine-list>
                             </div>
+                            <div *ngIf="validar()">
+                                <app-magazine-descriptor></app-magazine-descriptor>
+                                <app-number-magazine-list></app-number-magazine-list>
+                            </div>
                         </div>
                     </div>
                 </div>

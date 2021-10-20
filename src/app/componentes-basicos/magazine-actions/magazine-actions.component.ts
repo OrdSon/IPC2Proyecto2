@@ -24,13 +24,7 @@ export class MagazineActionsComponent implements OnInit {
   ngOnInit(): void {
   }
   mostrarDetalles(){
-    Swal.fire({
-      title:'Detalles',
-      html:'<p class="h2">'+this.revista.nombre+'</p> <br>'+
-      '<p class="h3"> Descripcion: '+this.revista.descripcion+'</p> <br>'+
-      '<p class="h3"> Fecha de publicación:'+this.revista.fecha+'</p> <br>'+
-      '<p class="h3"> Precio de suscripción: Q.'+this.revista.precio+'</p> <br>'
-    });
+    this.revistaActivaService.verRevistas = true;
   }
   habilitarEdicion(){
     this.registrationForm = this.formBuilder.group({

@@ -26,6 +26,8 @@ import { MagazineActionsComponent } from './componentes-basicos/magazine-actions
 import { EditorMagazineListComponent } from './componentes-basicos/editor-magazine-list/editor-magazine-list.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { NumberMagazineListComponent } from './componentes-basicos/number-magazine-list/number-magazine-list.component';
+import { MagazineDescriptorComponent } from './componentes-basicos/magazine-descriptor/magazine-descriptor.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     AdminProfileViewerComponent,
     CategoryAdministrationFormComponent,
     MagazineActionsComponent,
-    EditorMagazineListComponent
+    EditorMagazineListComponent,
+    NumberMagazineListComponent,
+    MagazineDescriptorComponent
   ],
   imports: [
     BrowserModule,

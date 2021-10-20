@@ -1,7 +1,7 @@
 import { RevistaActivaService } from './../../services/revista-activa.service';
 import { AccessEditorProfileService } from 'src/app/services/access-editor-profile.service';
 import { Router} from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { NewMagazineService } from 'src/app/services/new-magazine.service';
@@ -15,7 +15,7 @@ import { Revista } from 'src/app/objetos/Revista';
 })
 export class NewMagazineFormComponent implements OnInit {
 
-
+  @Output() cambio = new EventEmitter<number>();
   _router: Router;
   messageFlag: boolean = false;
   registrationForm!: FormGroup;
@@ -35,6 +35,9 @@ export class NewMagazineFormComponent implements OnInit {
     });
   }
 
+  cambiarPagina(){
+
+  }
   
   crearRevista(){
     if (this.registrationForm.valid) {

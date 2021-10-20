@@ -12,8 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class EditorMagazineListComponent implements OnInit {
 
   listaRevistasEditor:Revista[] = [];
-  constructor(private editorProfileService:AccessEditorProfileService,
-    private magazineService:NewMagazineService, private buscarService:BuscarRevistasService) {
+  constructor(private editorProfileService:AccessEditorProfileService,  private buscarService:BuscarRevistasService) {
       this.obtenerLista();
    }
   
