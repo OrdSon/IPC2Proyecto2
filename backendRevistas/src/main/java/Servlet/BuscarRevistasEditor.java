@@ -10,7 +10,6 @@ import Modelo.Revista;
 import Utilidades.ToBody;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

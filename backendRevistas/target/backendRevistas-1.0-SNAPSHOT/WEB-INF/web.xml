@@ -76,6 +76,10 @@
         <servlet-name>NuevoNumero</servlet-name>
         <servlet-class>Servlet.NuevoNumero</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscarNumerosPorRevista</servlet-name>
+        <servlet-class>Servlet.BuscarNumerosPorRevista</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>NuevoNumero</servlet-name>
         <url-pattern>/NuevoNumero</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarNumerosPorRevista</servlet-name>
+        <url-pattern>/BuscarNumerosPorRevista</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
