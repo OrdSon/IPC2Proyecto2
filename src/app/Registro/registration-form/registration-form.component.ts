@@ -48,10 +48,11 @@ export class RegistrationFormComponent implements OnInit {
           "nombre_usuario": null,
           "password": null
         });
-        console.log("created");
+        console.log("created user");
         console.log(created);
         if(created!=null){
           this.accessProfile.usuario=created;
+          this.accessProfile.validar();
           this._router.navigate(['new/member/profile']);
         }else{
           
@@ -73,6 +74,18 @@ export class RegistrationFormComponent implements OnInit {
     }else{
       console.log("no estuvo bien")
     }
+  }
+
+
+  mensajeDeExito() {
+
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡Registro exitoso!',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }

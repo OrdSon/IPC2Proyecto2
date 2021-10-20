@@ -12,7 +12,7 @@ export class AccessUserProfileService {
   constructor() { }
 
   validar(){
-    if(this.usuario != null && this.profile != null){
+    if(this.usuario != null){
       this.validator = true;
     }
   }

@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   _router: Router;
   messageFlag: boolean = false;
   registrationForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private profileService: ProfileService, private accessProfile: AccessUserProfileService, private accessEditorProfile: AccessEditorProfileService, private accessAdminProfileService: AccessAdminProfileService,private router: Router) {
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private profileService: ProfileService, private accessProfile: AccessUserProfileService, private accessEditorProfile: AccessEditorProfileService, private accessAdminProfileService: AccessAdminProfileService, private router: Router) {
     this._usuario = new Usuario(0, "", "", "", 1, "");
     this._router = router;
   }
@@ -55,7 +55,7 @@ export class LoginFormComponent implements OnInit {
                   console.log('pasamos por aqui');
                   this.accessProfile.profile = perfil;
                   this.accessProfile.validar();
-                  this.messageFlag = this.accessAdminProfileService.validator;
+                  this.messageFlag = this.accessProfile.validator;
                 } else {
                   console.log("nop es nulo");
                 }
@@ -65,7 +65,7 @@ export class LoginFormComponent implements OnInit {
             } else if (created.tipo == 2) {
               this.accessEditorProfile.usuario = created;
               this.accessEditorProfile.validar();
-              this.messageFlag = this.accessAdminProfileService.validator;
+              this.messageFlag = this.accessEditorProfile.validator;
 
             } else if (created.tipo == 3) {
               this.accessAdminProfileService.usuario = created;
@@ -73,11 +73,7 @@ export class LoginFormComponent implements OnInit {
               this.messageFlag = this.accessAdminProfileService.validator;
             }
             if (this.messageFlag == true) {
-              this.messageFlag = false;
-              Swal.fire({
-                icon: 'success',
-                title: '¡Login exitoso!'
-              });
+              this.mensajeDeExito();
               this._router.navigate(['']);
             }
           } else {
@@ -102,4 +98,14 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  mensajeDeExito() {
+
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: '¡Login exitoso!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
 }

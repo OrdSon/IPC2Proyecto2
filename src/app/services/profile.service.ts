@@ -1,4 +1,4 @@
-import { Usuario } from 'src/app/objetos/Usuario';
+import { Usuario } from './../objetos/Usuario';
 import { Profile } from './../objetos/Profile';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
@@ -12,9 +12,11 @@ export class ProfileService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public createProfile(profile: Profile, img:Blob): Observable<Profile> {
+  public createProfile(profile: Profile, img:String, usuario:Usuario): Observable<Profile> {
     profile.img = img;
+    profile.usuarioCodigo = usuario.codigo;
     console.log("El archivo seleccionado es: " +img);
+    console.log("El usuario activo es:"+profile.usuarioCodigo);
     return this.httpClient.post<Profile>(this.API_URL + "ProfileServlet", profile) ;
   }
 

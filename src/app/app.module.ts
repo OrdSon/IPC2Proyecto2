@@ -24,6 +24,8 @@ import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-view
 import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
 import { MagazineActionsComponent } from './componentes-basicos/magazine-actions/magazine-actions.component';
 import { EditorMagazineListComponent } from './componentes-basicos/editor-magazine-list/editor-magazine-list.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,9 @@ import { EditorMagazineListComponent } from './componentes-basicos/editor-magazi
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    PdfViewerModule,
+    NgxExtendedPdfViewerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

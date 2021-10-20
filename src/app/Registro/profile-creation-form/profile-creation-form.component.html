@@ -9,8 +9,28 @@
                             <h2 class="text-uppercase text-center mb-5">Crea un perfil</h2>
 
                             <div class="form-outline mb-4">
-                                <label class="h4">Sube una foto</label>
-                                <input type="file" (change)="onFileChanged($event)">
+                                <div class="form-group">
+                                    <fieldset class="form-group">
+
+                                        <label class="h3">Sube una foto</label> {{imageError}}
+                                        <div class="custom-file fileInputProfileWrap puntero">
+                                            <input type="file" (change)="onFileChanged($event)" class="bi bi-upload">
+                                            <div class="img-space" title="SUBE UNA FOTO">
+
+                                                <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                                    <img [src]="cardImageBase64" />
+                                                </ng-container>
+                                                <ng-template #elseTemplate>
+                                                    <img src="spider-man-portada.jpg" class="img-responsive">
+                                                </ng-template>
+
+                                            </div>
+
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Quitar</a>
+
                             </div>
                             <form [formGroup]="registrationForm" (ngSubmit)="crearPerfil()">
 

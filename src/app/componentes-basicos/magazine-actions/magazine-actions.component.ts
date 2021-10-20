@@ -1,3 +1,4 @@
+import { RevistaActivaService } from './../../services/revista-activa.service';
 import { Router } from '@angular/router';
 import { AccessEditorProfileService } from 'src/app/services/access-editor-profile.service';
 import { NewMagazineService } from './../../services/new-magazine.service';
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 export class MagazineActionsComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder,private magazineService:NewMagazineService, 
-    public accessEditorProfileService:AccessEditorProfileService,private Router: Router) { }
+    public accessEditorProfileService:AccessEditorProfileService,private Router: Router, private revistaActivaService:RevistaActivaService) { }
   @Input() revista!: Revista;
   @Output("obtenerLista") obtenerLista: EventEmitter<any> = new EventEmitter();
   editionReady:boolean = false;
@@ -40,6 +41,7 @@ export class MagazineActionsComponent implements OnInit {
     this.editionReady = !this.editionReady;
   }
   nuevoNumero(){
+    this.setRevistaActiva();
     this.Router.navigate(["new/title"]);
   }
   editarRevista(){
@@ -86,6 +88,10 @@ export class MagazineActionsComponent implements OnInit {
     });
     
     this.editionReady = false;
+  }
+
+  setRevistaActiva(){
+    this.revistaActivaService.revistaActiva=this.revista;
   }
 
 }

@@ -24,7 +24,12 @@
                         "tsConfig": "tsconfig.app.json",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                                "output": "/assets/"
+                            }
                         ],
                         "styles": [
                             "src/styles.css",
@@ -32,7 +37,9 @@
                             "node_modules/bootstrap-icons/font/bootstrap-icons.css"
                         ],
                         "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            "node_modules/ngx-extended-pdf-viewer/assets/pdf-2.10.562.min.js",
+                            "node_modules/ngx-extended-pdf-viewer/assets/viewer-2.10.562.min.js"
                         ]
                     },
                     "configurations": {

@@ -26,11 +26,11 @@ export class Usuario {
     }
 
     get nombre() {
-        return this._codigo;
+        return this._nombre;
     }
 
-    set nombre(codigo: number) {
-        this._codigo = codigo;
+    set nombre(nombre: String) {
+        this._nombre= nombre;
     }
 
     get email(){

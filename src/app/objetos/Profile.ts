@@ -4,7 +4,8 @@ export class Profile {
     _codigo: number;
     _descripcion: String;
     _hobbies: String;
-    _img!:Blob;
+    _img!:String;
+    _usuarioCodigo!:number;
 
 
 
@@ -42,7 +43,15 @@ export class Profile {
         return this._img;
     }
 
-    set img(img:Blob){
+    set img(img:String){
         this._img = img;
+    }
+
+    get usuarioCodigo(){
+        return this._usuarioCodigo;
+    }
+
+    set usuarioCodigo(usuarioCodigo: number){
+        this._usuarioCodigo = usuarioCodigo;
     }
 }

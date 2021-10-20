@@ -4,12 +4,15 @@
             <div class="col col-lg-9 col-xl-7">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
-                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                            <img src="https://www.masgamers.com/wp-content/uploads/2021/04/master-chief-03.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                        <div *ngIf="accessProfile.profile != null">
+                            <div class="ms-4 mt-5 d-flex flex-column" style="width: 20vx; height: 20vh;">
+                                <img src={{accessProfile.profile.img}} alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="height: 20vh;width: 20vx; z-index: 1">
+                            </div>
                         </div>
+
                         <div class="ms-3" style="margin-top: 130px;">
-                            <h5>{{accessProfile.usuario.nombre}}</h5>
-                            <p>{{accessProfile.usuario.email}}</p>
+                            <h5>{{nombre}}</h5>
+                            <p>{{email}}</p>
                             <p>Miembro activo</p>
                         </div>
                     </div>
@@ -25,8 +28,11 @@
                                 <p class="small text-muted mb-0">Reseñas</p>
                             </div>
                             <div style="width: 10px;"></div>
+
+                            <label class="h4">{{mensaje()}}</label>
+
                             <div>
-                                <button type="button" class="btn btn-outline-dark bi bi-pencil-fill"></button>
+                                <button type="button" class="btn btn-outline-dark bi bi-pencil-fill" (click)="crearPerfil()"></button>
                             </div>
                         </div>
                     </div>
@@ -46,7 +52,6 @@
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <p class="lead fw-normal mb-0">Suscripciones</p>
                         </div>
-
                     </div>
                 </div>
             </div>

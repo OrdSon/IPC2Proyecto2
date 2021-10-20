@@ -1,3 +1,4 @@
+import { Usuario } from './../../objetos/Usuario';
 import { AccessUserProfileService } from './../../services/access-user-profile.service';
 import { ProfileService } from './../../services/profile.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -13,15 +14,20 @@ import Swal from 'sweetalert2';
 })
 export class ProfileCreationFormComponent implements OnInit {
 
-  
+
   _selectedFile!: File;
   _profile: Profile;
   _router: Router;
-  file!: File | null;
+  _usuario: Usuario;
+  imageError!: string;
+  isImageSaved!: boolean;
+  cardImageBase64!: string;
+
   registrationForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private accessProfile: AccessUserProfileService,private router: Router) {
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private router: Router, private accessProfile: AccessUserProfileService) {
     this._profile = new Profile(0, "", "");
     this._router = router;
+    this._usuario = accessProfile.usuario;
   }
 
   ngOnInit(): void {
@@ -31,32 +37,62 @@ export class ProfileCreationFormComponent implements OnInit {
     });
   }
 
-  onFileChanged(event:any) {
-    this._selectedFile = event.target.files[0]
-  }
+  onFileChanged(fileInput: any) {
+    this.imageError = "";
+    if (fileInput.target.files && fileInput.target.files[0]) {
+        // Size Filter Bytes
+        const max_size = 20971520;
+        if (fileInput.target.files[0].size > max_size) {
+            this.imageError =
+                'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+            return false;
+        }
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            const image = new Image();
+            image.src = e.target.result;
+            image.onload = rs => {
+                
+                    const imgBase64Path = e.target.result;
+                    this.cardImageBase64 = imgBase64Path;
+                    this.isImageSaved = true;
+                    // this.previewImagePath = imgBase64Path;
+                
+            };
+        };
+
+        reader.readAsDataURL(fileInput.target.files[0]);
+    }
+    return true;
+}
+
+removeImage() {
+  this.cardImageBase64 = "";
+  this.isImageSaved = false;
+}
 
 
   public crearPerfil() {
-    
+
     if (this.registrationForm.valid) {
       console.log("algo mas");
       console.log(this.registrationForm.value);
       console.log("Enviar las cosas al backend");
-      this.profileService.createProfile(this.registrationForm.value, this._selectedFile)
+      this.profileService.createProfile(this.registrationForm.value, this.cardImageBase64, this.accessProfile.usuario)
         .subscribe((created: Profile) => {
           this.registrationForm.reset({
             "descripcion": null,
             "hobbies": null
           });
-          
+
           console.log("created");
           console.log(created);
           if (created != null) {
-            this.accessProfile.profile=created;
-            this.accessProfile.validar();
+            this.accessProfile.profile = created;
             Swal.fire({
-              icon:'success',
-              title: '¡Registro exitosos!'
+              icon: 'success',
+              title: '¡Perfil creado!'
             });
             this._router.navigate(['new/member/profile']);
           } else {
@@ -73,7 +109,7 @@ export class ProfileCreationFormComponent implements OnInit {
             icon: 'error',
             title: 'Oops...',
             text: 'Algo salio mal >_<',
-            footer:error
+            footer: error
           })
         });
     } else {

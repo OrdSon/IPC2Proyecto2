@@ -1,11 +1,16 @@
+import { Revista } from './Revista';
 export class Numero {
 
-    _nombre: String;
-    _fecha = new Date().toLocaleDateString();
-    _numero = 1;
+    _nombre:String;
+    _descripcion!:String;
+    _fechaPublicacion!:String;
+    _numero!:number;
+    _revistaCodigo!:number;
 
-    constructor(nombre: String, numero: number) {
-        this._nombre = nombre
+    constructor(nombre: String, descripcion:String, fechaPublicacion:String) {
+        this._nombre = nombre;
+        this._descripcion = descripcion;
+        this._fechaPublicacion = fechaPublicacion;
     }
 
 
@@ -21,4 +26,27 @@ export class Numero {
         return this._nombre;
     }
 
+    get descripcion(){
+        return this._descripcion;
+    }
+
+    set descripcion(descripcion:String){
+        this._descripcion = descripcion;
+    }
+
+    get fechaPublicacion(){
+        return this._fechaPublicacion;
+    }
+
+    set fechaPublicacion(fechaPublicacion:String){
+        this._fechaPublicacion = fechaPublicacion;
+    }
+
+    get revistaCodigo(){
+        return this._revistaCodigo;
+    }
+
+    set revistaCodigo(revistaCodigo:number){
+        this._revistaCodigo = revistaCodigo;
+    }
 }

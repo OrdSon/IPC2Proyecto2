@@ -14,6 +14,6 @@ export class RevistaActivaService {
   }
 
   set revistaActiva(revistaActiva:Revista){
-    this.revistaActiva = revistaActiva;
+    this._revistaActiva = revistaActiva;
   }
 }
