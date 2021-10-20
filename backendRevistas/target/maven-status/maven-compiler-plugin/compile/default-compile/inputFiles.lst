@@ -23,6 +23,7 @@
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/EditarCategoria.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/UsuarioConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/CajaDAO.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/BuscarNumerosPorRevista.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Mirrors/NuevaSuscripcion.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Utilidades/ToBody.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/PublicoDAO.java

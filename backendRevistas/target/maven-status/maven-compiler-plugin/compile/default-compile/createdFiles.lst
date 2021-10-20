@@ -16,6 +16,7 @@ DAO/PublicoDAO.class
 DAO/RevistaDAO.class
 DAO/DAO.class
 DAO/SuscripcionDAO.class
+Servlet/BuscarNumerosPorRevista.class
 DAO/AnuncioDAO.class
 Servlet/LoginServlet.class
 Modelo/Categoria.class
