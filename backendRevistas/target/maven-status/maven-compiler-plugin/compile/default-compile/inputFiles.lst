@@ -64,8 +64,10 @@
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Review.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/LoginCheckConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Tag.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Converter/NumeroConverter.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Profile.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Pago.java
+/home/ordson/NetBeansProjects/backendRevistas/src/main/java/Servlet/NuevoNumero.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Relacion.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/Modelo/Cuota.java
 /home/ordson/NetBeansProjects/backendRevistas/src/main/java/DAO/AnuncianteDAO.java

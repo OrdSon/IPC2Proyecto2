@@ -32,7 +32,6 @@ public class profilePicture extends HttpServlet {
         InputStream fileStream = filePart.getInputStream();
         System.out.println(fileName);
         System.out.println(filePart.getHeader("Content-disposition"));
-        profileDAO.añadirFoto(fileStream);
         
     }
 

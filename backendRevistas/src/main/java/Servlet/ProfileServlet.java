@@ -7,7 +7,7 @@ package Servlet;
 import Converter.ProfileConverter;
 import DAO.ProfileDAO;
 import Modelo.Profile;
-import java.io.BufferedReader;
+import Utilidades.ToBody;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,13 +30,7 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader reader = request.getReader();
-        String body = "";
-        String line = reader.readLine();
-        while (line != null) {
-            body = body + line;
-            line = reader.readLine();
-        }
+        String body = new ToBody().convert(request);
         System.out.println("body:");
         System.out.println(body);
         ProfileConverter converter = new ProfileConverter(Profile.class);
@@ -45,8 +39,9 @@ public class ProfileServlet extends HttpServlet {
 
         System.out.println("object");
         System.out.println(model.toString());
-        profileDAO.añadir(model);
-        response.getWriter().append(converter.toJson(model));
+        if (true) {
+            
+        }
     }
 
     @Override

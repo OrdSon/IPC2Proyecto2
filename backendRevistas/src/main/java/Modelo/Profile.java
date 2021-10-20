@@ -5,7 +5,6 @@
 package Modelo;
 
 
-import java.sql.Blob;
 
 /**
  *
@@ -13,12 +12,12 @@ import java.sql.Blob;
  */
 public class Profile {
     private int codigo;
-    private Blob img;
+    private String img; 
     private String descripcion;
     private String hobbies;
     private int usuarioCodigo;
 
-    public Profile(int codigo, Blob img, String descripcion, String hobbies, int usuarioCodigo) {
+    public Profile(int codigo, String img, String descripcion, String hobbies, int usuarioCodigo) {
         this.codigo = codigo;
         this.img = img;
         this.descripcion = descripcion;
@@ -26,7 +25,7 @@ public class Profile {
         this.usuarioCodigo = usuarioCodigo;
     }
 
-    public Profile(Blob img, String descripcion, String hobbies, int usuarioCodigo) {
+    public Profile(String img, String descripcion, String hobbies, int usuarioCodigo) {
         this.img = img;
         this.descripcion = descripcion;
         this.hobbies = hobbies;
@@ -57,11 +56,11 @@ public class Profile {
         this.codigo = codigo;
     }
 
-    public Blob getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(Blob img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

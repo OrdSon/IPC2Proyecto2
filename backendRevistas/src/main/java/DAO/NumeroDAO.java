@@ -5,12 +5,13 @@
 package DAO;
 
 import Modelo.Numero;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,16 +22,17 @@ import java.util.logging.Logger;
  */
 public class NumeroDAO extends DAO {
 
-    String INSERTAR_NUMERO = "INSERT INTO numero (nombre,descripcion,fecha_publicacion,numero,revista_codigo) VALUES (?,?,?,?,?,?)";
+    String INSERTAR_NUMERO = "INSERT INTO numero (nombre,descripcion,fecha_publicacion,numero,revista_codigo) VALUES (?,?,?,?,?)";
     String INSERTAR_ARCHIVO = "UPDATE numero SET archivo = ? WHERE codigo = ?";
     String SELECCIONAR_NUMEROS = "SELECT * FROM numero";
     String SELECCIONAR_NUMEROS_REVISTA = "SELECT * FROM numero WHERE revista_codigo = ?";
     String SELECCIONAR_NUMEROS_NOMBRE = "SELECT * FROM numero WHERE nombre = ?";
     String SELECCIONAR_UNA_NUMERO = "SELECT * FROM numero WHERE codigo = ?";
     String ELIMINAR_NUMERO = "DELETE * FROM numero WHERE codigo = ?";
-    String SELECCIONAR_ULTIMA = "SELECT codigo FROM anuncio ORDER BY codigo DESC LIMIT 1;";
-    
-   @Override
+    String SELECCIONAR_ULTIMA = "SELECT codigo FROM numero ORDER BY codigo DESC LIMIT 1;";
+    String ULTIMO_NUMERO_EN_REVISTA = "SELECT * FROM numero WHERE revista_codigo = ?";
+
+    @Override
     public ArrayList<Numero> listar() {
 
         ArrayList<Numero> usuarios = new ArrayList<>();
@@ -55,14 +57,36 @@ public class NumeroDAO extends DAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_ULTIMA);
             ResultSet resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
-                int codigo = resultSet.getInt("codigo");
-                return codigo;
+                int registro = resultSet.getInt("codigo");
+                return registro;
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -365;
+    }
+
+    public int ultimoPorRevista(int revistaCodigo) {
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(ULTIMO_NUMERO_EN_REVISTA);
+            preparedStatement.setInt(1, revistaCodigo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int registro = 0;
+            while (resultSet.next()) {
+                registro = resultSet.getInt("codigo");
+            }
+            return registro;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -365;
+    }
+
+    public int nuevoCodigo(int revistaCodigo) {
+        return (ultimoPorRevista(revistaCodigo) + 1);
     }
 
     /*
@@ -121,7 +145,21 @@ public class NumeroDAO extends DAO {
             preparedStatement.setString(2, numero.getDescripcion());
             preparedStatement.setDate(3, Date.valueOf(numero.getFechaPublicacion()));
             preparedStatement.setInt(4, numero.getNumero());
-            preparedStatement.setInt(6, numero.getRevistaCodigo());
+            preparedStatement.setInt(5, numero.getRevistaCodigo());
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean añadirArchivo(InputStream inputStream) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_ARCHIVO);
+            preparedStatement.setBlob(1, inputStream);
+            preparedStatement.setInt(2, ultimoCodigo());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -151,14 +189,20 @@ public class NumeroDAO extends DAO {
             int codigo = resultSet.getInt("codigo");
             String nombre = resultSet.getString("nombre");
             String descripcion = resultSet.getString("descripcion");
-            LocalDate fecha =resultSet.getDate("fecha_publicacion").toLocalDate();
-            int numero = resultSet.getInt("numeros");
+            Date fecha = resultSet.getDate("fecha_publicacion");
+            int numero = resultSet.getInt("numero");
             int likes = resultSet.getInt("likes");
             int revistaCodigo = resultSet.getInt("revista_codigo");
             Blob archivo = resultSet.getBlob("archivo");
-            return new Numero(codigo, nombre, descripcion, fecha, numero, likes, revistaCodigo, archivo);
+            if (archivo != null) {
+                InputStream inputStream = archivo.getBinaryStream();
+                byte[] file = inputStream.readAllBytes();
+                return new Numero(codigo, nombre, descripcion, fecha.toString(), numero, likes, revistaCodigo, file);
+            }return new Numero(codigo, nombre, descripcion, fecha.toString(), numero, likes, revistaCodigo);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(NumeroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

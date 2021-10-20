@@ -72,6 +72,10 @@
         <servlet-name>EliminarRevista</servlet-name>
         <servlet-class>Servlet.EliminarRevista</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevoNumero</servlet-name>
+        <servlet-class>Servlet.NuevoNumero</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>EliminarRevista</servlet-name>
         <url-pattern>/EliminarRevista</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevoNumero</servlet-name>
+        <url-pattern>/NuevoNumero</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

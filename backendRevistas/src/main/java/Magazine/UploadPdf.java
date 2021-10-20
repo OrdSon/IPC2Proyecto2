@@ -4,16 +4,14 @@
  */
 package Magazine;
 
-import java.io.BufferedReader;
+import DAO.NumeroDAO;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static javax.servlet.http.MappingMatch.PATH;
 import javax.servlet.http.Part;
 
 /**
@@ -22,7 +20,7 @@ import javax.servlet.http.Part;
  */
 @MultipartConfig
 public class UploadPdf extends HttpServlet {
-
+    NumeroDAO numeroDAO = new NumeroDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,11 +29,17 @@ public class UploadPdf extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Part filePart = request.getPart("datafile");
+        Part filePart = request.getPart("datafile");
         String fileName = filePart.getHeader("Content-type");
         InputStream fileStream = filePart.getInputStream();
         System.out.println(fileName);
+        System.out.println(fileName);
         System.out.println(filePart.getHeader("Content-disposition"));
+        System.out.println(filePart.getHeader("Content-disposition"));
+        
+        byte[] bytes = fileStream.readAllBytes();
+        System.out.println("Tamaño del array: "+bytes.length);
+        numeroDAO.añadirArchivo(fileStream);
     }
 
     @Override

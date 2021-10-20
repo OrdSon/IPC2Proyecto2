@@ -45,6 +45,7 @@ Servlet/BuscarRevistas.class
 Utilidades/ToBody.class
 Modelo/Review.class
 Modelo/Anunciante.class
+Converter/NumeroConverter.class
 Modelo/Cuota.class
 Servlet/ProfileServlet.class
 Servlet/UsuarioServlet.class
@@ -69,4 +70,5 @@ Modelo/Setting.class
 Servlet/EditarRevista.class
 Converter/LoginCheckConverter.class
 Modelo/Publico.class
+Servlet/NuevoNumero.class
 Converter/SuscripcionConverter.class

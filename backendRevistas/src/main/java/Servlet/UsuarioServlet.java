@@ -40,7 +40,11 @@ public class UsuarioServlet extends HttpServlet {
 
         System.out.println(model.toString());
         usuarioDAO.añadir(model);
-        response.getWriter().append(converter.toJson(model));
+        if (model.getCodigo() !=0) {
+            response.getWriter().append(converter.toJson(usuarioDAO.listarCodigo(model.getCodigo())));
+        }else{
+            response.getWriter().append(converter.toJson(usuarioDAO.listarCodigo(usuarioDAO.ultimoCodigo())));
+        }
     }
 
     /**

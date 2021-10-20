@@ -4,8 +4,7 @@
  */
 package Modelo;
 
-import java.sql.Blob;
-import java.time.LocalDate;
+
 
 /**
  *
@@ -15,13 +14,13 @@ public class Numero {
     private int codigo;
     private String nombre;
     private String descripcion;
-    private LocalDate fechaPublicacion;
+    private String fechaPublicacion;
     private int numero;
     private int likes;
     private int revistaCodigo;
-    private Blob archivo;
+    private byte [] archivo;
 
-    public Numero(int codigo, String nombre, String descripcion, LocalDate fechaPublicacion, int numero, int likes, int revistaCodigo, Blob archivo) {
+    public Numero(int codigo, String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo, byte [] archivo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,7 +31,7 @@ public class Numero {
         this.archivo = archivo;
     }
 
-    public Numero(String nombre, String descripcion, LocalDate fechaPublicacion, int numero, int likes, int revistaCodigo, Blob archivo) {
+    public Numero(String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo, byte [] archivo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaPublicacion = fechaPublicacion;
@@ -42,7 +41,7 @@ public class Numero {
         this.archivo = archivo;
     }
 
-    public Numero(int codigo, String nombre, String descripcion, LocalDate fechaPublicacion, int numero, int likes, int revistaCodigo) {
+    public Numero(int codigo, String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -52,7 +51,7 @@ public class Numero {
         this.revistaCodigo = revistaCodigo;
     }
 
-    public Numero(String nombre, String descripcion, LocalDate fechaPublicacion, int numero, int likes, int revistaCodigo) {
+    public Numero(String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaPublicacion = fechaPublicacion;
@@ -61,7 +60,7 @@ public class Numero {
         this.revistaCodigo = revistaCodigo;
     }
 
-    public Numero(Blob archivo) {
+    public Numero(byte [] archivo) {
         this.archivo = archivo;
     }
 
@@ -92,11 +91,11 @@ public class Numero {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFechaPublicacion() {
+    public String getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(LocalDate fechaPublicacion) {
+    public void setFechaPublicacion(String fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
@@ -124,11 +123,11 @@ public class Numero {
         this.revistaCodigo = revistaCodigo;
     }
 
-    public Blob getArchivo() {
+    public byte [] getArchivo() {
         return archivo;
     }
 
-    public void setArchivo(Blob archivo) {
+    public void setArchivo(byte [] archivo) {
         this.archivo = archivo;
     }
 

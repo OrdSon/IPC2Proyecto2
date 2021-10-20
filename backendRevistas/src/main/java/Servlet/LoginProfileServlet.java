@@ -9,6 +9,7 @@ import Converter.UsuarioConverter;
 import DAO.ProfileDAO;
 import Modelo.Profile;
 import Modelo.Usuario;
+import Utilidades.ToBody;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,23 +35,17 @@ public class LoginProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        BufferedReader reader = request.getReader();
-        String body = "";
-        String line = reader.readLine();
-        while (line != null) {
-            body = body + line;
-            line = reader.readLine();
-        }
+        String body = new ToBody().convert(request);
         System.out.println("body:");
         System.out.println(body);
         UsuarioConverter converter = new UsuarioConverter(Usuario.class);
-        ProfileConverter profileConverter = new ProfileConverter (Profile.class);
+        ProfileConverter profileConverter = new ProfileConverter(Profile.class);
         Usuario model = converter.fromJson(body);
         int codigo = model.getCodigo();
         Profile profile = profileDAO.listarCodigo(codigo);
 
         System.out.println("perfil");
-        System.out.println(model.toString());
+        System.out.println(profile.toString());
         response.getWriter().append(profileConverter.toJson(profile));
     }
 

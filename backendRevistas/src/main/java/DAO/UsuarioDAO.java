@@ -61,6 +61,7 @@ public class UsuarioDAO extends DAO{
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int codigo = resultSet.getInt("codigo");
+                System.out.println("ULTIMO CODIGO ENCONTRADO:"+codigo);
                 return codigo;
             }
         } catch (SQLException ex) {
