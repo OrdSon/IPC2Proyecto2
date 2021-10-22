@@ -19,7 +19,7 @@ export class UserPreviewPageComponent implements OnInit {
   }
 
   leer(){
-    this.router.navigate(['']);
+    this.router.navigate(['read/magazine']);
   }
   validar(){
     if(this.preview != null){

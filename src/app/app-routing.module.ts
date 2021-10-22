@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from './layout/container/container.component';
 import { UserPreviewPageComponent } from './componentes-basicos/user-preview-page/user-preview-page.component';
+import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     path: 'new/member/profile',
     component: ProfileCreationFormComponent
   },
+ 
   {
     path: 'view/magazine-preview',
     component:UserPreviewPageComponent
@@ -66,6 +68,10 @@ const routes: Routes = [
   {
     path: 'profile/view',
     component:ProfileViewerComponent
+  },
+  {
+    path: 'read/magazine',
+    component:MagazineReaderComponent
   },
   {
     path: 'manejar/categorias',

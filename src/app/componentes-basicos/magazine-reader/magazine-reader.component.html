@@ -1,1 +1,32 @@
-<p>magazine-reader works!</p>
+<div class="d-flex justify-content-center">
+    <div style="width: 15%; height: 100%; background-color: rgb(84, 204, 204);">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="habilitarReview()">Hacer una
+            review</button>
+        <div *ngIf="bandera">
+
+            <div *ngIf="!reviewRealizada;else cambiarReview" class="form-group">
+                <form [formGroup]="registrationForm" (ngSubmit)="crearReview()">
+                    <label>Deja un comentario</label>
+                    <textarea class="form-control" placeholder="Deja un comentario"
+                        formControlName="comentario"></textarea>
+                    <button type="submit" class="btn btn-success">Crear</button>
+                    <label>Indica que te gusta</label>
+                    
+                    <div *ngIf="opinion==0">No te gusta</div>
+                    <div *ngIf="opinion==1">Te gusta</div>
+                </form>
+                <button class="btn btn-outline-danger bi bi-heart-fill" (click)="opinar()"></button>
+            </div>
+            <ng-template #cambiarReview>
+                <label>Ya has dejado una review</label>
+                <p>{{review._comentario}}</p>
+                <div *ngIf="review.likes==0">No te gusta</div>
+                <div *ngIf="review.likes==1">Te gusta</div>
+            </ng-template>
+
+        </div>
+    </div>
+    <div style="width: 80%; height: 100%;">
+        <ngx-extended-pdf-viewer [src]="currentPreview.preview.archivo" height="94vh"></ngx-extended-pdf-viewer>
+    </div>
+</div>
