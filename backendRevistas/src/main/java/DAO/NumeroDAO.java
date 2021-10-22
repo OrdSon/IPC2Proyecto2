@@ -34,6 +34,8 @@ public class NumeroDAO extends DAO {
     String ULTIMO_NUMERO_EN_REVISTA = "SELECT * FROM numero WHERE revista_codigo = ?";
     String EDITAR_CON_ARCHIVO = "UPDATE numero SET nombre = ?, descripcion = ?, fecha_publicacion = ?, archivo = ? WHERE codigo = ?";
     String EDITAR_SIN_ARCHIVO = "UPDATE numero SET nombre = ?, descripcion = ?, fecha_publicacion = ? WHERE codigo = ?";
+    
+    String INSERTAR_LIKE = "UPDATE numero SET likes = ?;";
 
     @Override
     public ArrayList<Numero> listar() {
@@ -231,7 +233,37 @@ public class NumeroDAO extends DAO {
         }
         return true;
     }
-
+    public boolean darLike(int numeroCodigo){
+        try {
+            Numero numero = listarCodigo(numeroCodigo);
+            int cantidadLikes = numero.getLikes();
+            int agregar = (cantidadLikes+1);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_LIKE);
+            preparedStatement.setInt(1, agregar);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
+    }
+    public boolean quitarLike(int numeroCodigo){
+        try {
+            Numero numero = listarCodigo(numeroCodigo);
+            int cantidadLikes = numero.getLikes();
+            int agregar = (cantidadLikes-1);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_LIKE);
+            if (agregar <= 0) {
+                agregar = 0;
+            }
+            preparedStatement.setInt(1, agregar);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
+    }
     public Numero getNumero(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");

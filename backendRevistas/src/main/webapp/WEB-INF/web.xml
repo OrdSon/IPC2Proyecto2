@@ -96,6 +96,14 @@
         <servlet-name>ListaAleatoria</servlet-name>
         <servlet-class>Servlet.ListaAleatoria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DejarLike</servlet-name>
+        <servlet-class>Servlet.DejarLike</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerificarReview</servlet-name>
+        <servlet-class>Servlet.VerificarReview</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -191,6 +199,14 @@
     <servlet-mapping>
         <servlet-name>ListaAleatoria</servlet-name>
         <url-pattern>/ListaAleatoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DejarLike</servlet-name>
+        <url-pattern>/DejarLike</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarReview</servlet-name>
+        <url-pattern>/VerificarReview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

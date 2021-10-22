@@ -4,6 +4,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/Converter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Magazine/UploadPdf.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReferenciaDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/DejarLike.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SuscripcionConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Publico.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PublicoDAO.java
@@ -64,6 +65,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Referencia.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/LoginProfileServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/NumeroDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/ReviewConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Usuario.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/AnuncioDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/CrearCategoria.java
@@ -78,4 +80,5 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Cuota.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Relacion.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/getPDF.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/VerificarReview.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PreferenciaDAO.java

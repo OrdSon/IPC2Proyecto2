@@ -12,6 +12,7 @@ Modelo/Suscripcion.class
 Modelo/InfoPago.class
 Converter/UsuarioConverter.class
 Servlet/getPDF.class
+Servlet/DejarLike.class
 DAO/ReviewDAO.class
 DAO/CategoriaDAO.class
 DAO/PublicoDAO.class
@@ -20,6 +21,7 @@ DAO/DAO.class
 Servlet/BuscarNumerosPorRevista.class
 DAO/SuscripcionDAO.class
 Servlet/EditarNumero.class
+Servlet/VerificarReview.class
 DAO/AnuncioDAO.class
 Servlet/LoginServlet.class
 Modelo/Categoria.class
@@ -58,6 +60,7 @@ Servlet/ProfileServlet.class
 Servlet/UsuarioServlet.class
 Servlet/EditarCategoria.class
 Modelo/Cobro.class
+Converter/ReviewConverter.class
 Servlet/EliminarCategoria.class
 Servlet/AdminServlet.class
 Converter/ProfileConverter.class
