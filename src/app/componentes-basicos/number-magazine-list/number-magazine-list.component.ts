@@ -1,3 +1,4 @@
+import { NumberService } from './../../services/number.service';
 import { ViewMagazineNumbersService } from './../../services/view-magazine-numbers.service';
 import { RevistaActivaService } from './../../services/revista-activa.service';
 import { Numero } from './../../objetos/Numero';
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class NumberMagazineListComponent implements OnInit {
 
   listaNumeros:Numero[] = [];
-  constructor(public revistaActivaService:RevistaActivaService, public viewMagazineNumbersService:ViewMagazineNumbersService) {
+  constructor(public revistaActivaService:RevistaActivaService, public viewMagazineNumbersService:ViewMagazineNumbersService, private numberService:NumberService) {
     this.obtenerLista();
   } 
 
@@ -23,5 +24,9 @@ export class NumberMagazineListComponent implements OnInit {
       this.listaNumeros = lista;
       console.log(this.listaNumeros);
     })
+  }
+
+  eliminarNumero(){
+    
   }
 }

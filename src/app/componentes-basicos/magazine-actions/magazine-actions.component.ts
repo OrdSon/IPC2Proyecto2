@@ -24,13 +24,15 @@ export class MagazineActionsComponent implements OnInit {
   ngOnInit(): void {
   }
   mostrarDetalles(){
+    this.revistaActivaService.revistaActiva = this.revista;
     this.revistaActivaService.verRevistas = true;
   }
   habilitarEdicion(){
     this.registrationForm = this.formBuilder.group({
       nombre: [null, Validators.required],
       precio: [null, Validators.required],
-      descripcion: [null, Validators.required]
+      descripcion: [null, Validators.required],
+      fecha:[null, Validators.required]
     });
     this.editionReady = !this.editionReady;
   }
@@ -45,7 +47,8 @@ export class MagazineActionsComponent implements OnInit {
         this.registrationForm.reset({
           "nombreRevista": null,
           "precioRevista": null,
-          "descripcion":null
+          "descripcion":null,
+          "fecha":null
         });
         this.obtenerLista.emit();
         console.log(created);

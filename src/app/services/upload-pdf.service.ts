@@ -26,6 +26,13 @@ export class UploadPdfService {
 
     return this.httpClient.post<void>(this.API_URL+"UploadPdf", formData);
   }
+
+  public descargar(){
+    this.httpClient.get<File>(this.API_URL+"getPDF").subscribe((data:File)=>{
+      console.log(data.size);
+      console.log("eso es todo amigos")
+    })
+  }
   /*
       public downloadFile(): string {
           return this.DOWNLOAD_FILE_URL;

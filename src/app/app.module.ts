@@ -28,6 +28,13 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { NumberMagazineListComponent } from './componentes-basicos/number-magazine-list/number-magazine-list.component';
 import { MagazineDescriptorComponent } from './componentes-basicos/magazine-descriptor/magazine-descriptor.component';
+import { EditorNumberPreviewComponent } from './componentes-basicos/editor-number-preview/editor-number-preview.component';
+import { NumberActionsComponent } from './componentes-basicos/number-actions/number-actions.component';
+import { NotFoundPageComponent } from './componentes-basicos/not-found-page/not-found-page.component';
+import { PreviewCardComponent } from './componentes-basicos/preview-card/preview-card.component';
+import { PreviewListComponent } from './componentes-basicos/preview-list/preview-list.component';
+import { UserPreviewPageComponent } from './componentes-basicos/user-preview-page/user-preview-page.component';
+import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +60,14 @@ import { MagazineDescriptorComponent } from './componentes-basicos/magazine-desc
     MagazineActionsComponent,
     EditorMagazineListComponent,
     NumberMagazineListComponent,
-    MagazineDescriptorComponent
+    MagazineDescriptorComponent,
+    EditorNumberPreviewComponent,
+    NumberActionsComponent,
+    NotFoundPageComponent,
+    PreviewCardComponent,
+    PreviewListComponent,
+    UserPreviewPageComponent,
+    MagazineReaderComponent
   ],
   imports: [
     BrowserModule,

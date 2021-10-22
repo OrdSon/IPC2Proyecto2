@@ -1,3 +1,4 @@
+import { EditorNumberPreviewComponent } from './componentes-basicos/editor-number-preview/editor-number-preview.component';
 import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
 import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
 import { NotFoundComponent } from './componentes-basicos/not-found/not-found.component';
@@ -15,6 +16,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from './layout/container/container.component';
+import { UserPreviewPageComponent } from './componentes-basicos/user-preview-page/user-preview-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,10 @@ const routes: Routes = [
   {
     path: 'new/member/profile',
     component: ProfileCreationFormComponent
+  },
+  {
+    path: 'view/magazine-preview',
+    component:UserPreviewPageComponent
   }, 
   {
     path: 'new/editor',
@@ -48,6 +54,10 @@ const routes: Routes = [
   {
     path: 'profile/admin/view',
     component:AdminProfileViewerComponent
+  },
+  {
+    path: 'profile/editor/view/numero',
+    component:EditorNumberPreviewComponent
   },
   {
     path: 'profile/editor/view',

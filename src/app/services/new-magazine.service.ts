@@ -17,7 +17,6 @@ export class NewMagazineService {
   }
   public editarRevista(revista: Revista, original:Revista): Observable<Revista> {
     revista.codigo = original.codigo;
-    revista.fecha = original.fecha;
     revista.autor = original.autor;
     return this.httpClient.post<Revista>(this.API_URL + "EditarRevista", revista) ;
   }

@@ -6,6 +6,7 @@ export class Numero {
     _fechaPublicacion!:String;
     _numero!:number;
     _revistaCodigo!:number;
+    _archivo:any;
 
     constructor(nombre: String, descripcion:String, fechaPublicacion:String) {
         this._nombre = nombre;
@@ -56,5 +57,11 @@ export class Numero {
 
     set codigo(codigo:number){
         this._codigo = codigo;
+    }
+    get archivo(){
+        return this._archivo;
+    }
+    set archivo(archivo:any){
+        this._archivo = archivo;
     }
 }

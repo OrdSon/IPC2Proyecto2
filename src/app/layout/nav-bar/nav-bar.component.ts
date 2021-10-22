@@ -1,3 +1,4 @@
+import { UploadPdfService } from './../../services/upload-pdf.service';
 import { AccessAdminProfileService } from './../../services/access-admin-profile.service';
 import { BuscarRevista } from './../../objetos/BuscarRevista';
 import { BuscarRevistasService } from './../../services/buscar-revistas.service';
@@ -17,11 +18,15 @@ export class NavBarComponent implements OnInit {
   
   validator:boolean = false;
   constructor(public navService:NavService, public acccesProfile:AccessUserProfileService, public accesEditorProfile:AccessEditorProfileService,
-    public buscarRevistasService: BuscarRevistasService, public accessAdminProfile:AccessAdminProfileService) { 
+    public buscarRevistasService: BuscarRevistasService, public accessAdminProfile:AccessAdminProfileService, public uploadPdfService:UploadPdfService) { 
 
   }
 
   ngOnInit(): void {
+  }
+
+  descargar(){
+    this.uploadPdfService.descargar();
   }
 
   setNavEleccion(eleccion:number){

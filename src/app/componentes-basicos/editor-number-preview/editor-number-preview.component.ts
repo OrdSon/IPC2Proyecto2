@@ -1,44 +1,46 @@
 import { Numero } from './../../objetos/Numero';
 import { NewTitleService } from './../../services/new-title.service';
-import { RevistaActivaService } from './../../services/revista-activa.service';
-import { UploadPdfService } from './../../services/upload-pdf.service';
 import { Router } from '@angular/router';
+import { NumberService } from './../../services/number.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { Revista } from 'src/app/objetos/Revista';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-new-title-form',
-  templateUrl: './new-title-form.component.html',
-  styleUrls: ['./new-title-form.component.css']
+  selector: 'app-editor-number-preview',
+  templateUrl: './editor-number-preview.component.html',
+  styleUrls: ['./editor-number-preview.component.css']
 })
-export class NewTitleFormComponent implements OnInit {
-  _router: Router;
-  archivoSeleccionado!: File | null;
+export class EditorNumberPreviewComponent implements OnInit {
   registrationForm!: FormGroup;
-  nombreRevista!: String;
-  revista: Revista;
-  pdfSrc!: String;
+  habilitarEdicion:boolean = false;
   bandera: boolean = false;
   selectedFile!: File;
   image!:any;
 
-  constructor(router: Router, private formBuilder: FormBuilder, public uploadPdfService: UploadPdfService,
-    private revistaActivaService: RevistaActivaService, private titleService: NewTitleService, private sanitizer:DomSanitizer) {
-    this._router = router;
-    this.revista = revistaActivaService.revistaActiva;
-  }
+  constructor(public numberService:NumberService, private formBuilder: FormBuilder, private router:Router,
+    private sanitizer:DomSanitizer, private titleService:NewTitleService) { }
 
   ngOnInit(): void {
+  }
+
+  editionReady(){
     this.registrationForm = this.formBuilder.group({
       nombre: [null, Validators.required],
       descripcion: [null, Validators.required],
       fechaPublicacion: [null, Validators.required]
     });
+
+    this.habilitarEdicion = true;
   }
 
+  validar(){
+    if(this.numberService.numeroActivo != null){
+      return true;
+    }
+    return false;
+  }
 
   fileUploadInAngular(event: any) {
     const file = event.target.files[0];
@@ -72,12 +74,12 @@ export class NewTitleFormComponent implements OnInit {
     }
   })
   
-  crearTitulo() {
-    if (this.registrationForm.valid && this.image != null && this.image != "") {
+  editarNumero() {
+    if (this.registrationForm.valid) {
       console.log("algo");
       console.log(this.registrationForm.value);
       console.log("Enviar los datos al servidor");
-      this.titleService.crearNumero(this.registrationForm.value, this.image ,this.revistaActivaService.revistaActiva)
+      this.titleService.editarNumero(this.registrationForm.value, this.image, this.numberService.numeroActivo)
         .subscribe((created: Numero) => {
           this.registrationForm.reset({
             "nombre": null,
@@ -109,9 +111,34 @@ export class NewTitleFormComponent implements OnInit {
           })
         });
     } else {
-      console.log("no estuvo bien");
+      Swal.fire({
+        icon:'info',
+        title:'Parece que falta algo',
+        text:'Llena todos los campos para continuar'
+      });
     }
   }
 
-
+  eliminar(){
+    Swal.fire({
+      title: '¿Eliminar la entrega: '+this.numberService.numeroActivo.nombre+'?',
+      text: "Este cambio sera irreversible",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed && this.numberService.numeroActivo != null) {
+        this.titleService.eliminarNumero(this.numberService.numeroActivo).subscribe((created:Numero)=>{
+          Swal.fire({
+            icon:'success',
+            title:'Revista eliminada'
+          });
+          this.router.navigate(['profile/editor/view']);
+        });
+      }
+    });
+    
+  }
 }
