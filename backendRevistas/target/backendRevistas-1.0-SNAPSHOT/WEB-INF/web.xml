@@ -80,6 +80,22 @@
         <servlet-name>BuscarNumerosPorRevista</servlet-name>
         <servlet-class>Servlet.BuscarNumerosPorRevista</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getPDF</servlet-name>
+        <servlet-class>Servlet.getPDF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarNumero</servlet-name>
+        <servlet-class>Servlet.EditarNumero</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarNumero</servlet-name>
+        <servlet-class>Servlet.EliminarNumero</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListaAleatoria</servlet-name>
+        <servlet-class>Servlet.ListaAleatoria</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -159,6 +175,22 @@
     <servlet-mapping>
         <servlet-name>BuscarNumerosPorRevista</servlet-name>
         <url-pattern>/BuscarNumerosPorRevista</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getPDF</servlet-name>
+        <url-pattern>/getPDF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarNumero</servlet-name>
+        <url-pattern>/EditarNumero</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarNumero</servlet-name>
+        <url-pattern>/EliminarNumero</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaAleatoria</servlet-name>
+        <url-pattern>/ListaAleatoria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

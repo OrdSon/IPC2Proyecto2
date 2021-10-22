@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author ordson
  */
 public class NuevoNumero extends HttpServlet {
+
     NumeroDAO numeroDAO = new NumeroDAO();
 
     @Override
@@ -33,7 +34,7 @@ public class NuevoNumero extends HttpServlet {
         System.out.println("body:");
         System.out.println(body);
         NumeroConverter converter = new NumeroConverter(Numero.class);
-        
+
         Numero model = converter.fromJson(body);
         model.setNumero(numeroDAO.ultimoPorRevista(model.getRevistaCodigo()));
         System.out.println("Modelo de numero:");

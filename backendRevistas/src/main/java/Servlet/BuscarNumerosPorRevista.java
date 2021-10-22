@@ -7,6 +7,7 @@ package Servlet;
 import Converter.RevistaConverter;
 import DAO.NumeroDAO;
 import DAO.RevistaDAO;
+import Modelo.Numero;
 import Modelo.Revista;
 import Utilidades.ToBody;
 import com.google.gson.Gson;
@@ -37,9 +38,11 @@ public class BuscarNumerosPorRevista extends HttpServlet {
         String body = new ToBody().convert(request);
         RevistaConverter converter = new RevistaConverter(Revista.class);
         Revista modelo = converter.fromJson(body);
-        List<Revista> revistas = revistaDAO.listarPorAutor(modelo);
+        System.out.println("revista recibida: "+modelo);
+        List<Numero> numeros = numeroDAO.listarPorRevista(modelo.getCodigo());
+        System.out.println(numeros.toString());
             Gson gson = new Gson();
-            response.getWriter().append(gson.toJson(revistas));
+            response.getWriter().append(gson.toJson(numeros));
     }
 
     @Override

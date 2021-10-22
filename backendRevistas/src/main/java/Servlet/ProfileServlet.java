@@ -39,8 +39,11 @@ public class ProfileServlet extends HttpServlet {
 
         System.out.println("object");
         System.out.println(model.toString());
-        if (true) {
-            
+        if (model.getImg() != null && !model.getImg().equals("")) {
+            profileDAO.añadir(model);
+            response.getWriter().append(converter.toJson(profileDAO.listarCodigo(profileDAO.ultimoCodigo())));
+        }else{
+            response.getWriter().append(converter.toJson(model));
         }
     }
 

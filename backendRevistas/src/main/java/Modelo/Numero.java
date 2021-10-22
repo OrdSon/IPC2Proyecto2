@@ -15,53 +15,20 @@ public class Numero {
     private String nombre;
     private String descripcion;
     private String fechaPublicacion;
+    private String archivo;
     private int numero;
     private int likes;
     private int revistaCodigo;
-    private byte [] archivo;
 
-    public Numero(int codigo, String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo, byte [] archivo) {
+    public Numero(int codigo, String nombre, String descripcion, String fechaPublicacion, String archivo, int numero, int likes, int revistaCodigo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaPublicacion = fechaPublicacion;
-        this.numero = numero;
-        this.likes = likes;
-        this.revistaCodigo = revistaCodigo;
         this.archivo = archivo;
-    }
-
-    public Numero(String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo, byte [] archivo) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechaPublicacion = fechaPublicacion;
         this.numero = numero;
         this.likes = likes;
         this.revistaCodigo = revistaCodigo;
-        this.archivo = archivo;
-    }
-
-    public Numero(int codigo, String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechaPublicacion = fechaPublicacion;
-        this.numero = numero;
-        this.likes = likes;
-        this.revistaCodigo = revistaCodigo;
-    }
-
-    public Numero(String nombre, String descripcion, String fechaPublicacion, int numero, int likes, int revistaCodigo) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fechaPublicacion = fechaPublicacion;
-        this.numero = numero;
-        this.likes = likes;
-        this.revistaCodigo = revistaCodigo;
-    }
-
-    public Numero(byte [] archivo) {
-        this.archivo = archivo;
     }
 
     public Numero() {
@@ -99,6 +66,14 @@ public class Numero {
         this.fechaPublicacion = fechaPublicacion;
     }
 
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -123,17 +98,21 @@ public class Numero {
         this.revistaCodigo = revistaCodigo;
     }
 
-    public byte [] getArchivo() {
-        return archivo;
-    }
-
-    public void setArchivo(byte [] archivo) {
-        this.archivo = archivo;
-    }
-
     @Override
     public String toString() {
-        return "numero{" + "codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaPublicacion=" + fechaPublicacion + ", numero=" + numero + ", likes=" + likes + ", revistaCodigo=" + revistaCodigo + ", archivo=" + archivo + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Numero{codigo=").append(codigo);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", descripcion=").append(descripcion);
+        sb.append(", fechaPublicacion=").append(fechaPublicacion);
+        sb.append(", archivo=").append(archivo);
+        sb.append(", numero=").append(numero);
+        sb.append(", likes=").append(likes);
+        sb.append(", revistaCodigo=").append(revistaCodigo);
+        sb.append('}');
+        return sb.toString();
     }
+
+
     
 }
