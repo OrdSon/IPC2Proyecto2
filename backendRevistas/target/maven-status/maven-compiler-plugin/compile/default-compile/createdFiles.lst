@@ -1,3 +1,4 @@
+DAO/VerificarSuscripcion.class
 DAO/RelacionDAO.class
 Servlet/ListaAleatoria.class
 Magazine/New.class
@@ -37,6 +38,7 @@ Servlet/VerificarInfoPago.class
 Servlet/EnviarSettings.class
 Modelo/Caja.class
 DAO/PagoDAO.class
+Servlet/Suscribirse.class
 DAO/ListaDAO.class
 Converter/RevistaConverter.class
 Modelo/Relacion.class
@@ -61,6 +63,7 @@ Modelo/Cuota.class
 Servlet/ProfileServlet.class
 Converter/SettingsConverter.class
 Servlet/UsuarioServlet.class
+Servlet/Subscribe.class
 Servlet/EditarCategoria.class
 Modelo/Cobro.class
 Converter/ReviewConverter.class

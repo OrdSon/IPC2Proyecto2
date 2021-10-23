@@ -9,7 +9,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +23,7 @@ public class PagoDAO extends DAO {
     String SELECCIONAR_PAGOS = "SELECT * FROM pago";
     String SELECCIONAR_UNA_PAGO = "SELECT * FROM pago WHERE codigo = ?";
     String ELIMINAR_PAGO = "DELETE * FROM pago WHERE codigo = ?";
-    String SELECCIONAR_ULTIMA = "SELECT codigo FROM anuncio ORDER BY codigo DESC LIMIT 1;";
+    String SELECCIONAR_ULTIMA = "SELECT codigo FROM pago ORDER BY codigo DESC LIMIT 1;";
 
     @Override
     public ArrayList<Pago> listar() {
@@ -143,7 +142,7 @@ public class PagoDAO extends DAO {
     private Pago getPago(ResultSet resultSet) {
         try {
             int codigo = resultSet.getInt("codigo");
-            LocalDate fecha = resultSet.getDate("fecha").toLocalDate();
+            String fecha = resultSet.getDate("fecha").toString();
             double monto = resultSet.getDouble("monto");
             int suscripcionCodigo = resultSet.getInt("suscripcion_codigo");
             int usuarioCodigo = resultSet.getInt("usuario_codigo");

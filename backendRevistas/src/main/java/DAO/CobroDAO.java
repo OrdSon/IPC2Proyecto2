@@ -9,7 +9,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -116,8 +115,8 @@ public class CobroDAO extends DAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_COBRO_ANUNCIO);
             preparedStatement.setInt(1, cobro.getAnuncioCodigo());
-            preparedStatement.setDouble(1, cobro.getMonto());
-            preparedStatement.setDate(1, Date.valueOf(cobro.getFecha()));
+            preparedStatement.setDouble(2, cobro.getMonto());
+            preparedStatement.setDate(3, Date.valueOf(cobro.getFecha()));
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,8 +129,8 @@ public class CobroDAO extends DAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_COBRO_PAGO);
             preparedStatement.setInt(1, cobro.getPagoCodigo());
-            preparedStatement.setDouble(1, cobro.getMonto());
-            preparedStatement.setDate(1, Date.valueOf(cobro.getFecha()));
+            preparedStatement.setDouble(2, cobro.getMonto());
+            preparedStatement.setDate(3, Date.valueOf(cobro.getFecha()));
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,8 +143,8 @@ public class CobroDAO extends DAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_COBRO_PAGO);
             preparedStatement.setInt(1, cobro.getCuotaDiariaCodigo());
-            preparedStatement.setDouble(1, cobro.getMonto());
-            preparedStatement.setDate(1, Date.valueOf(cobro.getFecha()));
+            preparedStatement.setDouble(2, cobro.getMonto());
+            preparedStatement.setDate(3, Date.valueOf(cobro.getFecha()));
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,7 +176,7 @@ public class CobroDAO extends DAO {
             int pagoCodigo = resultSet.getInt("pago_codigo");
             int cuotaCodigo = resultSet.getInt("pago_codigo");
             double monto = resultSet.getDouble("monto");
-            LocalDate fecha = resultSet.getDate("fecha").toLocalDate();
+            String fecha = resultSet.getDate("fecha").toString();
 
             if (anuncioCodigo > 0) {
                 return new Cobro(codigo, anuncioCodigo, codigo, monto, fecha);

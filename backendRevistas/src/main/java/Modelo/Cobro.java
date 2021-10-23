@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import java.time.LocalDate;
 
 /**
  *
@@ -17,9 +16,27 @@ public class Cobro {
     private int pagoCodigo;
     private int cuotaDiariaCodigo;
     private double monto;
-    private LocalDate fecha;
+    private String fecha;
 
-    public Cobro(int codigo, int fueteCodigo, int eleccion, double monto, LocalDate fecha) {
+    public Cobro( int fueteCodigo, int eleccion, double monto, String fecha) {
+        this.monto = monto;
+        this.fecha = fecha;
+        switch(eleccion){
+            case 1:
+                this.anuncioCodigo = fueteCodigo;
+                break;
+            case 2:
+                this.pagoCodigo = fueteCodigo;
+                break;
+            case 3:
+                this.cuotaDiariaCodigo = fueteCodigo;
+                break;
+            default:
+                this.eleccion = 0;
+                break;
+        }
+    }
+    public Cobro(int codigo, int fueteCodigo, int eleccion, double monto, String fecha) {
         this.codigo = codigo;
         this.monto = monto;
         this.fecha = fecha;
@@ -38,6 +55,11 @@ public class Cobro {
                 break;
         }
     }
+
+    public Cobro() {
+    }
+    
+    
 
     public int getCodigo() {
         return codigo;
@@ -87,11 +109,11 @@ public class Cobro {
         this.monto = monto;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

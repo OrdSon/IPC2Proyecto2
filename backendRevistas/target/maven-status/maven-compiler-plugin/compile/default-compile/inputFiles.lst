@@ -2,6 +2,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EditarCategoria.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/AdminServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/Converter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/Subscribe.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Magazine/UploadPdf.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReferenciaDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/DejarLike.java
@@ -9,6 +10,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Publico.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PublicoDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/VerificarInfoPago.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/Suscribirse.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Numero.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Anunciante.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/ToBody.java
@@ -56,6 +58,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/SettingDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/Conexion.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Preferencia.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/VerificarSuscripcion.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/TagDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ProfileServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EliminarNumero.java

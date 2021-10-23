@@ -120,6 +120,14 @@
         <servlet-name>Subscribe</servlet-name>
         <servlet-class>Servlet.Subscribe</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Suscribirse</servlet-name>
+        <servlet-class>Servlet.Suscribirse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerificarSuscripcion</servlet-name>
+        <servlet-class>DAO.VerificarSuscripcion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -239,6 +247,14 @@
     <servlet-mapping>
         <servlet-name>Subscribe</servlet-name>
         <url-pattern>/Subscribe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Suscribirse</servlet-name>
+        <url-pattern>/Suscribirse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarSuscripcion</servlet-name>
+        <url-pattern>/VerificarSuscripcion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
