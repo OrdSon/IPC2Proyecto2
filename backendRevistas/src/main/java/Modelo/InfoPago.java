@@ -4,8 +4,6 @@
  */
 package Modelo;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author ordson
@@ -14,25 +12,25 @@ public class InfoPago {
         private int codigo;
 	private String tarjeta;
 	private String cuenta_bancaria;
-	private LocalDate vencimiento; 
-	private int usuario_codigo; 
+	private String vencimiento; 
+	private int usuarioCodigo; 
 
-    public InfoPago(int codigo, String tarjeta, String cuenta_bancaria, LocalDate vencimiento, int usuario_codigo) {
+    public InfoPago(int codigo, String tarjeta, String cuenta_bancaria, String vencimiento, int usuarioCodigo) {
         this.codigo = codigo;
         this.tarjeta = tarjeta;
         this.cuenta_bancaria = cuenta_bancaria;
         this.vencimiento = vencimiento;
-        this.usuario_codigo = usuario_codigo;
+        this.usuarioCodigo = usuarioCodigo;
     }
 
-    public InfoPago(String tarjeta, String cuenta_bancaria, LocalDate vencimiento, int usuario_codigo) {
+    public InfoPago(String tarjeta, String cuenta_bancaria, String vencimiento, int usuarioCodigo) {
         this.tarjeta = tarjeta;
         this.cuenta_bancaria = cuenta_bancaria;
         this.vencimiento = vencimiento;
-        this.usuario_codigo = usuario_codigo;
+        this.usuarioCodigo = usuarioCodigo;
     }
 
-    public InfoPago(String tarjeta, String cuenta_bancaria, LocalDate vencimiento) {
+    public InfoPago(String tarjeta, String cuenta_bancaria, String vencimiento) {
         this.tarjeta = tarjeta;
         this.cuenta_bancaria = cuenta_bancaria;
         this.vencimiento = vencimiento;
@@ -65,20 +63,20 @@ public class InfoPago {
         this.cuenta_bancaria = cuenta_bancaria;
     }
 
-    public LocalDate getVencimiento() {
+    public String getVencimiento() {
         return vencimiento;
     }
 
-    public void setVencimiento(LocalDate vencimiento) {
+    public void setVencimiento(String vencimiento) {
         this.vencimiento = vencimiento;
     }
 
-    public int getUsuario_codigo() {
-        return usuario_codigo;
+    public int getusuarioCodigo() {
+        return usuarioCodigo;
     }
 
-    public void setUsuario_codigo(int usuario_codigo) {
-        this.usuario_codigo = usuario_codigo;
+    public void setusuarioCodigo(int usuarioCodigo) {
+        this.usuarioCodigo = usuarioCodigo;
     }
 
     /**
@@ -87,7 +85,7 @@ public class InfoPago {
      */
     @Override
     public String toString() {
-        return "infoPago{" + "codigo=" + codigo + ", tarjeta=" + tarjeta + ", cuenta_bancaria=" + cuenta_bancaria + ", vencimiento=" + vencimiento + ", usuario_codigo=" + usuario_codigo + '}';
+        return "infoPago{" + "codigo=" + codigo + ", tarjeta=" + tarjeta + ", cuenta_bancaria=" + cuenta_bancaria + ", vencimiento=" + vencimiento + ", usuarioCodigo=" + usuarioCodigo + '}';
     }
         
         

@@ -14,21 +14,45 @@ public class Suscripcion {
     private int usuarioCodigo;
     private int revistaCodigo;
     private String fecha;
+    private String estado;
+    private int pagos;
+    private String proximoPago;
 
-    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, String fecha) {
+    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, String fecha, String estado, int pagos, String proximoPago) {
         this.codigo = codigo;
         this.usuarioCodigo = usuarioCodigo;
         this.revistaCodigo = revistaCodigo;
         this.fecha = fecha;
-    }
-
-    public Suscripcion(int usuarioCodigo, int revistaCodigo, String fecha) {
-        this.usuarioCodigo = usuarioCodigo;
-        this.revistaCodigo = revistaCodigo;
-        this.fecha = fecha;
+        this.estado = estado;
+        this.pagos = pagos;
+        this.proximoPago = proximoPago;
     }
 
     public Suscripcion() {
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(int pagos) {
+        this.pagos = pagos;
+    }
+
+    public String getProximoPago() {
+        return proximoPago;
+    }
+
+    public void setProximoPago(String proximoPago) {
+        this.proximoPago = proximoPago;
     }
 
     public int getCodigo() {
@@ -65,7 +89,17 @@ public class Suscripcion {
 
     @Override
     public String toString() {
-        return "suscripcion{" + "codigo=" + codigo + ", usuarioCodigo=" + usuarioCodigo + ", revistaCodigo=" + revistaCodigo + ", fecha=" + fecha + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Suscripcion{codigo=").append(codigo);
+        sb.append(", usuarioCodigo=").append(usuarioCodigo);
+        sb.append(", revistaCodigo=").append(revistaCodigo);
+        sb.append(", fecha=").append(fecha);
+        sb.append(", estado=").append(estado);
+        sb.append(", pagos=").append(pagos);
+        sb.append(", proximoPago=").append(proximoPago);
+        sb.append('}');
+        return sb.toString();
     }
+
     
 }

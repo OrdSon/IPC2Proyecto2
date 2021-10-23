@@ -36,7 +36,7 @@ public class CrearCategoria extends HttpServlet {
         CategoriaConverter converter = new CategoriaConverter(Categoria.class);
 
         Categoria model = converter.fromJson(body);
-
+        
         System.out.println("object");
         System.out.println(model.toString());
         categoriaDAO.añadir(model);

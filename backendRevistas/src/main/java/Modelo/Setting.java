@@ -10,19 +10,19 @@ package Modelo;
  */
 public class Setting {
     private int codigo;
-    private double procentajeCobro;
+    private double porcentajeCobro;
     private double cuotaDiaria;
     private double precioHoraAnuncio;
 
-    public Setting(int codigo, double procentajeCobro, double cuotaDiaria, double precioHoraAnuncio) {
+    public Setting(int codigo, double porcentajeCobro, double cuotaDiaria, double precioHoraAnuncio) {
         this.codigo = codigo;
-        this.procentajeCobro = procentajeCobro;
+        this.porcentajeCobro = porcentajeCobro;
         this.cuotaDiaria = cuotaDiaria;
         this.precioHoraAnuncio = precioHoraAnuncio;
     }
 
-    public Setting(double procentajeCobro, double cuotaDiaria, double precioHoraAnuncio) {
-        this.procentajeCobro = procentajeCobro;
+    public Setting(double porcentajeCobro, double cuotaDiaria, double precioHoraAnuncio) {
+        this.porcentajeCobro = porcentajeCobro;
         this.cuotaDiaria = cuotaDiaria;
         this.precioHoraAnuncio = precioHoraAnuncio;
     }
@@ -46,12 +46,12 @@ public class Setting {
         this.codigo = codigo;
     }
 
-    public double getProcentajeCobro() {
-        return procentajeCobro;
+    public double getPorcentajeCobro() {
+        return porcentajeCobro;
     }
 
-    public void setProcentajeCobro(double procentajeCobro) {
-        this.procentajeCobro = procentajeCobro;
+    public void setPorcentajeCobro(double porcentajeCobro) {
+        this.porcentajeCobro = porcentajeCobro;
     }
 
     public double getCuotaDiaria() {
@@ -64,7 +64,7 @@ public class Setting {
 
     @Override
     public String toString() {
-        return "Setting{" + "codigo=" + codigo + ", procentajeCobro=" + procentajeCobro + ", cuotaDiaria=" + cuotaDiaria + ", precioHoraAnuncio=" + precioHoraAnuncio + '}';
+        return "Setting{" + "codigo=" + codigo + ", porcentajeCobro=" + porcentajeCobro + ", cuotaDiaria=" + cuotaDiaria + ", precioHoraAnuncio=" + precioHoraAnuncio + '}';
     }
     
 }

@@ -22,6 +22,7 @@ public class SettingDAO extends DAO{
     String SELECCIONAR_UNA_SETTING = "SELECT * FROM settings WHERE codigo = ?";
     String ELIMINAR_SETTING = "DELETE * FROM settings WHERE codigo = ?";
     String SELECCIONAR_ULTIMA = "SELECT codigo FROM settings ORDER BY codigo DESC LIMIT 1;";
+    String UPDATE_SETTINGS = "UPDATE settings SET porcentaje_cobro = ?, cuota_diaria = ?, precio_hora_anuncio = ? WHERE codigo = 1";
 
     @Override
     public ArrayList<Setting> listar() {
@@ -84,24 +85,26 @@ public class SettingDAO extends DAO{
     EDITAR
     Recibe una setting y la usa para editar un registro ya existente
      */
-//    public boolean editar(Setting setting) {
-//
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SETTING);
-//
-//            preparedStatement.setDouble(1, setting.getCapital());
-//            preparedStatement.setInt(2, setting.getCodigo());
-//
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException ex) {
-//
-//            System.out.println(ex);
-//            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//
-//        return true;
-//    }
+    public boolean editar(Setting setting) {
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SETTINGS);
+
+            preparedStatement.setDouble(1, setting.getPorcentajeCobro());
+            preparedStatement.setDouble(2, setting.getCuotaDiaria());
+            preparedStatement.setDouble(3, setting.getPrecioHoraAnuncio());
+
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+        return true;
+    }
 
     /*
     AÑADIR
@@ -109,8 +112,11 @@ public class SettingDAO extends DAO{
      */
     public boolean añadir(Setting setting) {
         try {
+            if (listarCodigo(1)!=null) {
+                editar(setting);
+            }
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_SETTING);
-            preparedStatement.setDouble(1, setting.getProcentajeCobro());
+            preparedStatement.setDouble(1, setting.getPorcentajeCobro());
             preparedStatement.setDouble(2, setting.getCuotaDiaria());
             preparedStatement.setDouble(3, setting.getPrecioHoraAnuncio());
             preparedStatement.executeUpdate();

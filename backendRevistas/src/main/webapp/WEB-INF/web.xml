@@ -104,6 +104,22 @@
         <servlet-name>VerificarReview</servlet-name>
         <servlet-class>Servlet.VerificarReview</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearInfoPago</servlet-name>
+        <servlet-class>Servlet.CrearInfoPago</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerificarInfoPago</servlet-name>
+        <servlet-class>Servlet.VerificarInfoPago</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EnviarSettings</servlet-name>
+        <servlet-class>Servlet.EnviarSettings</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Subscribe</servlet-name>
+        <servlet-class>Servlet.Subscribe</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -207,6 +223,22 @@
     <servlet-mapping>
         <servlet-name>VerificarReview</servlet-name>
         <url-pattern>/VerificarReview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearInfoPago</servlet-name>
+        <url-pattern>/CrearInfoPago</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarInfoPago</servlet-name>
+        <url-pattern>/VerificarInfoPago</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviarSettings</servlet-name>
+        <url-pattern>/EnviarSettings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Subscribe</servlet-name>
+        <url-pattern>/Subscribe</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

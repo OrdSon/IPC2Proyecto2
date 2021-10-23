@@ -8,6 +8,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SuscripcionConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Publico.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PublicoDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/VerificarInfoPago.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Numero.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Anunciante.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/ToBody.java
@@ -23,7 +24,9 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Magazine/New.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/BuscarRevistas.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/LoginServlet.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EnviarSettings.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EditarNumero.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/CrearInfoPago.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ListaDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/RevistaDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/MostrarRevistas.java
@@ -38,6 +41,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Caja.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/RelacionDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/NuevoNumero.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/InfoPagoConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Preview.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/BuscarRevistasEditor.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Tag.java
@@ -66,6 +70,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/LoginProfileServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/NumeroDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/ReviewConverter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SettingsConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Usuario.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/AnuncioDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/CrearCategoria.java
