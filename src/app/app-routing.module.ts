@@ -18,6 +18,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from './layout/container/container.component';
 import { UserPreviewPageComponent } from './componentes-basicos/user-preview-page/user-preview-page.component';
 import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
+import { PaymentInfoFormComponent } from './componentes-basicos/payment-info-form/payment-info-form.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: 'view/magazine-preview',
     component:UserPreviewPageComponent
   }, 
+  {
+    path: 'view/payment-info',
+    component:PaymentInfoFormComponent
+  },
   {
     path: 'new/editor',
     component: EditorRegistrationFormComponent

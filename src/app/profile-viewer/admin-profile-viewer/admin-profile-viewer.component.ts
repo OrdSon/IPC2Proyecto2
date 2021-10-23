@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProfileViewerComponent implements OnInit {
 
+  edicionHabilitada:boolean = false;
   constructor(public accessProfile:AccessAdminProfileService) {
     
    }
@@ -15,4 +16,7 @@ export class AdminProfileViewerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  habilitarEdicion(){
+    this.edicionHabilitada = !this.edicionHabilitada;
+  }
 }

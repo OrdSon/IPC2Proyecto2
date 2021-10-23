@@ -31,6 +31,10 @@ export class ProfileViewerComponent implements OnInit {
     }
   }
 
+  infoPago(){
+    this.router.navigate(['view/payment-info']);
+  }
+
   mensaje(){
     if(this.accessProfile.profile == null || this.accessProfile.profile.descripcion == ""){
       return 'Aqui falta algo, ¡Crea un perfil!';

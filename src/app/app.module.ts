@@ -35,6 +35,8 @@ import { PreviewCardComponent } from './componentes-basicos/preview-card/preview
 import { PreviewListComponent } from './componentes-basicos/preview-list/preview-list.component';
 import { UserPreviewPageComponent } from './componentes-basicos/user-preview-page/user-preview-page.component';
 import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
+import { PaymentInfoFormComponent } from './componentes-basicos/payment-info-form/payment-info-form.component';
+import { SettingsFormComponent } from './componentes-basicos/settings-form/settings-form.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/m
     PreviewCardComponent,
     PreviewListComponent,
     UserPreviewPageComponent,
-    MagazineReaderComponent
+    MagazineReaderComponent,
+    PaymentInfoFormComponent,
+    SettingsFormComponent
   ],
   imports: [
     BrowserModule,

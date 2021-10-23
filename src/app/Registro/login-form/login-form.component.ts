@@ -46,6 +46,7 @@ export class LoginFormComponent implements OnInit {
           console.log("created");
           console.log(created);
           if (created != null) {
+            
             if (created.tipo == 1) {
               console.log('usuario normal');
               this.accessProfile.usuario = created;

@@ -14,27 +14,20 @@
                         </div>
                     </div>
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
-
-                        <div class="d-flex justify-content-end text-center py-1">
-                            <div class="px-3">
-                                <p class="mb-1 h5">15</p>
-                                <p class="small text-muted mb-0">Suscripciones</p>
-                            </div>
-                            <div>
-                                <p class="mb-1 h5">12</p>
-                                <p class="small text-muted mb-0">Reseñas</p>
-                            </div>
-                            <div style="width: 10px;"></div>
-                            <div>
-                                <button type="button" class="btn btn-outline-dark bi bi-pencil-fill"></button>
-                            </div>
-                        </div>
                     </div>
                     <div class="card-body p-4 text-black">
                         <div>
-                            <button type="button" class="btn btn-outline-success" routerLink="../../../manejar/categorias">Administrar categorias</button>
+                            <button type="button" class="btn btn-outline-success bi bi-list-stars" routerLink="../../../manejar/categorias">Administrar categorias</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-success bi bi-gear-fill" (click)="habilitarEdicion()">Administrar preferencias del sistema</button>
                         </div>
 
+                       
+                            <div *ngIf="edicionHabilitada">
+                                <app-settings-form></app-settings-form>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
