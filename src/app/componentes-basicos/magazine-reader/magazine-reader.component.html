@@ -4,25 +4,26 @@
             review</button>
         <div *ngIf="bandera">
 
-            <div *ngIf="!reviewRealizada;else cambiarReview" class="form-group">
+            <div *ngIf="!reviewRealizada" class="form-group">
                 <form [formGroup]="registrationForm" (ngSubmit)="crearReview()">
                     <label>Deja un comentario</label>
                     <textarea class="form-control" placeholder="Deja un comentario"
                         formControlName="comentario"></textarea>
+                    <label>Fecha del comentario</label>
+                    <input type="date"  formControlName="fecha">
                     <button type="submit" class="btn btn-success">Crear</button>
-                    <label>Indica que te gusta</label>
-                    
-                    <div *ngIf="opinion==0">No te gusta</div>
-                    <div *ngIf="opinion==1">Te gusta</div>
                 </form>
+                <label>Indica que te gusta</label>
                 <button class="btn btn-outline-danger bi bi-heart-fill" (click)="opinar()"></button>
+                <div *ngIf="opinion==0">No te gusta</div>
+                <div *ngIf="opinion==1">Te gusta</div>
             </div>
-            <ng-template #cambiarReview>
+            <div *ngIf="reviewRealizada">
                 <label>Ya has dejado una review</label>
-                <p>{{review._comentario}}</p>
+                <p>{{review.comentario}}</p>
                 <div *ngIf="review.likes==0">No te gusta</div>
                 <div *ngIf="review.likes==1">Te gusta</div>
-            </ng-template>
+            </div>
 
         </div>
     </div>

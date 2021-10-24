@@ -20,15 +20,10 @@
                         editor</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <button class="btn btn-primary bi bi-search" type="submit"></button>
-                <div style="width: 15px;"></div>
-                <input class="form-control me-2" type="search" placeholder="Buscar revista" aria-label="BuscaRevista">
-            </form>
             <div *ngIf="acccesProfile.validator">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Acciones
+                    <button class="btn btn-info dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{acccesProfile.usuario.nombre}}
                     </button>
                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" routerLink="profile/view">Ver perfil</a></li>
@@ -38,10 +33,11 @@
                     </ul>
 
                 </div>
+                <div style="width: 4vh;"></div>
             </div>
             <div *ngIf="accesEditorProfile.validator">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         {{accesEditorProfile.usuario.nombre}}
                     </button>
                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
@@ -51,10 +47,11 @@
                         <li><a class="dropdown-item" routerLink="profile/view">Cerrar sesión</a></li>
                     </ul>
                 </div>
+                <div style="width: 4vh;"></div>
             </div>
             <div *ngIf="accessAdminProfile.validator">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-warning dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         {{accessAdminProfile.usuario.nombre}}
                     </button>
                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
@@ -64,7 +61,16 @@
                         <li><a class="dropdown-item" routerLink="admin/view">Cerrar sesión</a></li>
                     </ul>
                 </div>
+                <div style="width: 4vh;"></div>
             </div>
+            
+            <form class="d-flex">
+                
+                <div style="width: 15px;"></div>
+                <input class="form-control me-2" type="search" placeholder="Buscar revista" aria-label="BuscaRevista">
+                <button class="btn btn-primary bi bi-search" type="submit"></button>
+            </form>
+
 
         </div>
     </div>

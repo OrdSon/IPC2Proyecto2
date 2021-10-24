@@ -1,0 +1,15 @@
+<form [formGroup]="registrationForm" (ngSubmit)="crearReporte()">
+    <div class="form-group">
+        <label class="h3">Reporte de comentarios</label>
+        <label>Fecha inicial</label>
+        <input type="date" class="form-control"  formControlName="fechaInicial">
+        <input type="date" class="form-control"  formControlName="fechaFinal">
+        <input type="number" min="1" class="form-control"  formControlName="revista">
+        <button type="submit" class="btn btn-success">Solicitar</button>
+
+     
+        <ngx-extended-pdf-viewer [src]="reporteService.archivo" [textLayer]="true" [zoom]="'40%'" [showToolbar]="false" height="40vh"></ngx-extended-pdf-viewer>
+
+    </div>
+</form>
+

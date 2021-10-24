@@ -23,7 +23,7 @@ export class MagazineReaderComponent implements OnInit {
     private router: Router, public reviewService:ReviewService, private accesProfile:AccessUserProfileService) { }
 
   ngOnInit(): void {
-    
+    this.verificarReview();
   }
   opinar(){
     if(this.opinion == 0){
@@ -36,7 +36,8 @@ export class MagazineReaderComponent implements OnInit {
     this.verificarReview();
     this.bandera = !this.bandera;
     this.registrationForm = this.formBuilder.group({
-      comentario: [null, Validators.required]
+      comentario: [null, Validators.required],
+      fecha:[null, Validators.required]
     });
   }
 verificarReview(){
@@ -60,7 +61,8 @@ verificarReview(){
       this.reviewService.crearReview(this.registrationForm.value, this.accesProfile.usuario, this.currentPreview.preview, this.opinion)
         .subscribe((created: Review) => {
           this.registrationForm.reset({
-            "comentario": null
+            "comentario": null,
+            "fecha":null
           });
           console.log("created");
           console.log(created);

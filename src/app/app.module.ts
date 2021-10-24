@@ -37,6 +37,9 @@ import { UserPreviewPageComponent } from './componentes-basicos/user-preview-pag
 import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
 import { PaymentInfoFormComponent } from './componentes-basicos/payment-info-form/payment-info-form.component';
 import { SettingsFormComponent } from './componentes-basicos/settings-form/settings-form.component';
+import { SuscipcionActionsComponent } from './componentes-basicos/suscipcion-actions/suscipcion-actions.component';
+import { SuscriptionListComponent } from './componentes-basicos/suscription-list/suscription-list.component';
+import { ReporteComentariosComponent } from './Componentes de reportes/reporte-comentarios/reporte-comentarios.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { SettingsFormComponent } from './componentes-basicos/settings-form/setti
     UserPreviewPageComponent,
     MagazineReaderComponent,
     PaymentInfoFormComponent,
-    SettingsFormComponent
+    SettingsFormComponent,
+    SuscipcionActionsComponent,
+    SuscriptionListComponent,
+    ReporteComentariosComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,19 +21,26 @@
                 <div class="row r3">
                     <div class="col-md-5 p-0 klo">
                         <button class="btn btn-info" (click)="leer();">Leer</button>
-                        <ul>
-                            <li class="h4">TAGS: </li>
-                            <li>100% Quality</li>
-                            <li>Free Shipping</li>
-                            <li>Easy Returns</li>
-                            <li>12 Months Warranty</li>
-                            <li>EMI Starting from (On Credit Cards)</li>
-                            <li>Normal Delivery : 4-5 Days</li>
-                            <li>Express Delivery : 2-3 Days</li>
-                            <li>COD Available (All Over India)</li>
-                        </ul>
                     </div>
-
+                    <div *ngIf="wantToSuscribe">
+                        <div>
+                            <div class="card row d-flex justify-content-center align-items-center h-100 ">
+                                <div class="card-body col col-lg-9 col-xl-7 ">
+                                    <form [formGroup]="registrationForm" (ngSubmit)="crearSucripcion()">
+                                        <div class="form-group">
+                                            <label class="text-center h2">¡Suscribete a {{preview.nombre}} por Q.{{preview.precio}} al mes!</label>
+                                            <div style="height: 3vh;"></div>
+                                            <label>Elige fecha de suscripcion</label>
+                                            <input type="date" class="form-control" formControlName="fecha">
+                                            <div style="height: 3vh;"></div>
+                                            <button type="submit" class="btn btn-success">Crear</button>
+                                        </div>
+                                    </form>
+                                </div>
+                        
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

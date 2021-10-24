@@ -46,17 +46,19 @@ export class LoginFormComponent implements OnInit {
           console.log("created");
           console.log(created);
           if (created != null) {
-            
+
             if (created.tipo == 1) {
               console.log('usuario normal');
               this.accessProfile.usuario = created;
               this.profileService.obtainProfile(created).subscribe((perfil: Profile) => {
                 console.log('estamos aqui');
+                this.messageFlag = true;
                 if (perfil != null) {
                   console.log('pasamos por aqui');
                   this.accessProfile.profile = perfil;
                   this.accessProfile.validar();
-                  this.messageFlag = this.accessProfile.validator;
+                  this.messageFlag = true;
+                  this.mensajeDeExito();
                 } else {
                   console.log("nop es nulo");
                 }
@@ -66,16 +68,18 @@ export class LoginFormComponent implements OnInit {
             } else if (created.tipo == 2) {
               this.accessEditorProfile.usuario = created;
               this.accessEditorProfile.validar();
-              this.messageFlag = this.accessEditorProfile.validator;
+              this.messageFlag = true;
 
             } else if (created.tipo == 3) {
               this.accessAdminProfileService.usuario = created;
               this.accessAdminProfileService.validar();
-              this.messageFlag = this.accessAdminProfileService.validator;
+              this.messageFlag = true;
             }
+
             if (this.messageFlag == true) {
+              console.log("pues si...");
               this.mensajeDeExito();
-              this._router.navigate(['']);
+              
             }
           } else {
 
@@ -108,5 +112,6 @@ export class LoginFormComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
+    this._router.navigate(['']);
   }
 }
