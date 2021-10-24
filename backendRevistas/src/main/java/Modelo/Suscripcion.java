@@ -17,8 +17,9 @@ public class Suscripcion {
     private String estado;
     private int pagos;
     private String proximoPago;
+    private String Revista;
 
-    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, String fecha, String estado, int pagos, String proximoPago) {
+    public Suscripcion(int codigo, int usuarioCodigo, int revistaCodigo, String fecha, String estado, int pagos, String proximoPago, String Revista) {
         this.codigo = codigo;
         this.usuarioCodigo = usuarioCodigo;
         this.revistaCodigo = revistaCodigo;
@@ -26,8 +27,11 @@ public class Suscripcion {
         this.estado = estado;
         this.pagos = pagos;
         this.proximoPago = proximoPago;
+        this.Revista = Revista;
     }
 
+
+    
     public Suscripcion() {
     }
 
@@ -87,6 +91,16 @@ public class Suscripcion {
         this.fecha = fecha;
     }
 
+
+
+    public String getRevista() {
+        return Revista;
+    }
+
+    public void setRevista(String Revista) {
+        this.Revista = Revista;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -97,6 +111,7 @@ public class Suscripcion {
         sb.append(", estado=").append(estado);
         sb.append(", pagos=").append(pagos);
         sb.append(", proximoPago=").append(proximoPago);
+        sb.append(", Revista=").append(Revista);
         sb.append('}');
         return sb.toString();
     }

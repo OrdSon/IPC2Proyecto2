@@ -18,13 +18,13 @@ import java.util.logging.Logger;
  */
 public class ReviewDAO extends DAO {
 
-    String INSERTAR_REVIEW = "INSERT INTO review (likes, comentario, usuario_codigo, numero_codigo) VALUES (?,?,?,?)";
+    String INSERTAR_REVIEW = "INSERT INTO review (likes, comentario, usuario_codigo, numero_codigo, fecha) VALUES (?,?,?,?,?)";
     String SELECCIONAR_REVIEWS = "SELECT * FROM review";
     String SELECCIONAR_UNA_REVIEW = "SELECT * FROM review WHERE usuario_codigo = ? AND numero_codigo = ?";
     String ELIMINAR_REVIEW = "DELETE * FROM review WHERE codigo = ?";
     String SELECCIONAR_ULTIMA = "SELECT codigo FROM review ORDER BY codigo DESC LIMIT 1;";
     String SELECCIONAR_POR_CODIGO = "SELECT * FROM review WHERE codigo = ?";
-    String EDITAR_REVIEW = "UPDATE review SET likes = ?, comentario = ? WHERE usuario_codigo = ? and numero_codigo = ?";
+    String EDITAR_REVIEW = "UPDATE review SET likes = ?, comentario = ? WHERE usuario_codigo = ? and numero_codigo = ?, fecha = ?";
 
     @Override
     public ArrayList<Review> listar() {
@@ -142,6 +142,7 @@ public class ReviewDAO extends DAO {
             preparedStatement.setString(2, review.getComentario());
             preparedStatement.setInt(3, review.getUsuarioCodigo());
             preparedStatement.setInt(4, review.getNumeroCodigo());
+            preparedStatement.setString(5, review.getFecha());
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,8 +174,9 @@ public class ReviewDAO extends DAO {
             String comentario = resultSet.getString("comentario");
             int usuarioCodigo = resultSet.getInt("usuario_codigo");
             int numeroCodigo = resultSet.getInt("numero_codigo");
+            String fecha = resultSet.getDate("fecha").toString();
 
-            return new Review(codigo, likes, comentario, usuarioCodigo, numeroCodigo);
+            return new Review(codigo, likes, comentario, usuarioCodigo, numeroCodigo, fecha);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

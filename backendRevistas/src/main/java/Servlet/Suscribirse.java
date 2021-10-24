@@ -4,10 +4,7 @@
  */
 package Servlet;
 
-import Converter.SuscripcionConverter;
-import DAO.SuscripcionDAO;
-import Modelo.Suscripcion;
-import Utilidades.ToBody;
+import Utilidades.subscriber;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author ordson
  */
 public class Suscribirse extends HttpServlet {
-
+    subscriber suscriber = new subscriber();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,14 +27,7 @@ public class Suscribirse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String body = new ToBody().convert(request);
-        SuscripcionConverter converter = new SuscripcionConverter(Suscripcion.class);
-        Suscripcion suscripcion = converter.fromJson(body);
-        SuscripcionDAO suscripcionDAO = new SuscripcionDAO();
-        suscripcionDAO.suscribirse(suscripcion);
-        System.out.println(body);
-        System.out.println(suscripcion.toString());
-        response.getWriter().append(converter.toJson(suscripcionDAO.listarCodigoUsuario(suscripcion.getUsuarioCodigo(), suscripcion.getRevistaCodigo())));
+        suscriber.suscribir(request, response, 0);
     }
 
     @Override

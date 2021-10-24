@@ -32,8 +32,10 @@ public class DejarLike extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String body = new ToBody().convert(request);
+        System.out.println(body);
         ReviewConverter reviewConverter = new ReviewConverter(Review.class);
         Review review = reviewConverter.fromJson(body);
+        System.out.println(review.toString());
         reviewDAO.añadir(review);
         response.getWriter().append(reviewConverter.toJson(reviewDAO.listarUnCodigo(reviewDAO.ultimoCodigo())));
     }

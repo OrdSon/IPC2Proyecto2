@@ -14,28 +14,26 @@ public class Review {
     private String comentario;
     private int usuarioCodigo;
     private int numeroCodigo;
+    private String fecha;
 
-    public Review(int codigo, int likes, String comentario, int usuarioCodigo, int numeroCodigo) {
+    public Review(int codigo, int likes, String comentario, int usuarioCodigo, int numeroCodigo, String fecha) {
         this.codigo = codigo;
         this.likes = likes;
         this.comentario = comentario;
         this.usuarioCodigo = usuarioCodigo;
         this.numeroCodigo = numeroCodigo;
+        this.fecha = fecha;
     }
 
-    public Review(int likes, String comentario, int usuarioCodigo, int numeroCodigo) {
-        this.likes = likes;
-        this.comentario = comentario;
-        this.usuarioCodigo = usuarioCodigo;
-        this.numeroCodigo = numeroCodigo;
+    public Review() {
     }
 
-    public int getNumeroCodigo() {
-        return numeroCodigo;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setNumeroCodigo(int numeroCodigo) {
-        this.numeroCodigo = numeroCodigo;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public int getCodigo() {
@@ -70,9 +68,25 @@ public class Review {
         this.usuarioCodigo = usuarioCodigo;
     }
 
+    public int getNumeroCodigo() {
+        return numeroCodigo;
+    }
+
+    public void setNumeroCodigo(int numeroCodigo) {
+        this.numeroCodigo = numeroCodigo;
+    }
+
     @Override
     public String toString() {
-        return "Review{" + "codigo=" + codigo + ", likes=" + likes + ", comentario=" + comentario + ", usuarioCodigo=" + usuarioCodigo + ", numeroCodigo=" + numeroCodigo + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Review{codigo=").append(codigo);
+        sb.append(", likes=").append(likes);
+        sb.append(", comentario=").append(comentario);
+        sb.append(", usuarioCodigo=").append(usuarioCodigo);
+        sb.append(", numeroCodigo=").append(numeroCodigo);
+        sb.append(", fecha=").append(fecha);
+        sb.append('}');
+        return sb.toString();
     }
-    
+   
 }

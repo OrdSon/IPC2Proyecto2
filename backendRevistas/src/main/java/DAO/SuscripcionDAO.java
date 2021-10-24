@@ -24,12 +24,19 @@ import java.util.logging.Logger;
 public class SuscripcionDAO extends DAO {
 
     String INSERTAR_SUSCRIPCION = "INSERT INTO suscripcion (usuario_codigo, revista_codigo, fecha, estado, pagos, proximoPago) VALUES (?,?,?,?,?,?)";
-    String SELECCIONAR_SUSCRIPCIONS = "SELECT * FROM suscripcion WHERE estado = ?";
-    String SELECCIONAR_UNA_SUSCRIPCION = "SELECT * FROM suscripcion WHERE codigo = ?";
-    String SELECCIONAR_POR_CODIGOSS = "SELECT * FROM suscripcion WHERE usuario_codigo = ? AND revista_codigo = ?";
+    String SELECCIONAR_SUSCRIPCIONS = "SELECT s.codigo, s.usuario_codigo, s.revista_codigo, s.fecha, s.estado, s.pagos, s.proximoPago, r.nombre "
+            + "FROM suscripcion as s INNER JOIN revista as r on s.revista_codigo = r.codigo WHERE s.estado = ?";
+    String SELECCIONAR_SUSCRIPCIONES_USUARIO = "SELECT s.codigo, s.usuario_codigo, s.revista_codigo, s.fecha, s.estado, s.pagos, s.proximoPago, r.nombre "
+            + "FROM suscripcion as s INNER JOIN revista as r on s.revista_codigo = r.codigo WHERE s.estado = ? AND usuario_codigo = ?";
+    String SELECCIONAR_UNA_SUSCRIPCION = "SELECT s.codigo, s.usuario_codigo, s.revista_codigo, s.fecha, s.estado, s.pagos, s.proximoPago, r.nombre "
+            + "FROM suscripcion as s INNER JOIN revista as r on s.revista_codigo = r.codigo WHERE s.codigo = ?";
+    String SELECCIONAR_POR_CODIGOSS = "SELECT s.codigo, s.usuario_codigo, s.revista_codigo, s.fecha, s.estado, s.pagos, s.proximoPago, r.nombre "
+            + "FROM suscripcion as s INNER JOIN revista as r on s.revista_codigo = r.codigo WHERE usuario_codigo = ? AND revista_codigo = ?";
     String ELIMINAR_SUSCRIPCION = "DELETE * FROM suscripcion WHERE codigo = ?";
-    String SELECCIONAR_ULTIMA = "SELECT codigo FROM suscripcion ORDER BY codigo DESC LIMIT 1;";
+    String SELECCIONAR_ULTIMA = "SELECT s.codigo, s.usuario_codigo, s.revista_codigo, s.fecha, s.estado, s.pagos, s.proximoPago, r.nombre "
+            + "FROM suscripcion as s INNER JOIN revista as r on s.revista_codigo = r.codigo ORDER BY codigo DESC LIMIT 1;";
     String DESACTIVAR_SUSCRIPCION = "UPDATE suscripcion SET estado = ? WHERE codigo = ?";
+    String ACTIVAR_SUSCRIPCION = "UPDATE suscripcion SET estado = ?, fecha = ?, proximoPago=? WHERE codigo = ?";
 
     @Override
     public List<Suscripcion> listar() {
@@ -44,6 +51,28 @@ public class SuscripcionDAO extends DAO {
                 Suscripcion suscripcion = getSuscripcion(resultSet);
                 if (suscripcion != null) {
                     usuarios.add(suscripcion);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuarios;
+    }
+
+    public List<Suscripcion> listarPorUsuario(int usuarioCodigo) {
+
+        List<Suscripcion> usuarios = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECCIONAR_SUSCRIPCIONES_USUARIO);
+            preparedStatement.setString(1, "true");
+            preparedStatement.setInt(2, usuarioCodigo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+
+                Suscripcion suscripcion = getSuscripcion(resultSet);
+                if (suscripcion != null) {
+                    usuarios.add(suscripcion);
+                    System.out.println(suscripcion.toString());
                 }
             }
         } catch (SQLException ex) {
@@ -88,6 +117,7 @@ public class SuscripcionDAO extends DAO {
         }
         return null;
     }
+
     public Suscripcion listarCodigoUsuario(int usuarioCodigo, int revistaCodigo) {
 
         try {
@@ -143,7 +173,7 @@ public class SuscripcionDAO extends DAO {
             preparedStatement.setString(4, suscripcion.getEstado());
             preparedStatement.setInt(5, suscripcion.getPagos());
             preparedStatement.setDate(6, Date.valueOf(suscripcion.getProximoPago()));
-            
+
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -159,8 +189,9 @@ public class SuscripcionDAO extends DAO {
      */
     public boolean eliminar(int codigo) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(ELIMINAR_SUSCRIPCION);
-            preparedStatement.setInt(1, codigo);
+            PreparedStatement preparedStatement = connection.prepareStatement(DESACTIVAR_SUSCRIPCION);
+            preparedStatement.setString(1, "false");
+            preparedStatement.setInt(2, codigo);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,34 +208,60 @@ public class SuscripcionDAO extends DAO {
             String estado = resultSet.getString("estado");
             int pagos = resultSet.getInt("pagos");
             String proximoPago = resultSet.getDate("proximoPago").toString();
-            
-            return new Suscripcion(codigo, usuarioCodigo, revistaCodigo, fecha, estado, pagos, proximoPago);
+            String revista = resultSet.getString("nombre");
+
+            return new Suscripcion(codigo, usuarioCodigo, revistaCodigo, fecha, estado, pagos, proximoPago, revista);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
-    public void suscribirse(Suscripcion suscripcion){
-        
+
+    public void suscribirse(Suscripcion suscripcion, int tiempo) {
+
         Suscripcion temporal = listarCodigoUsuario(suscripcion.getUsuarioCodigo(), suscripcion.getRevistaCodigo());
         RevistaDAO revistaDAO = new RevistaDAO();
         double precio = revistaDAO.listarCodigo(suscripcion.getRevistaCodigo()).getPrecio();
-        
+
         if (temporal == null) {
-        suscripcion.setProximoPago(proximoMes(suscripcion));
-        suscripcion.setEstado("true");
-        suscripcion.setPagos(suscripcion.getPagos()+1);
-        añadir(suscripcion);
-        Suscripcion nueva = listarCodigo(ultimoCodigo());
-        generarPago(nueva, precio);
-        return;
+            if (tiempo == 1) {
+                suscripcion.setProximoPago(proximoYear(suscripcion));
+            } else {
+                suscripcion.setProximoPago(proximoMes(suscripcion));
+
+            }
+            suscripcion.setEstado("true");
+            suscripcion.setPagos(suscripcion.getPagos() + 1);
+            añadir(suscripcion);
+            Suscripcion nueva = listarCodigo(ultimoCodigo());
+            generarPago(nueva, precio);
+            
+        } else {
+            
+            activar(temporal);
+            generarPago(temporal, precio);
         }
-        generarPago(temporal, precio);
-        
+
     }
-    public void desactivar(Suscripcion suscripcion){
-         try {
+
+    public void activar(Suscripcion suscripcion) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(DESACTIVAR_SUSCRIPCION);
+            Suscripcion temporal = listarCodigoUsuario(suscripcion.getUsuarioCodigo(), suscripcion.getRevistaCodigo());
+            preparedStatement.setString(1, "true");
+            preparedStatement.setInt(2, temporal.getCodigo());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+            Logger.getLogger(ProfileDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void desactivar(Suscripcion suscripcion) {
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(DESACTIVAR_SUSCRIPCION);
             Suscripcion temporal = listarCodigoUsuario(suscripcion.getUsuarioCodigo(), suscripcion.getRevistaCodigo());
             preparedStatement.setString(1, "false");
@@ -218,30 +275,38 @@ public class SuscripcionDAO extends DAO {
         }
 
     }
-    
-    private boolean generarPago(Suscripcion suscripcion, double precio){
+
+    private boolean generarPago(Suscripcion suscripcion, double precio) {
         try {
             SettingDAO settingDAO = new SettingDAO();
-        PagoDAO pagoDAO = new PagoDAO();
-        CobroDAO cobroDAO = new CobroDAO();
-        double porcentaje = settingDAO.listarCodigo(1).getPorcentajeCobro();
-        double pagoAEditor = (precio - (precio*(porcentaje/100)));
-        double pagoAdmin = (precio*(porcentaje/100));
-        Pago pago = new Pago(suscripcion.getFecha(),pagoAEditor,suscripcion.getCodigo(),suscripcion.getUsuarioCodigo());
-        pagoDAO.añadir(pago);
-        Pago nuevo = pagoDAO.listarCodigo(pagoDAO.ultimoCodigo());
-        Cobro cobro = new Cobro(nuevo.getCodigo(),2, pagoAdmin,suscripcion.getFecha());
-        cobroDAO.añadirConPago(cobro);
+            PagoDAO pagoDAO = new PagoDAO();
+            CobroDAO cobroDAO = new CobroDAO();
+            double porcentaje = settingDAO.listarCodigo(1).getPorcentajeCobro();
+            double pagoAEditor = (precio - (precio * (porcentaje / 100)));
+            double pagoAdmin = (precio * (porcentaje / 100));
+            Pago pago = new Pago(suscripcion.getFecha(), pagoAEditor, suscripcion.getCodigo(), suscripcion.getUsuarioCodigo());
+            pagoDAO.añadir(pago);
+            Pago nuevo = pagoDAO.listarCodigo(pagoDAO.ultimoCodigo());
+            Cobro cobro = new Cobro(nuevo.getCodigo(), 2, pagoAdmin, suscripcion.getFecha());
+            cobroDAO.añadirConPago(cobro);
         } catch (Exception e) {
             return false;
         }
         return true;
     }
-    
-    private String proximoMes(Suscripcion suscripcion){
+
+    private String proximoMes(Suscripcion suscripcion) {
         Date fecha = Date.valueOf(suscripcion.getFecha());
         LocalDate temporal = fecha.toLocalDate();
         LocalDate fechaPlus = temporal.plusMonths(1);
+        String nuevaFecha = fechaPlus.toString();
+        return nuevaFecha;
+    }
+
+    private String proximoYear(Suscripcion suscripcion) {
+        Date fecha = Date.valueOf(suscripcion.getFecha());
+        LocalDate temporal = fecha.toLocalDate();
+        LocalDate fechaPlus = temporal.plusYears(1);
         String nuevaFecha = fechaPlus.toString();
         return nuevaFecha;
     }
