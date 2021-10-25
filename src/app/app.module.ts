@@ -40,6 +40,9 @@ import { SettingsFormComponent } from './componentes-basicos/settings-form/setti
 import { SuscipcionActionsComponent } from './componentes-basicos/suscipcion-actions/suscipcion-actions.component';
 import { SuscriptionListComponent } from './componentes-basicos/suscription-list/suscription-list.component';
 import { ReporteComentariosComponent } from './Componentes de reportes/reporte-comentarios/reporte-comentarios.component';
+import { ListaReportesComponent } from './Componentes de reportes/lista-reportes/lista-reportes.component';
+import { ReporteSuscripcionesComponent } from './Componentes de reportes/reporte-suscripciones/reporte-suscripciones.component';
+import { ReporteLikesComponent } from './Componentes de reportes/reporte-likes/reporte-likes.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,9 @@ import { ReporteComentariosComponent } from './Componentes de reportes/reporte-c
     SuscipcionActionsComponent,
     SuscriptionListComponent,
     ReporteComentariosComponent,
+    ListaReportesComponent,
+    ReporteSuscripcionesComponent,
+    ReporteLikesComponent,
   ],
   imports: [
     BrowserModule,

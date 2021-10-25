@@ -5,7 +5,9 @@
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                            <img src="https://www.masgamers.com/wp-content/uploads/2021/04/master-chief-03.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                            <img src="https://www.masgamers.com/wp-content/uploads/2021/04/master-chief-03.jpg"
+                                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                style="width: 150px; z-index: 1">
                         </div>
                         <div class="ms-3" style="margin-top: 130px;">
                             <h5>{{accessProfile.usuario.nombre}}</h5>
@@ -32,8 +34,11 @@
                     </div>
                     <div class="card-body p-4 text-black">
                         <div>
-                            <button type="button" class="btn btn-outline-info bi bi-file-earmark-plus-fill" (click)="navegar()">Publicar
+                            <button type="button" class="btn btn-outline-info bi bi-file-earmark-plus-fill"
+                                (click)="navegar()">Publicar
                                 nueva revista</button>
+                                <button type="button" class="btn btn-outline-info bi bi-pencil-fill" (click)="verReportes()">Ver reportes</button>
+
                         </div>
                         <div class="mb-5">
                             <p class="lead fw-normal mb-1">Revistas publicadas</p>
@@ -42,12 +47,13 @@
                                     <app-magazine-descriptor></app-magazine-descriptor>
                                     <app-number-magazine-list></app-number-magazine-list>
                                 </div>
-                                <ng-template #verRevistas> 
+                                <ng-template #verRevistas>
                                     <app-editor-magazine-list></app-editor-magazine-list>
                                 </ng-template>
                             </div>
-                            <app-reporte-comentarios></app-reporte-comentarios>
+
                         </div>
+
                     </div>
                 </div>
             </div>

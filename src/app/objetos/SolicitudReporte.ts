@@ -1,4 +1,4 @@
-export class SolicitudReporteComentarios{
+export class SolicitudReporte{
     constructor(){}
 
     autor!:number;

@@ -27,4 +27,8 @@ export class EditorProfileViewComponent implements OnInit {
     }
     return false;
   }
+
+  verReportes(){
+    this.router.navigate(['profile/editor/view/reports']);
+  }
 }

@@ -1,3 +1,4 @@
+import { ListaReportesComponent } from './Componentes de reportes/lista-reportes/lista-reportes.component';
 import { EditorNumberPreviewComponent } from './componentes-basicos/editor-number-preview/editor-number-preview.component';
 import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
 import { AdminProfileViewerComponent } from './profile-viewer/admin-profile-viewer/admin-profile-viewer.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: '',
     component: SideBarComponent
+  },
+  {
+    path: 'profile/editor/view/reports',
+    component: ListaReportesComponent
   },
   {
     path: 'new/member/profile',
