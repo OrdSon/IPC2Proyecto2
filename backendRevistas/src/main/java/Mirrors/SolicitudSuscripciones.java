@@ -8,20 +8,20 @@ package Mirrors;
  *
  * @author ordson
  */
-public class SolicitudComentarios {
+public class SolicitudSuscripciones {
     private int autor;
     private int revista;
     private String fechaInicial;
     private String fechaFinal;
 
-    public SolicitudComentarios(int autor, int revista, String fechaInicial, String fechaFinal) {
+    public SolicitudSuscripciones(int autor, int revista, String fechaInicial, String fechaFinal) {
         this.autor = autor;
         this.revista = revista;
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
     }
 
-    public SolicitudComentarios() {
+    public SolicitudSuscripciones() {
     }
 
     public int getAutor() {
@@ -59,12 +59,13 @@ public class SolicitudComentarios {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("SolicitudComentarios{autor=").append(autor);
+        sb.append("SolicitudSuscripciones{autor=").append(autor);
         sb.append(", revista=").append(revista);
         sb.append(", fechaInicial=").append(fechaInicial);
         sb.append(", fechaFinal=").append(fechaFinal);
         sb.append('}');
         return sb.toString();
     }
+    
     
 }

@@ -144,6 +144,14 @@
         <servlet-name>ReporteComentarios</servlet-name>
         <servlet-class>Servlet.ReporteComentarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReporteSuscripciones</servlet-name>
+        <servlet-class>Servlet.ReporteSuscripciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteLikes</servlet-name>
+        <servlet-class>Servlet.ReporteLikes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -287,6 +295,14 @@
     <servlet-mapping>
         <servlet-name>ReporteComentarios</servlet-name>
         <url-pattern>/ReporteComentarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteSuscripciones</servlet-name>
+        <url-pattern>/ReporteSuscripciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteLikes</servlet-name>
+        <url-pattern>/ReporteLikes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

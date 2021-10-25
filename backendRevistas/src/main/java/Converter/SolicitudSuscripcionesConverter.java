@@ -4,14 +4,14 @@
  */
 package Converter;
 
-import Mirrors.SolicitudComentarios;
+import Mirrors.SolicitudSuscripciones;
 
 /**
  *
  * @author ordson
  */
-public class SolicitudComentariosConveter extends Converter<SolicitudComentarios>{
-     public SolicitudComentariosConveter(Class<SolicitudComentarios> typeConverter) {
+public class SolicitudSuscripcionesConverter extends Converter<SolicitudSuscripciones>{
+     public SolicitudSuscripcionesConverter(Class<SolicitudSuscripciones> typeConverter) {
         super(typeConverter);
     }
 }

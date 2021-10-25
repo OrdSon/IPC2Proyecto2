@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="suscripciones_subreport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c85dbc38-ec88-44fb-ad92-b98459191f08">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="reportBeans"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="costo" class="java.lang.String">
+		<fieldDescription><![CDATA[costo]]></fieldDescription>
+	</field>
+	<field name="usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[usuario]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="20" width="100" height="30" uuid="c6387253-c990-45a0-b992-a50fb581aad8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89b1da60-4d11-4bc8-8417-4bcbb1657f74"/>
+				</reportElement>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="20" width="100" height="30" uuid="494919a4-8249-4082-8469-a575f02cb149">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db8a7fcf-86e0-40ff-b53b-9c85b54c2db8"/>
+				</reportElement>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="20" width="100" height="30" uuid="d8d28789-27ef-49b2-a405-fe908b2d5bd2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e7fb9f2-e2d2-42b9-a977-a70b8b785eac"/>
+				</reportElement>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[usuario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="58" y="12" width="100" height="30" uuid="3e6f7b8e-0be7-40c3-b4fe-43a25f009d84">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89b1da60-4d11-4bc8-8417-4bcbb1657f74"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="10" width="100" height="30" uuid="8cfc5ed4-565c-45d8-8d7b-4e770fc53b53">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db8a7fcf-86e0-40ff-b53b-9c85b54c2db8"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="10" width="100" height="30" uuid="7cebaa2d-c143-49a3-b609-68e79dac5329">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e7fb9f2-e2d2-42b9-a977-a70b8b785eac"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

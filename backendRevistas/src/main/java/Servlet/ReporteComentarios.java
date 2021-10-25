@@ -4,12 +4,11 @@
  */
 package Servlet;
 
-import Converter.SolicitudComentariosConveter;
 import DAO.ReporteDAO;
-import Mirrors.SolicitudComentarios;
+import Mirrors.SolicitudReporte;
 import ReportControllers.CommentReportController;
 import ReportObjects.CommentReport;
-import Utilidades.ToBody;
+import Utilidades.ToSolicitud;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,22 +30,19 @@ public class ReporteComentarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<CommentReport> lista = new ArrayList<>();
-        lista.add(new CommentReport("a","1","h","y"));
-        lista.add(new CommentReport("b","3","b","q"));
-        lista.add(new CommentReport("v","2","c","r"));
-        lista.add(new CommentReport("c","w","mn","a"));
-        lista.add(new CommentReport("s","q","g","s"));
+        lista.add(new CommentReport("a", "1", "h", "y"));
+        lista.add(new CommentReport("b", "3", "b", "q"));
+        lista.add(new CommentReport("v", "2", "c", "r"));
+        lista.add(new CommentReport("c", "w", "mn", "a"));
+        lista.add(new CommentReport("s", "q", "g", "s"));
         controller.generarReporte(request, response, lista);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/pdf");
-        response.setHeader("Content-disposition", "attachment; filename=reporte.pdf");
-        String body = new ToBody().convert(request);
-        SolicitudComentariosConveter conveter = new SolicitudComentariosConveter(SolicitudComentarios.class);
-        SolicitudComentarios solicitud = conveter.fromJson(body);
+        SolicitudReporte solicitud = new ToSolicitud().convert(request, response);
+        
         System.out.println(solicitud.toString());
         if (solicitud.getRevista() == 0) {
             List<CommentReport> lista = reporteDAO.ReporteComentarios(solicitud);
