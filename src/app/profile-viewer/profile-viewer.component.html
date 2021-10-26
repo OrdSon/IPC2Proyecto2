@@ -6,7 +6,7 @@
                     <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
                         <div *ngIf="accessProfile.profile != null">
                             <div class="ms-4 mt-5 d-flex flex-column" style="width: 20vx; height: 20vh;">
-                                <img src={{accessProfile.profile.img}} alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="height: 20vh;width: 20vx; z-index: 1">
+                                <img src={{accessProfile.profile.img}}  class="img-fluid img-thumbnail mt-4 mb-2" style="height: 20vh;width: 20vx; z-index: 1">
                             </div>
                         </div>
 
@@ -19,14 +19,7 @@
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
 
                         <div class="d-flex justify-content-end text-center py-1">
-                            <div class="px-3">
-                                <p class="mb-1 h5">15</p>
-                                <p class="small text-muted mb-0">Suscripciones</p>
-                            </div>
-                            <div>
-                                <p class="mb-1 h5">12</p>
-                                <p class="small text-muted mb-0">Reseñas</p>
-                            </div>
+         
                             <div style="width: 10px;"></div>
 
                             <label class="h4">{{mensaje()}}</label>

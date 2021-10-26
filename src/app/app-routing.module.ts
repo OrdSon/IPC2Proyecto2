@@ -1,3 +1,5 @@
+import { NewAnuncioFormComponent } from './componentes-basicos/new-anuncio-form/new-anuncio-form.component';
+import { NewAnuncianteFormComponent } from './componentes-basicos/new-anunciante-form/new-anunciante-form.component';
 import { ListaReportesComponent } from './Componentes de reportes/lista-reportes/lista-reportes.component';
 import { EditorNumberPreviewComponent } from './componentes-basicos/editor-number-preview/editor-number-preview.component';
 import { CategoryAdministrationFormComponent } from './componentes-basicos/category-administration-form/category-administration-form.component';
@@ -21,11 +23,18 @@ import { UserPreviewPageComponent } from './componentes-basicos/user-preview-pag
 import { MagazineReaderComponent } from './componentes-basicos/magazine-reader/magazine-reader.component';
 import { PaymentInfoFormComponent } from './componentes-basicos/payment-info-form/payment-info-form.component';
 import { ListaReportesAdminComponent } from './Componentes de reportes/lista-reportes-admin/lista-reportes-admin.component';
-
 const routes: Routes = [
   {
     path: '',
     component: SideBarComponent
+  },
+  {
+    path: 'new/anuncio',
+    component: NewAnuncioFormComponent
+  },
+  {
+    path: 'profile/admin/new/anunciante',
+    component: NewAnuncianteFormComponent
   },
   {
     path: 'profile/admin/view/reports',

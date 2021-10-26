@@ -48,6 +48,15 @@ import { ListaReportesAdminComponent } from './Componentes de reportes/lista-rep
 import { ReporteLikesAdminComponent } from './Componentes de reportes/reporte-likes-admin/reporte-likes-admin.component';
 import { ReporteComentariosAdminComponent } from './Componentes de reportes/reporte-comentarios-admin/reporte-comentarios-admin.component';
 import { ReporteGananciasRevistasComponent } from './Componentes de reportes/reporte-ganancias-revistas/reporte-ganancias-revistas.component';
+import { NewAnuncianteFormComponent } from './componentes-basicos/new-anunciante-form/new-anunciante-form.component';
+import { AdminAnuncianteListComponent } from './componentes-basicos/admin-anunciante-list/admin-anunciante-list.component';
+import { AnuncianteActionsComponent } from './componentes-basicos/anunciante-actions/anunciante-actions.component';
+import { NewAnuncioFormComponent } from './componentes-basicos/new-anuncio-form/new-anuncio-form.component';
+import { AnuncioComponent } from './componentes-basicos/anuncio/anuncio.component';
+import { ReporteAnunciosComponent } from './Componentes de reportes/reporte-anuncios/reporte-anuncios.component';
+import { ReporteGananciasTotalesComponent } from './Componentes de reportes/reporte-ganancias-totales/reporte-ganancias-totales.component';
+import { ReporteEfectividadComponent } from './Componentes de reportes/reporte-efectividad/reporte-efectividad.component';
+import { ReporteGananciasAnuncianteComponent } from './Componentes de reportes/reporte-ganancias-anunciante/reporte-ganancias-anunciante.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +103,15 @@ import { ReporteGananciasRevistasComponent } from './Componentes de reportes/rep
     ReporteLikesAdminComponent,
     ReporteComentariosAdminComponent,
     ReporteGananciasRevistasComponent,
+    NewAnuncianteFormComponent,
+    AdminAnuncianteListComponent,
+    AnuncianteActionsComponent,
+    NewAnuncioFormComponent,
+    AnuncioComponent,
+    ReporteAnunciosComponent,
+    ReporteGananciasTotalesComponent,
+    ReporteEfectividadComponent,
+    ReporteGananciasAnuncianteComponent,
   ],
   imports: [
     BrowserModule,

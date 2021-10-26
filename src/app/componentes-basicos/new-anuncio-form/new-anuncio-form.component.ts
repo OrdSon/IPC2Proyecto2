@@ -1,3 +1,5 @@
+import { Setting } from './../../objetos/Setting';
+import { AnuncioServiceService } from './../../services/anuncio-service.service';
 import { Usuario } from './../../objetos/Usuario';
 import { AccessUserProfileService } from './../../services/access-user-profile.service';
 import { ProfileService } from './../../services/profile.service';
@@ -6,34 +8,38 @@ import { Profile } from './../../objetos/Profile';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Anunciante } from 'src/app/objetos/Anunciante';
+import { Anuncio } from 'src/app/objetos/Anuncio';
 
 @Component({
-  selector: 'app-profile-creation-form',
-  templateUrl: './profile-creation-form.component.html',
-  styleUrls: ['./profile-creation-form.component.css']
+  selector: 'app-new-anuncio-form',
+  templateUrl: './new-anuncio-form.component.html',
+  styleUrls: ['./new-anuncio-form.component.css']
 })
-export class ProfileCreationFormComponent implements OnInit {
+export class NewAnuncioFormComponent implements OnInit {
 
 
   _selectedFile!: File;
   _profile: Profile;
   _router: Router;
-  _usuario: Usuario;
+  _anunciante:Anunciante;
   imageError!: string;
   isImageSaved!: boolean;
   cardImageBase64!: string;
   registrationForm!: FormGroup;
-  
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private router: Router, private accessProfile: AccessUserProfileService) {
+  precioDia!:number;
+  constructor(private formBuilder: FormBuilder, private router: Router, public anuncioService:AnuncioServiceService) {
     this._profile = new Profile(0, "", "");
     this._router = router;
-    this._usuario = accessProfile.usuario;
+    this._anunciante = anuncioService.anuncianteActivo;
+    this.obtenerPrecio();
   }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
-      descripcion: [null, Validators.required],
-      hobbies: [null, Validators.required]
+      nombre: [null, Validators.required],
+      horas: [null, Validators.required],
+      fecha:[null, Validators.required]
     });
   }
 
@@ -72,38 +78,44 @@ removeImage() {
   this.isImageSaved = false;
 }
 
-
-  public crearPerfil() {
+public obtenerPrecio(){
+  this.anuncioService.obtenerPrecio().subscribe((created:Setting)=>{
+    if(created != null){
+      this.precioDia = created.precioHoraAnuncio;
+    }
+  });
+}
+  public crearAnuncio() {
+    if(this.cardImageBase64 == null || this.cardImageBase64 == ''){
+      Swal.fire({
+        icon:'warning',
+        title:'Cassi...',
+        text:'¡Debes subir la imagen de tu anuncio!'
+      });
+      return;
+    }
 
     if (this.registrationForm.valid) {
       console.log("algo mas");
       console.log(this.registrationForm.value);
       console.log("Enviar las cosas al backend");
-      this.profileService.createProfile(this.registrationForm.value, this.cardImageBase64, this.accessProfile.usuario)
-        .subscribe((created: Profile) => {
+      this.anuncioService.crearAnuncio(this.registrationForm.value, this.cardImageBase64, this.anuncioService.anuncianteActivo)
+        .subscribe((created: Anuncio) => {
           this.registrationForm.reset({
-            "descripcion": null,
-            "hobbies": null
+            "nombre": null,
+            "horas": null,
+            "fecha":null
           });
-
+          if(created != null){
+            Swal.fire({
+              icon:'success',
+              title:'Anuncio creado'
+            })
+            this.router.navigate(['profile/admin/view']);
+          }
           console.log("created");
           console.log(created);
-          if (created != null) {
-            this.accessProfile.profile = created;
-            Swal.fire({
-              icon: 'success',
-              title: '¡Perfil creado!'
-            });
-            this._router.navigate(['new/member/profile']);
-          } else {
 
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: '¡Error en el servidor!',
-            })
-
-          }
         }, (error: any) => {
           Swal.fire({
             icon: 'error',
@@ -120,5 +132,4 @@ removeImage() {
       })
     }
   }
-
 }

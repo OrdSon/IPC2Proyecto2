@@ -1,7 +1,11 @@
+<div class="d-flex justify-content-center">
+    <app-anuncio></app-anuncio>
+</div>
 <div *ngIf="validar();else noEncontrado" class="container py-4 my-4 mx-auto d-flex flex-column"
     style="box-shadow: 0 0 25px rgb(65, 158, 212); border-radius: 25px;">
     <div class="d-flex justify-content-center">
         <div>
+            
             <div class="header">
                 <div class="row r1">
                     <div class="col-md-9 abc">
@@ -14,7 +18,8 @@
                     <p class="text-right para h5">{{preview.descripcion}}</p>
                     <p class="text-right para h3">Fecha de publicación</p>
                     <p class="text-right para h5">{{preview.fechaPublicacion}}</p>
-  
+                    <p class="text-right para h5">{{preview.fechaPublicacion}}</p>
+
                 </div>
             </div>
             <div class="container-body mt-4">
@@ -22,13 +27,17 @@
                     <div class="col-md-5 p-0 klo">
                         <button class="btn btn-info" (click)="leer();">Leer</button>
                     </div>
+                    <div>
+                        
+                    </div>
                     <div *ngIf="wantToSuscribe">
                         <div>
                             <div class="card row d-flex justify-content-center align-items-center h-100 ">
                                 <div class="card-body col col-lg-9 col-xl-7 ">
                                     <form [formGroup]="registrationForm" (ngSubmit)="crearSucripcion()">
                                         <div class="form-group">
-                                            <label class="text-center h2">¡Suscribete a {{preview.nombre}} por Q.{{preview.precio}} al mes!</label>
+                                            <label class="text-center h2">¡Suscribete a {{preview.nombre}} por
+                                                Q.{{preview.precio}} al mes!</label>
                                             <div style="height: 3vh;"></div>
                                             <label>Elige fecha de suscripcion</label>
                                             <input type="date" class="form-control" formControlName="fecha">
@@ -37,10 +46,11 @@
                                         </div>
                                     </form>
                                 </div>
-                        
+
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -51,6 +61,7 @@
         </div>
     </div>
 </div>
+
 <ng-template #noEncontrado>
     <app-not-found></app-not-found>
 </ng-template>

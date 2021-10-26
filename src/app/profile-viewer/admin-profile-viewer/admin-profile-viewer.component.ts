@@ -24,4 +24,9 @@ export class AdminProfileViewerComponent implements OnInit {
   verReportes(){
     this.router.navigate(['profile/admin/view/reports']);
   }
+
+  navegar(){
+    this.router.navigate(['profile/admin/new/anunciante']);
+  }
+  
 }

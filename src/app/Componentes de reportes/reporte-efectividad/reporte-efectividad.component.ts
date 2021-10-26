@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ReporteService } from './../../services/reporte.service';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-reporte-likes-admin',
-  templateUrl: './reporte-likes-admin.component.html',
-  styleUrls: ['./reporte-likes-admin.component.css']
+  selector: 'app-reporte-efectividad',
+  templateUrl: './reporte-efectividad.component.html',
+  styleUrls: ['./reporte-efectividad.component.css']
 })
-export class ReporteLikesAdminComponent implements OnInit {
-  archivo!:any;
+export class ReporteEfectividadComponent implements OnInit {
+  archivo!: any;
 
-  constructor(public reporteService:ReporteService, private formBuilder:FormBuilder) { }
+  constructor(public reporteService: ReporteService, private formBuilder: FormBuilder) { }
   registrationForm!: FormGroup;
-  eleccionReporte:number= 0;
+  eleccionReporte: number = 0;
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -26,10 +26,10 @@ export class ReporteLikesAdminComponent implements OnInit {
       console.log("algo");
       console.log(this.registrationForm.value);
       console.log("Enviar los datos al servidor");
-      this.reporteService.reporteLikesAdmin(this.registrationForm.value);
+      this.reporteService.reporteEfectividad(this.registrationForm.value);
       this.archivo = this.reporteService.getArchivo();
     } else {
-      console.log("no estuvo bien"); 
+      console.log("no estuvo bien");
     }
   }
 }

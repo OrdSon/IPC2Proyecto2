@@ -24,4 +24,14 @@ export class ListaReportesAdminComponent implements OnInit {
   comentarios(){
     this.eleccion = 4;
   }
+  efectividad(){
+    this.eleccion = 5;
+  }
+  final(){
+    this.eleccion = 6;
+  }
+  anuncios(){
+    this.eleccion = 7;
+  }
+
 }

@@ -85,6 +85,47 @@ public reporteGananciasRevistas(solicitud:SolicitudReporte): any {
       },
   );
 }
+
+public reporteAnuncios(solicitud:SolicitudReporte): any {
+  var mediaType = 'application/pdf';
+  this.httpClient.post(this.API_URL+"ReporteAnuncios", solicitud,{ responseType: 'blob' }).subscribe(
+      (response:any) => {
+          let blob = new Blob([response], { type: mediaType });
+           this.archivo = blob;
+      },
+  );
+}
+
+public reporteGananciasTotales(solicitud:SolicitudReporte): any {
+  var mediaType = 'application/pdf';
+  this.httpClient.post(this.API_URL+"ReporteGananciasTotales", solicitud,{ responseType: 'blob' }).subscribe(
+      (response:any) => {
+          let blob = new Blob([response], { type: mediaType });
+           this.archivo = blob;
+      },
+  );
+}
+
+public reporteEfectividad(solicitud:SolicitudReporte): any {
+  var mediaType = 'application/pdf';
+  this.httpClient.post(this.API_URL+"ReporteEfectividad", solicitud,{ responseType: 'blob' }).subscribe(
+      (response:any) => {
+          let blob = new Blob([response], { type: mediaType });
+           this.archivo = blob;
+      },
+  );
+}
+
+public reporteFinal(solicitud:SolicitudReporte): any {
+  var mediaType = 'application/pdf';
+  this.httpClient.post(this.API_URL+"ReporteFinal", solicitud,{ responseType: 'blob' }).subscribe(
+      (response:any) => {
+          let blob = new Blob([response], { type: mediaType });
+           this.archivo = blob;
+      },
+  );
+}
+
 getArchivo(){
   return this.archivo;
 }

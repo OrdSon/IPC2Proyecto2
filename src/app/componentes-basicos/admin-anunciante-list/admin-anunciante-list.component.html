@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let anunciante of listaAnunciantes">
+                <td>{{anunciante.codigo}}</td>
+                <td>{{anunciante.nombre}}</td>
+                <td>
+                   <app-anunciante-actions [anunciante]="anunciante" (obtenerLista)="obtenerLista()"></app-anunciante-actions> 
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
