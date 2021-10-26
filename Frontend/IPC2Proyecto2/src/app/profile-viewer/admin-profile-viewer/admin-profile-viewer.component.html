@@ -1,0 +1,51 @@
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img src="https://www.masgamers.com/wp-content/uploads/2021/04/master-chief-03.jpg"
+                                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                style="width: 150px; z-index: 1">
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;">
+                            <h5>{{accessProfile.usuario.nombre}}</h5>
+                            <p>{{accessProfile.usuario.email}}</p>
+                            <p>ADMIN</p>
+                        </div>
+                    </div>
+                    <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                    </div>
+                    <div class="card-body p-4 text-black">
+                        <div>
+                            <button type="button" class="btn btn-outline-success bi bi-list-stars"
+                                routerLink="../../../manejar/categorias">Administrar categorias</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-success bi bi-gear-fill"
+                                (click)="habilitarEdicion()">Administrar preferencias del sistema</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-info bi bi-list-stars"
+                                (click)="verReportes()">Ver reportes</button>
+                        </div>
+                        <button type="button" class="btn btn-outline-info bi bi-file-earmark-plus-fill"
+                            (click)="navegar()">Crear nuevo anunciante</button>
+
+
+                        <div *ngIf="edicionHabilitada">
+                            <app-settings-form></app-settings-form>
+                        </div>
+
+                        <div>
+                            <app-admin-anunciante-list></app-admin-anunciante-list>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

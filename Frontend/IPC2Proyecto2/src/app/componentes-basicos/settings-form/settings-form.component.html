@@ -1,0 +1,51 @@
+<div style="height: 50vh;">
+    <div class="card row d-flex justify-content-center align-items-center h-100 ">
+        <div class="card-body col col-lg-9 col-xl-7 ">
+            <div *ngIf="!existe; else Existe">
+                <h2>Configuracion necesaria</h2>
+                <form [formGroup]="registrationForm" (ngSubmit)="enviarSettings()">
+                    <div class="form-group">
+                        <label>Porcentaje en enteros, ej: 30% = 30</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Porcentaje de cobro a revistas" formControlName="porcentajeCobro">
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Cuota diaria para revistas" formControlName="cuotaDiaria">
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Precio por dia para los anuncios" formControlName="precioHoraAnuncio">
+
+                        <button type="submit" class="btn btn-success">Crear</button>
+                    </div>
+                </form>
+            </div>
+            <ng-template #Existe>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                      Configuración actual:
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Porcentaje de cobro a revistas: {{setting.porcentajeCobro}}</li>
+                      <li class="list-group-item">Cuota diaria a revistas: {{setting.cuotaDiaria}}</li>
+                      <li class="list-group-item">Precio por dia para anuncios: {{setting.precioHoraAnuncio}}</li>
+                      <li class="list-group-item"><button class="btn btn-info bi bi-pen-fill" (click)="habilitarEdicion()">Editar datos</button></li>
+                      
+                    </ul>
+                  </div>
+                  <div *ngIf="edicionHabilitada">
+                    <label>Porcentaje en enteros, ej: 30% = 30</label>
+                    <form [formGroup]="registrationForm" (ngSubmit)="enviarSettings()">
+                        <div class="form-group">
+                            
+                            <input type="number" min = "0" max="100" maxlength="3" class="form-control" id="exampleFormControlInput1" placeholder="Porcentaje de cobro a revistas" formControlName="porcentajeCobro">
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Cuota diaria para revistas" formControlName="cuotaDiaria">
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Precio por dia para los anuncios" formControlName="precioHoraAnuncio">
+    
+                            <button type="submit" class="btn btn-success">Crear</button>
+                        </div>
+                    </form>
+                  </div>
+                  <div style="height: 5vh;"></div>
+                  <button type="button" class="btn btn-warning btn-lg" (click)="regresar()">Regresar</button>
+                  
+            </ng-template>
+            
+        </div>
+
+    </div>
+</div>

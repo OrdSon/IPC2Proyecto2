@@ -1,0 +1,15 @@
+<form [formGroup]="registrationForm" (ngSubmit)="crearReporte()">
+    <div class="form-group">
+
+        <label class="h3">Reporte de efectividad de anuncios</label><br>
+        <label>Fecha inicial</label>
+        <input type="date" class="form-control"  formControlName="fechaInicial"><br>
+        <label>Fecha final</label>
+        <input type="date" class="form-control"  formControlName="fechaFinal">
+        <button type="submit" class="btn btn-success">Solicitar</button>
+
+     
+        <ngx-extended-pdf-viewer [src]="reporteService.archivo" [textLayer]="true"   height="80vh"></ngx-extended-pdf-viewer>
+
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Publicación</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let numero of listaNumeros">
+                <td>{{numero.codigo}}</td>
+                <td>{{numero.nombre}}</td>
+                <td>{{numero.fechaPublicacion}}</td>
+                <td>
+                    <app-number-actions [numero]="numero"></app-number-actions>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

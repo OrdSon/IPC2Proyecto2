@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subscription_report" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8447a664-90a8-44e1-957f-d3e591c3ccfb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[codigo]]></fieldDescription>
+	</field>
+	<field name="suscripciones" class="java.util.List">
+		<fieldDescription><![CDATA[suscripciones]]></fieldDescription>
+	</field>
+	<field name="revista" class="java.lang.String">
+		<fieldDescription><![CDATA[revista]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="7b42b788-025b-48e1-a56f-875623787b72"/>
+				<staticText>
+					<reportElement x="20" y="20" width="530" height="43" forecolor="#FFFFFF" uuid="d53d6e6e-392a-404c-828a-c3c6faa64021"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte de suscripciones]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="75a0bc1d-79a8-4ba7-9520-794cd4560034"/>
+			</line>
+			<staticText>
+				<reportElement x="17" y="0" width="100" height="21" uuid="99a2d6b8-ce15-43ae-8583-1489f0668b69">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a04723d-99b8-4184-936a-22c6428653ef"/>
+				</reportElement>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="100" height="21" uuid="3e56471b-2ae3-4ed6-8ddf-fb2b3d5994f5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ebda76a2-d02b-48d3-94d4-ff07bafe4c62"/>
+				</reportElement>
+				<text><![CDATA[revista]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="225">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="48725653-edf7-43a9-8e28-678310318745"/>
+			</line>
+			<textField>
+				<reportElement x="17" y="4" width="100" height="30" uuid="8368599c-2d69-4be5-90bb-384cf9b1d313">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a04723d-99b8-4184-936a-22c6428653ef"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="6" width="100" height="30" uuid="12c53b66-e40b-4a42-80aa-2b5d67a2bea0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ebda76a2-d02b-48d3-94d4-ff07bafe4c62"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{revista}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="25" width="555" height="200" uuid="65aa4b7c-e02e-4171-b9e8-aa691eee7098"/>
+				<subreportParameter name="suscripciones">
+					<subreportParameterExpression><![CDATA[$F{suscripciones}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{suscripciones})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["suscripciones_subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="9b9e9f20-ee96-4533-ae01-083eb6ddad29"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="c06b2a6c-c517-4547-9dfa-62d954b5014e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="afce83a5-22c7-4c82-8469-f11b5c03d001"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

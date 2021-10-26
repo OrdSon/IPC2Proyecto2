@@ -1,0 +1,23 @@
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Revista</th>
+            <th scope="col">Inicio de suscripcion</th>
+            <th scope="col">Proximo pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let suscripcion of listaSuscripciones">
+            <td>{{suscripcion.codigo}}</td>
+            <td>{{suscripcion.Revista}}</td>
+            <td>{{suscripcion.fecha}}</td>
+            <td>{{suscripcion.proximoPago}}</td>
+            <td>
+                <app-suscipcion-actions [suscripcion]="suscripcion" (obtenerLista)="obtenerLista()" ></app-suscipcion-actions>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

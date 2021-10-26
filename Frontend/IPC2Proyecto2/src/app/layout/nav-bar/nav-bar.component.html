@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="barra">
+    <div class="container-fluid">
+        <a class="navbar-brand bi bi-file-earmark-font-fill" routerLink="">Revistas plus</a>
+        <div style="width: 1vw;"></div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="btn btn-primary bi bi-house-fill" routerLink="login">Login</a>
+                </li>
+                <div style="width: 10px;"></div>
+                <li class="nav-item">
+                    <a class="btn btn-warning bi-person-plus-fill" routerLink="/new/member">Registrarse</a>
+                </li>
+                <div style="width: 10px;"></div>
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark bi-person-plus-fill" routerLink="/new/editor">Registrarse como
+                        editor</a>
+                </li>
+            </ul>
+            <div *ngIf="acccesProfile.validator">
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{acccesProfile.usuario.nombre}}
+                    </button>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" routerLink="profile/view">Ver perfil</a></li>
+                    </ul>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" routerLink="profile/view">Cerrar sesión</a></li>
+                    </ul>
+
+                </div>
+                <div style="width: 4vh;"></div>
+            </div>
+            <div *ngIf="accesEditorProfile.validator">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{accesEditorProfile.usuario.nombre}}
+                    </button>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" routerLink="profile/editor/view">Ver perfil</a></li>
+                    </ul>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" routerLink="profile/view">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div style="width: 4vh;"></div>
+            </div>
+            <div *ngIf="accessAdminProfile.validator">
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle bi bi-person-bounding-box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{accessAdminProfile.usuario.nombre}}
+                    </button>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" routerLink="profile/admin/view">Ver perfil</a></li>
+                    </ul>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" routerLink="admin/view">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div style="width: 4vh;"></div>
+            </div>
+            
+            <form class="d-flex">
+                
+                <div style="width: 15px;"></div>
+                <input class="form-control me-2" type="search" placeholder="Buscar revista" aria-label="BuscaRevista">
+                <button class="btn btn-primary bi bi-search" type="submit"></button>
+            </form>
+
+
+        </div>
+    </div>
+</nav>

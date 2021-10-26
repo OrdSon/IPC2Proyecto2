@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center">
+    <div style="width: 15%; height: 100%;">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="habilitarReview()">Hacer una
+            review</button>
+        <div *ngIf="bandera">
+
+            <div *ngIf="!reviewRealizada" class="form-group">
+                <form [formGroup]="registrationForm" (ngSubmit)="crearReview()">
+                    <label>Deja un comentario</label>
+                    <textarea class="form-control" placeholder="Deja un comentario"
+                        formControlName="comentario"></textarea>
+                    <label>Fecha del comentario</label>
+                    <input type="date"  formControlName="fecha">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                </form>
+                <label>Indica que te gusta</label>
+                <button class="btn btn-outline-danger bi bi-heart-fill" (click)="opinar()"></button>
+                <div *ngIf="opinion==0">No te gusta</div>
+                <div *ngIf="opinion==1">Te gusta</div>
+            </div>
+            <div *ngIf="reviewRealizada">
+                <label>Ya has dejado una review</label>
+                <p>{{review.comentario}}</p>
+                <div *ngIf="review.likes==0">No te gusta</div>
+                <div *ngIf="review.likes==1">Te gusta</div>
+            </div>
+
+        </div>
+    </div>
+    <div style="width: 80%; height: 100%;">
+        <ngx-extended-pdf-viewer [src]="currentPreview.preview.archivo" height="94vh"></ngx-extended-pdf-viewer>
+    </div>
+</div>
