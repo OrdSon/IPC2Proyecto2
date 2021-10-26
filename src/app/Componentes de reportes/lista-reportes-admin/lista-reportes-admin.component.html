@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 80%;">
+      <div class="card-header">
+        Reportes disponibles
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><button type="button" class="btn btn-outline-dark bi bi-card-list" (click)="gananciasTotales()">Reporte de ganancias por revista</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-outline-dark bi bi-card-list" (click)="gananciasRevista()">Reporte de ganancias totales </button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-outline-dark bi bi-card-list" (click)="gustadas()">Reporte de revistas más gustadas</button></li>
+        <li class="list-group-item"><button type="button" class="btn btn-outline-dark bi bi-card-list" (click)="comentarios()">Reporte de revistas mas comentadas</button></li>
+      </ul>
+  
+      <div *ngIf="eleccion == 1">
+          <app-reporte-comentarios></app-reporte-comentarios>
+      </div>
+      <div *ngIf="eleccion == 2">
+        <app-reporte-ganancias-revistas></app-reporte-ganancias-revistas>
+      </div>
+      <div *ngIf="eleccion == 3">
+        <app-reporte-likes-admin></app-reporte-likes-admin>
+      </div>
+      <div *ngIf="eleccion == 4"> 
+        <app-reporte-comentarios-admin></app-reporte-comentarios-admin>
+      </div>
+    </div>
+  </div>

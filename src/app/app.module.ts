@@ -43,6 +43,11 @@ import { ReporteComentariosComponent } from './Componentes de reportes/reporte-c
 import { ListaReportesComponent } from './Componentes de reportes/lista-reportes/lista-reportes.component';
 import { ReporteSuscripcionesComponent } from './Componentes de reportes/reporte-suscripciones/reporte-suscripciones.component';
 import { ReporteLikesComponent } from './Componentes de reportes/reporte-likes/reporte-likes.component';
+import { ReporteGananciasEditorComponent } from './Componentes de reportes/reporte-ganancias-editor/reporte-ganancias-editor.component';
+import { ListaReportesAdminComponent } from './Componentes de reportes/lista-reportes-admin/lista-reportes-admin.component';
+import { ReporteLikesAdminComponent } from './Componentes de reportes/reporte-likes-admin/reporte-likes-admin.component';
+import { ReporteComentariosAdminComponent } from './Componentes de reportes/reporte-comentarios-admin/reporte-comentarios-admin.component';
+import { ReporteGananciasRevistasComponent } from './Componentes de reportes/reporte-ganancias-revistas/reporte-ganancias-revistas.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +89,11 @@ import { ReporteLikesComponent } from './Componentes de reportes/reporte-likes/r
     ListaReportesComponent,
     ReporteSuscripcionesComponent,
     ReporteLikesComponent,
+    ReporteGananciasEditorComponent,
+    ListaReportesAdminComponent,
+    ReporteLikesAdminComponent,
+    ReporteComentariosAdminComponent,
+    ReporteGananciasRevistasComponent,
   ],
   imports: [
     BrowserModule,

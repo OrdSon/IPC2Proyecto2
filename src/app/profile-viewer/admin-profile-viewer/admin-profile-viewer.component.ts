@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AccessAdminProfileService } from './../../services/access-admin-profile.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminProfileViewerComponent implements OnInit {
 
   edicionHabilitada:boolean = false;
-  constructor(public accessProfile:AccessAdminProfileService) {
+  constructor(public accessProfile:AccessAdminProfileService, private router:Router) {
     
    }
 
@@ -18,5 +19,9 @@ export class AdminProfileViewerComponent implements OnInit {
 
   habilitarEdicion(){
     this.edicionHabilitada = !this.edicionHabilitada;
+  }
+
+  verReportes(){
+    this.router.navigate(['profile/admin/view/reports']);
   }
 }

@@ -1,9 +1,10 @@
 <form [formGroup]="registrationForm" (ngSubmit)="crearReporte()">
     <div class="form-group">
-        <label class="h3">Reporte de suscripciones</label><br>
+
+        <label class="h3">Reporte de ganancias</label><br>
         <label>Fecha inicial</label>
         <input type="date" class="form-control"  formControlName="fechaInicial"><br>
-        <label>Fecha inicial</label>
+        <label>Fecha final</label>
         <input type="date" class="form-control"  formControlName="fechaFinal">
         <input type="number" min="1" class="form-control" placeholder="codigo de revista" formControlName="revista">
         <button type="submit" class="btn btn-success">Solicitar</button>
@@ -13,4 +14,3 @@
 
     </div>
 </form>
-
