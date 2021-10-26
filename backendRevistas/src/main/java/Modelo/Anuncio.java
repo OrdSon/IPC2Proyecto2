@@ -4,7 +4,6 @@
  */
 package Modelo;
 
-import java.sql.Blob;
 
 /**
  *
@@ -14,31 +13,32 @@ public class Anuncio {
     private int codigo;
     private String nombre;
     private int horas;
-    private Blob archivo;
+    private String archivo;
+    private String fecha;
     private int anuncianteCodigo;
+    private int veces;
+    private String finale;
 
-    public Anuncio(int codigo, String nombre, int horas, Blob archivo, int anuncianteCodigo) {
+    public Anuncio(int codigo, String nombre, int horas, String archivo, String fecha, int anuncianteCodigo, int veces, String finale) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.horas = horas;
         this.archivo = archivo;
+        this.fecha = fecha;
         this.anuncianteCodigo = anuncianteCodigo;
-    }
-
-    public Anuncio(String nombre, int horas, Blob archivo, int anuncianteCodigo) {
-        this.nombre = nombre;
-        this.horas = horas;
-        this.archivo = archivo;
-        this.anuncianteCodigo = anuncianteCodigo;
-    }
-
-    public Anuncio(String nombre, int horas, Blob archivo) {
-        this.nombre = nombre;
-        this.horas = horas;
-        this.archivo = archivo;
+        this.veces = veces;
+        this.finale = finale;
     }
 
     public Anuncio() {
+    }
+
+    public String getFinale() {
+        return finale;
+    }
+
+    public void setFinale(String finale) {
+        this.finale = finale;
     }
 
     public int getCodigo() {
@@ -65,12 +65,20 @@ public class Anuncio {
         this.horas = horas;
     }
 
-    public Blob getArchivo() {
+    public String getArchivo() {
         return archivo;
     }
 
-    public void setArchivo(Blob archivo) {
+    public void setArchivo(String archivo) {
         this.archivo = archivo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public int getAnuncianteCodigo() {
@@ -81,9 +89,29 @@ public class Anuncio {
         this.anuncianteCodigo = anuncianteCodigo;
     }
 
+    public int getVeces() {
+        return veces;
+    }
+
+    public void setVeces(int veces) {
+        this.veces = veces;
+    }
+
     @Override
     public String toString() {
-        return "Archivo{" + "codigo=" + codigo + ", nombre=" + nombre + ", horas=" + horas + ", archivo=" + archivo + ", anuncianteCodigo=" + anuncianteCodigo + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Anuncio{codigo=").append(codigo);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", horas=").append(horas);
+        sb.append(", archivo=").append(archivo);
+        sb.append(", fecha=").append(fecha);
+        sb.append(", anuncianteCodigo=").append(anuncianteCodigo);
+        sb.append(", veces=").append(veces);
+        sb.append(", finale=").append(finale);
+        sb.append('}');
+        return sb.toString();
     }
+
+
     
 }

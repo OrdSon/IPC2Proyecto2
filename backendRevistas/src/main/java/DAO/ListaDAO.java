@@ -31,9 +31,12 @@ public class ListaDAO extends DAO {
 
     @Override
     public List<Preview> listar() {
-
+        
         List<Preview> usuarios = new ArrayList<>();
         try {
+            if (this.connection == null) {
+                System.out.println("CONEXION NUUUUL");
+            }
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LIST);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

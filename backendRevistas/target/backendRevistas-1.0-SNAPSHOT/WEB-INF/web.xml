@@ -168,6 +168,34 @@
         <servlet-name>ReporteGananciasRevistas</servlet-name>
         <servlet-class>Servlet.ReporteGananciasRevistas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearAnunciante</servlet-name>
+        <servlet-class>CrearAnunciante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearAnuncio</servlet-name>
+        <servlet-class>Servlet.CrearAnuncio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MostrarAnuncio</servlet-name>
+        <servlet-class>Servlet.MostrarAnuncio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteAnuncios</servlet-name>
+        <servlet-class>Servlet.ReporteAnuncios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteGananciasTotales</servlet-name>
+        <servlet-class>Servlet.ReporteGananciasTotales</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteEfectividad</servlet-name>
+        <servlet-class>Servlet.ReporteEfectividad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteFinal</servlet-name>
+        <servlet-class>Servlet.ReporteFinal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -335,6 +363,34 @@
     <servlet-mapping>
         <servlet-name>ReporteGananciasRevistas</servlet-name>
         <url-pattern>/ReporteGananciasRevistas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearAnunciante</servlet-name>
+        <url-pattern>/CrearAnunciante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearAnuncio</servlet-name>
+        <url-pattern>/CrearAnuncio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarAnuncio</servlet-name>
+        <url-pattern>/MostrarAnuncio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteAnuncios</servlet-name>
+        <url-pattern>/ReporteAnuncios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteGananciasTotales</servlet-name>
+        <url-pattern>/ReporteGananciasTotales</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteEfectividad</servlet-name>
+        <url-pattern>/ReporteEfectividad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteFinal</servlet-name>
+        <url-pattern>/ReporteFinal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
