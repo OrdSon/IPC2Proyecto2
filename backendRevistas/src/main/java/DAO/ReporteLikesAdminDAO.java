@@ -20,14 +20,16 @@ import java.util.logging.Logger;
  *
  * @author ordson
  */
-public class ReporteLikesDAO extends DAO {
+public class ReporteLikesAdminDAO extends DAO {
 
-    String SELECCIONAR_REVISTAS = "SELECT * FROM revista WHERE autor = ?";
-    String SELECCIONAR_UNA_REVISTA = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n"
+    String SELECCIONAR_REVISTAS = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n"
             + "INNER JOIN numero ON review.numero_codigo = numero.codigo \n"
-            + "INNER JOIN revista ON revista.codigo = numero.revista_codigo WHERE review.likes = 1 AND revista.autor = ? \n"
-            + "GROUP BY review.numero_codigo ORDER BY cuenta DESC;";
-    
+            + "INNER JOIN revista ON revista.codigo = numero.revista_codigo WHERE review.likes = 1 GROUP BY review.numero_codigo ORDER BY cuenta DESC LIMIT 5;";
+
+    String SELECCIONAR_UNA_REVISTA = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n" +
+"INNER JOIN numero ON review.numero_codigo = numero.codigo \n" +
+"INNER JOIN revista ON revista.codigo = numero.revista_codigo WHERE review.likes = 1 AND revista.codigo = ? GROUP BY review.numero_codigo ORDER BY cuenta DESC LIMIT 5;";
+
     String SELECCIONAR_LIKES_POR_REVISTA = "SELECT u.nombre, r.fecha FROM review AS r INNER JOIN usuario AS u ON r.codigo = u.codigo \n"
             + "INNER JOIN numero AS n ON r.numero_codigo = n.codigo INNER JOIN revista \n"
             + "AS j ON n.revista_codigo = j.codigo WHERE r.likes = 1 AND j.codigo = ? AND r.fecha BETWEEN ? AND ?";
@@ -36,7 +38,7 @@ public class ReporteLikesDAO extends DAO {
     //PRIMERA CONDICION: Estado, tiene que ser "activo"
     //SEGUNDA CONDICION: CODIGO de la revista, es un int;
     //TERCERA CONDICION: dos Fechas, una inicial y otra final
-    public List<LikesReport> ReporteSuscripciones(SolicitudReporte solicitud) {
+    public List<LikesReport> ReporteLikes(SolicitudReporte solicitud) {
 
         ArrayList<LikesReport> registros = new ArrayList<>();
 
@@ -46,9 +48,8 @@ public class ReporteLikesDAO extends DAO {
                 query = SELECCIONAR_UNA_REVISTA;
             }
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, solicitud.getAutor());
             if (solicitud.getRevista() > 0) {
-                preparedStatement.setInt(2, solicitud.getRevista());
+                preparedStatement.setInt(1, solicitud.getRevista());
             }
 
             ResultSet resultSet = preparedStatement.executeQuery();

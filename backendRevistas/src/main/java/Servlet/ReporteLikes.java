@@ -33,7 +33,7 @@ public class ReporteLikes extends HttpServlet {
             throws ServletException, IOException {
         SolicitudReporte solicitud = new ToSolicitud().convert(request, response);
         if (solicitud != null) {
-            List<LikesReport> registros = reporteDAO.ReporteSuscripciones(solicitud);
+            List<LikesReport> registros = reporteDAO.ReporteLikes(solicitud);
             new LikesReportController().generarReporte(request, response, registros);
         }
     }

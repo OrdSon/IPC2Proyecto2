@@ -22,10 +22,14 @@ import java.util.logging.Logger;
  */
 public class ReporteLikesDAO extends DAO {
 
-    String SELECCIONAR_REVISTAS = "SELECT * FROM revista WHERE autor = ?";
-    String SELECCIONAR_UNA_REVISTA = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n"
+    String SELECCIONAR_REVISTAS = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n"
             + "INNER JOIN numero ON review.numero_codigo = numero.codigo \n"
             + "INNER JOIN revista ON revista.codigo = numero.revista_codigo WHERE review.likes = 1 AND revista.autor = ? \n"
+            + "GROUP BY review.numero_codigo ORDER BY cuenta DESC;";
+    
+    String SELECCIONAR_UNA_REVISTA = "SELECT count(review.numero_codigo) as cuenta,  review.numero_codigo , revista.nombre, revista.codigo FROM review \n"
+            + "INNER JOIN numero ON review.numero_codigo = numero.codigo \n"
+            + "INNER JOIN revista ON revista.codigo = numero.revista_codigo WHERE review.likes = 1 AND revista.autor = ? AND revista.codigo = ? \n"
             + "GROUP BY review.numero_codigo ORDER BY cuenta DESC;";
     
     String SELECCIONAR_LIKES_POR_REVISTA = "SELECT u.nombre, r.fecha FROM review AS r INNER JOIN usuario AS u ON r.codigo = u.codigo \n"
@@ -36,7 +40,7 @@ public class ReporteLikesDAO extends DAO {
     //PRIMERA CONDICION: Estado, tiene que ser "activo"
     //SEGUNDA CONDICION: CODIGO de la revista, es un int;
     //TERCERA CONDICION: dos Fechas, una inicial y otra final
-    public List<LikesReport> ReporteSuscripciones(SolicitudReporte solicitud) {
+    public List<LikesReport> ReporteLikes(SolicitudReporte solicitud) {
 
         ArrayList<LikesReport> registros = new ArrayList<>();
 

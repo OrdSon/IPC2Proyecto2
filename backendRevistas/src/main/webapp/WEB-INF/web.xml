@@ -152,6 +152,22 @@
         <servlet-name>ReporteLikes</servlet-name>
         <servlet-class>Servlet.ReporteLikes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReporteGananciasEditor</servlet-name>
+        <servlet-class>Servlet.ReporteGananciasEditor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteLikesAdmin</servlet-name>
+        <servlet-class>Servlet.ReporteLikesAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteComentariosAdmin</servlet-name>
+        <servlet-class>Servlet.ReporteComentariosAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteGananciasRevistas</servlet-name>
+        <servlet-class>Servlet.ReporteGananciasRevistas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/UsuarioServlet</url-pattern>
@@ -303,6 +319,22 @@
     <servlet-mapping>
         <servlet-name>ReporteLikes</servlet-name>
         <url-pattern>/ReporteLikes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteGananciasEditor</servlet-name>
+        <url-pattern>/ReporteGananciasEditor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteLikesAdmin</servlet-name>
+        <url-pattern>/ReporteLikesAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteComentariosAdmin</servlet-name>
+        <url-pattern>/ReporteComentariosAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteGananciasRevistas</servlet-name>
+        <url-pattern>/ReporteGananciasRevistas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,13 +1,18 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SolicitudReporteConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/AdminServlet.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/GananciasAdminSubReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReferenciaDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/DejarLike.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReporteLikesAdminDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SuscripcionConverter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ReporteLikesAdmin.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Publico.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/SuscriptionSubReport.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReporteGananciasPorRevistaDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReporteLikesDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PublicoDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/Suscribirse.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReporteGananciasEditorDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/ToBody.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/subscriber.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Mirrors/SolicitudReporte.java
@@ -35,7 +40,10 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/BuscarNumerosPorRevista.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Anuncio.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Mirrors/NuevaSuscripcion.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportControllers/CommentAdminReportController.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/TagDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ReporteGananciasRevistas.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ReporteComentariosAdmin.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EliminarNumero.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/UsuarioDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/DAO.java
@@ -45,6 +53,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/NumeroDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/ReviewConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/SettingsConverter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ReporteGananciasEditor.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Usuario.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/CrearCategoria.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/UsuarioServlet.java
@@ -58,6 +67,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EditarCategoria.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/LikesSubReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/Converter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/CommentAdminReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/Subscribe.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Magazine/UploadPdf.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ListaSuscripciones.java
@@ -69,6 +79,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EditarRevista.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Pago.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReviewDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportControllers/GananciasEditorReportController.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Magazine/New.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/LoginServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/EnviarSettings.java
@@ -77,6 +88,8 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/CrearInfoPago.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/MostrarRevistas.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/RevistaConverter.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/ReporteComentariosAdminDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportControllers/GananciasRevistasAdminReportController.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/SuscripcionDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ListaAleatoria.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Caja.java
@@ -87,7 +100,9 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/BuscarRevistasEditor.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/PagoDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/ImgCatcher.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/GananciasRevistaAdminReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/InfoPagoDAO.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/CommentAdminSubReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/DAO/SettingDAO.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Utilidades/Conexion.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Preferencia.java
@@ -95,6 +110,7 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/CommentReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/ProfileServlet.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/LoginCheck.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/GananciasEditorSubReport.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/StringConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Converter/LoginCheckConverter.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportControllers/SuscripcionReportController.java
@@ -113,3 +129,4 @@
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Cuota.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Modelo/Relacion.java
 /home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/Servlet/getPDF.java
+/home/ordson/Documents/Proyecto/Backend/IPC2Proyecto2/backendRevistas/src/main/java/ReportObjects/GananciasEditorReport.java

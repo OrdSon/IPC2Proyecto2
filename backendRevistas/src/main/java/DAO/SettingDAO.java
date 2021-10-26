@@ -114,6 +114,7 @@ public class SettingDAO extends DAO{
         try {
             if (listarCodigo(1)!=null) {
                 editar(setting);
+                return true;
             }
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTAR_SETTING);
             preparedStatement.setDouble(1, setting.getPorcentajeCobro());
