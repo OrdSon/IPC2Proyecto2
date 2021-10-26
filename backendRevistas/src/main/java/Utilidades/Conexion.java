@@ -22,8 +22,8 @@ public class Conexion {
                 return;
             }
             String url = "jdbc:mysql://localhost:3306/revistas";
-            String user = "root";
-            String password = "password";
+            String user = "revistero";
+            String password = "PassW123.";
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);
             System.out.println("conexion exitosa");
